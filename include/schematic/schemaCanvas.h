@@ -47,6 +47,11 @@ protected slots:
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+
+public slots:
+    static void createNode(QPointF, schemaCanvas*);
+    static void deleteNode(schemaCanvas*);
+    static void updateNode(schemaCanvas*);
 };
 
 #endif

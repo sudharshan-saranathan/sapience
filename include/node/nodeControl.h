@@ -10,9 +10,10 @@
 #define NODECTRL_H
 
 //  Include Qt Core Classes:
-#include <QRect>
 #include <QPen>
+#include <QRect>
 #include <QBrush>
+#include <QPointF>
 #include <QObject>
 #include <QString>
 #include <QGraphicsItem>

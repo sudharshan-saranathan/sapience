@@ -22,6 +22,7 @@ struct QSSBrush {
     static const QBrush gridxy;
     static const QBrush backgr;
     static const QBrush foregr;
+    static const QBrush nodebg;
 };
 
 //  Define custom Qt Pens:
@@ -31,6 +32,7 @@ struct QSSPen {
     static const QPen gridxy;
     static const QPen backgr;
     static const QPen foregr;
+    static const QPen nodebg;
 };
 
 //  Define QSS-Parser:

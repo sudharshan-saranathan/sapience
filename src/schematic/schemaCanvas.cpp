@@ -6,6 +6,9 @@
  *  -----------------------------------
  */
 
+//  Include Qt Core Classes:
+#include <QPointF>
+
 //  Include Class Header:
 #include "schematic/schemaCanvas.h"
 #include "core/coreIOF.h"
@@ -37,23 +40,17 @@ void schemaCanvas::mousePressEvent(QGraphicsSceneMouseEvent* event) {
 
     switch(event->button()) {
         case Qt::LeftButton: {
-            qDebug() << "Left Button";
             mouse::is_pressed_lmb = true;
             break;
         }
         case Qt::MiddleButton: {
+        //  Create a new node and add it to scene:
+            schemaCanvas::createNode(event->scenePos(), this);
+
             mouse::is_pressed_mmb = true;
-            auto cpos = event->scenePos();
-            auto node = new nodeControl(cpos.x(), cpos.y(), QString("Node"));
-
-            addItem(node);
-            node->setPos(cpos.x(), cpos.y());
-
-            qDebug() << node->scenePos();
             break;
         }
         case Qt::RightButton: {
-            qDebug() << "Right Button";
             mouse::is_pressed_rmb = true;
             break;
         }
@@ -69,4 +66,20 @@ void schemaCanvas::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
     mouse::is_pressed_lmb = false;
     mouse::is_pressed_mmb = false;
     mouse::is_pressed_rmb = false;
+}
+
+void schemaCanvas::createNode(QPointF cpos, schemaCanvas* scenePtr) {
+    Q_UNUSED(cpos)
+
+    qDebug() << "schemaCanvas::createNode";
+    auto node = new nodeControl(cpos.x(), cpos.y(), "Node");
+    scenePtr->addItem(node);
+}
+
+void schemaCanvas::deleteNode(schemaCanvas* scenePtr) {
+    Q_UNUSED(scenePtr)
+}
+
+void schemaCanvas::updateNode(schemaCanvas* scenePtr) {
+    Q_UNUSED(scenePtr)
 }

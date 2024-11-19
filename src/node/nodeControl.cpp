@@ -7,6 +7,7 @@
  */
 
 #include "node/nodeControl.h"
+#include <core/coreQSS.h>
 
 nodeControl::nodeControl(qreal xpos, qreal ypos, const QString& title, QItemG* parent) :
 //  Initialize base-class constructor:
@@ -19,14 +20,12 @@ nodeControl::nodeControl(qreal xpos, qreal ypos, const QString& title, QItemG* p
     header(QRect(0, 0, 400, 60), new QGraphicsRectItem(this), new QGraphicsTextItem(title, this))
 {
 //  Set rectangle for QGraphicsRectItem:
+    setPos(attr.cpos);
     setRect(attr.rect);
 
-    auto brush = QBrush(Qt::white, Qt::SolidPattern);
-    auto pen   = QPen(QBrush(Qt::black), 2.0, Qt::SolidLine);
-
 //  Set brush and pen:
-    setBrush(brush);
-    setPen(pen);
+    setBrush(QSSBrush::nodebg);
+    setPen(QSSPen::nodebg);
 
 //  Set appropriate flags:
     setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsMovable);

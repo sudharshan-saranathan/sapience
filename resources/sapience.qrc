@@ -1,0 +1,24 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>icons/var.inp.svg</file>
+    <file>icons/var.out.svg</file>
+    <file>icons/var.par.svg</file>
+    <file>icons/node.close.svg</file>
+    <file>icons/msg.info.svg</file>	
+    <file>icons/msg.warn.svg</file>	
+    <file>icons/msg.qsn.svg</file>	
+    <file>icons/msg.err.svg</file>	
+    <file>icons/button.open.svg</file>
+    <file>icons/button.save.svg</file>
+    <file>icons/button.quit.svg</file>
+    <file>icons/button.clear.svg</file>
+    <file>icons/drawer-alt.svg</file>
+    <file>icons/laptop-code.svg</file>
+
+    <file>images/offwhite.jpg</file>
+    
+    <file>style/sapience.qss</file>
+    <file>style/nodegui.qss</file>
+    <file>style/panel.qss</file>
+</qresource>
+</RCC>

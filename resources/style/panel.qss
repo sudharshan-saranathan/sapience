@@ -1,0 +1,92 @@
+QWidget {
+	background				: white;
+}
+
+QFrame {
+	border                  : 0px solid black;
+	border-radius           : 0px;
+	padding					: 0px;
+	background				: white;
+}
+
+QLabel {
+	border					: 2px solid black;
+	padding               	: 4px;
+	border-radius			: 14px;
+	background				: #76d7ea;
+	color					: black;
+}
+
+QTextEdit {
+	border					: 2px solid black;
+	padding					: 4px;
+	border-radius 			: 8px;
+	color 					: black;
+	background-color		: white;
+}
+
+QTableWidget {
+	border					: 2px solid black;
+	padding					: 8px;
+	border-radius           : 8px;
+	background-color		: white;
+}
+
+QHeaderView {
+	border					: none;
+	background-color        : white;
+}
+
+QScrollBar:horizontal {
+    height					: 15px;
+	border                  : none;
+	padding                 : 1px 1px 1px 1px;
+    background				: transparent;
+}
+
+QScrollBar::handle:horizontal {
+	border					: none;
+	margin					: 1px 1px 1px 1px;
+	min-width           	: 50px;
+    background				: grey;
+	border-radius			: 5px;
+}
+
+QScrollBar::handle:hover:horizontal {
+	border					: none;
+	min-width               : 50px;
+    background				: #333333;
+	border-radius			: 5px;
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+	border					: none;
+	background-image        : transparent;
+}
+
+QScrollBar:vertical {
+    width										: 15px;
+		border                  : none;
+		padding                 : 1px;
+    background							: transparent;
+}
+
+QScrollBar::handle:vertical {
+		border									: none;
+		margin                  : 1px 1px 1px 1px;
+		min-height              : 50px;
+    background							: grey;
+		border-radius						:	5px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{
+		border									: none;
+		background 							: transparent;
+}
+
+QScrollBar::handle:hover:vertical {
+		border									: none;
+		min-width               : 50px;
+    background							: #333333;
+		border-radius						:	5px;
+}

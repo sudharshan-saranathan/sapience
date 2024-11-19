@@ -1,0 +1,95 @@
+QWidget {
+	background				: transparent;
+}
+
+QFrame {
+	border					: 2px solid black;
+	border-radius			: 24px;
+	background				: #f6f5f2;
+}
+
+QLabel {
+	border					: 2px solid black;
+	border-radius			: 0px;
+	background				: #76d7ea;
+	color					: black;
+}
+
+QPushButton {
+	border					: 1px solid white;
+	border-radius           : 10px;
+	background				: white;
+}
+
+QPushButton:hover {
+	border					: 0px solid black;
+	border-radius           : 10px;
+	background				: white;
+}
+
+QPushButton:pressed {
+	border                  : 0px solid black;
+	border-radius			: 10px;
+	background				: #7aba78;
+}
+
+QLineEdit {
+	color					: white;
+	border					: none;
+	padding                 : 4px;
+	background				: #2f435a;
+}
+
+QScrollBar:horizontal {
+    height					: 15px;
+	border                  : none;
+	padding                 : 1px 1px 1px 1px;
+    background				: transparent;
+}
+
+QScrollBar::handle:horizontal {
+	border					: none;
+	margin					: 1px 1px 1px 1px;
+	min-width           	: 50px;
+    background				: grey;
+	border-radius			: 5px;
+}
+
+QScrollBar::handle:hover:horizontal {
+	border					: none;
+	min-width               : 50px;
+    background				: #333333;
+	border-radius			: 5px;
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+	border					: none;
+	background-image        : transparent;
+}
+
+QScrollBar:vertical {
+    width										: 15px;
+		border                  : none;
+		padding                 : 1px;
+    background							: transparent;
+}
+
+QScrollBar::handle:vertical {
+		border									: none;
+		margin                  : 1px 1px 1px 1px;
+		min-height              : 50px;
+    background							: grey;
+		border-radius						:	5px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{
+		border									: none;
+		background 							: transparent;
+}
+
+QScrollBar::handle:hover:vertical {
+		border									: none;
+		min-width               : 50px;
+    background							: #333333;
+		border-radius						:	5px;
+}

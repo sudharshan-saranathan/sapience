@@ -1,0 +1,35 @@
+{
+    "NodeName": "Residential",
+    "input": [
+    ],
+    "output": [
+    ],
+    "params": [
+    ],
+    "x-coord": 4431,
+    "y-coord": 4905
+}
+{
+    "NodeName": "Hospital",
+    "input": [
+        "resource",
+        "resource"
+    ],
+    "output": [
+    ],
+    "params": [
+    ],
+    "x-coord": 4927,
+    "y-coord": 4666
+}
+{
+    "NodeName": "Retail",
+    "input": [
+    ],
+    "output": [
+    ],
+    "params": [
+    ],
+    "x-coord": 5003,
+    "y-coord": 5039
+}

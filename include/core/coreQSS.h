@@ -35,17 +35,33 @@
         static const QPen node;
     };
 
+//  Define custom colors:
+    struct QSSRGB {
+        static const QColor moonstone;
+        static const QColor englishViolet;
+        static const QColor lilac;
+        static const QColor yaleBlue;
+        static const QColor lemonChiffon;
+        static const QColor lapisLazuli;
+        static const QColor carrotOrange;
+        static const QColor cordovan;
+        static const QColor darkslateGray;
+    };
+
 //  Define QSS-Parser:
-class coreQSS {
-public:
-    static QString readQSS(const QString& filename){
+    class coreQSS {
 
-        QFile   file(filename); file.open(QFile::ReadOnly);
-        QString text = QLatin1String(file.readAll());
+        Q_CLASSINFO("Author", "Sudharshan Saranathan")
 
-        file.close();
-        return(text);
-    }
-};
+    public:
+        static QString readQSS(const QString& filename){
 
-#endif //COREQSS_H
+            QFile   file(filename); file.open(QFile::ReadOnly);
+            QString text = QLatin1String(file.readAll());
+
+            file.close();
+            return(text);
+        }
+    };
+
+    #endif //COREQSS_H

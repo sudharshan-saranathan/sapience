@@ -15,16 +15,20 @@
     #define HDR_WS  300
     #define HDR_HS  200
 
-//  Include Qt Core Classes:
+//  QtCore module:
     #include <QPen>
     #include <QRect>
     #include <QBrush>
     #include <QPointF>
     #include <QString>
     #include <QPainter>
+    #include <QLineEdit>
+
+//  QtGui module:
     #include <QGraphicsItem>
     #include <QGraphicsRectItem>
     #include <QGraphicsTextItem>
+    #include <QGraphicsProxyWidget>
 
 //  Convenience typedefs:
     using uint_t = unsigned int;
@@ -32,6 +36,8 @@
     using QItemR = QGraphicsRectItem;
     using QItemT = QGraphicsTextItem;
     using QSOGI  = QStyleOptionGraphicsItem;
+    using QProxy = QGraphicsProxyWidget;
+    using QEditL = QLineEdit;
 
 //  Forward declaration of enum class:
     enum class ENUM_OBJECT;
@@ -60,8 +66,14 @@
             QItemT* txtptr;
         } hdr;
 
+        struct _prompt_ {
+            QProxy *proxy;
+            QEditL *objptr;
+        } prompt;
+
     protected slots:
         void paint(QPainter*, const QSOGI*, QWidget*) override;
+        void handlePrompt() const;
 
     public:
         [[nodiscard]] QString getName() const {return(hdr.txtptr->toPlainText());}

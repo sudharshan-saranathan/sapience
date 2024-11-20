@@ -26,7 +26,7 @@
         coreGUI core_gui(3024, 1964, &main_app);
 
     //  Set style, font:
-        main_app.setFont(QFont("Gill Sans", 14, QFont::Light));
+        main_app.setFont(QFont("Gill Sans", 14));
         main_app.setStyleSheet(coreQSS::readQSS(":/style/sapience.qss"));
 
     //  Display GUI:    

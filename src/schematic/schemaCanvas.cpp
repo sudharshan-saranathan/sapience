@@ -72,32 +72,46 @@
         Q_UNUSED(event)
         QGraphicsScene::keyPressEvent(event);
 
+    //  Handle Ctrl+C (Copy):
         if(event->matches(QKeySequence::Copy)) {
-            if(!list.clipboard.isEmpty())
-                qWarning() << "Warning! Discarding clipboard";
-
             list.clipboard = selectedItems();
             event->accept();
         }
 
+    //  Handle Ctrl+V (Paste):
         if(event->matches(QKeySequence::Paste)) {
+        //  Begin paste operation if clipboard isn't empty:
             if(!list.clipboard.isEmpty()) {
+            //  Loop over clipboard items and copy them:
                 for(auto j : list.clipboard) {
                     const auto node = qgraphicsitem_cast<nodeControl*>(j);
                     const auto copy = new nodeControl(*node);
 
                     addItem(copy);
+                    copy->setSelected(true);
                 }
             }
             event->accept();
+        }
+
+        switch(event->key()) {
+            case Qt::Key_Delete:
+                for( auto j : selectedItems()) {
+                    removeItem(j);
+                    list.nodelist.removeAll(j);
+                }
+                event->accept();
+                break;
+
+            default:
+                event->ignore();
+                break;
         }
     }
 
     void schemaCanvas::keyReleaseEvent(QKeyEvent* event) {
         Q_UNUSED(event)
         QGraphicsScene::keyReleaseEvent(event);
-
-        event->accept();
     }
 
     void schemaCanvas::createNode(QPointF cpos, schemaCanvas* scenePtr) {

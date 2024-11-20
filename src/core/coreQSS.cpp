@@ -24,3 +24,14 @@
     const QPen QSSPen::background   = QPen(QSSBrush::background, 4.0, Qt::SolidLine, Qt::RoundCap);
     const QPen QSSPen::foreground   = QPen(QSSBrush::foreground, 4.0, Qt::SolidLine, Qt::RoundCap);
     const QPen QSSPen::node         = QPen(QBrush(Qt::black), 2.0, Qt::SolidLine, Qt::RoundCap);
+
+//  Static member declaration:
+    const QColor QSSRGB::moonstone      = QColor(100, 166, 189);
+    const QColor QSSRGB::englishViolet  = QColor(69, 55, 80);
+    const QColor QSSRGB::lilac          = QColor(194, 151, 184);
+    const QColor QSSRGB::yaleBlue       = QColor(13, 59, 102);
+    const QColor QSSRGB::lemonChiffon   = QColor(250, 240, 202);
+    const QColor QSSRGB::lapisLazuli    = QColor(65, 101, 138);
+    const QColor QSSRGB::carrotOrange   = QColor(241, 143, 1);
+    const QColor QSSRGB::cordovan       = QColor(118, 66, 72);
+    const QColor QSSRGB::darkslateGray  = QColor(59, 96, 100);

@@ -58,9 +58,15 @@ void schemaViewer::keyPressEvent(QKeyEvent *event) {
 //  Switch-Case Block:
     switch(event->modifiers())
     {
-        //  Filter Shift modifier:
+    //  Filter Shift modifier:
         case Qt::ShiftModifier:
             setDragMode(QGraphicsView::ScrollHandDrag);
+            event->accept();
+            break;
+
+        case Qt::MetaModifier:
+            setDragMode(QGraphicsView::RubberBandDrag);
+            setCursor(Qt::CrossCursor);
             event->accept();
             break;
 
@@ -69,7 +75,6 @@ void schemaViewer::keyPressEvent(QKeyEvent *event) {
             event->ignore();
             break;
     }
-
 }
 
 void schemaViewer::keyReleaseEvent(QKeyEvent *event) {
@@ -80,4 +85,5 @@ void schemaViewer::keyReleaseEvent(QKeyEvent *event) {
 
 //  Unset drag-mode:
     setDragMode(QGraphicsView::NoDrag);
+    setCursor(Qt::ArrowCursor);
 }

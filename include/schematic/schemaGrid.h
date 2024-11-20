@@ -6,42 +6,47 @@
  *  -----------------------------------
  */
 
-#ifndef SCHEMAGRID_H
-#define SCHEMAGRID_H
+    #ifndef SCHEMAGRID_H
+    #define SCHEMAGRID_H
 
 //  Include Qt Core Classes:
-#include <QGraphicsItemGroup>
-#include <QGraphicsEllipseItem>
+    #include <QGraphicsItemGroup>
+    #include <QGraphicsEllipseItem>
 
 //  Include Qt Styling Header:
-#include "core/coreQSS.h"
+    #include "core/coreQSS.h"
 
 //  Convenience typedefs:
-using uint_t = unsigned int;
-using QGroup = QGraphicsItemGroup;
-using QItemG = QGraphicsItem;
-using QItemE = QGraphicsEllipseItem;
+    using uint_t = unsigned int;
+    using QGroup = QGraphicsItemGroup;
+    using QItemG = QGraphicsItem;
+    using QItemE = QGraphicsEllipseItem;
 
-class schemaGrid final : public QGroup {
-public:
-   ~schemaGrid() override = default;
-    schemaGrid()          = default;
-    schemaGrid(QRect, QItemG* parent = nullptr);
+//  Main class:
+    class schemaGrid final : public QGroup {
 
-private:
-    struct _group_ {
-        QRect  rect;
-        uint_t space;
-    } group;
+        Q_DISABLE_COPY_MOVE(schemaGrid)
+        Q_CLASSINFO("Author", "Sudharshan Saranathan")
 
-    struct _point_ {
-        QItemE *item;
-        double  size;
-    } point;
+    public:
+        ~schemaGrid() override = default;
+         schemaGrid()          = default;
+         schemaGrid(QRect, QItemG* parent = nullptr);
 
-public:
-    QRect  rect   () { return(group.rect); }
-    uint_t spacing() { return(group.space);}
-};
+    private:
+        struct _group_ {
+            QRect  rect;
+            uint_t space;
+        } group;
 
-#endif
+        struct _point_ {
+            QItemE *item;
+            double  size;
+        } point;
+
+    public:
+        QRect  rect   () { return(group.rect); }
+        uint_t spacing() { return(group.space);}
+    };
+
+    #endif

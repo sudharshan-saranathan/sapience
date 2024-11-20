@@ -18,8 +18,8 @@ schemaGrid::schemaGrid(QRect rect, QItemG* parent) :
     for(int x = rect.left(); x <= rect.right(); x += group.space){
         for(int y = rect.top(); y <= rect.bottom(); y += group.space){
             point.item = new QItemE(x-1, y-1, point.size, point.size);
-            point.item->setBrush(QSSBrush::gridxy);
-            point.item->setPen  (QSSPen::gridxy);
+            point.item->setBrush(QSSBrush::circle);
+            point.item->setPen  (QSSPen::circle);
             addToGroup(point.item);
         }
     }

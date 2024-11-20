@@ -45,6 +45,9 @@ constexpr auto qt_meta_stringdata_CLASSschemaCanvasENDCLASS = QtMocHelpers::stri
     "event",
     "mousePressEvent",
     "mouseReleaseEvent",
+    "keyPressEvent",
+    "QKeyEvent*",
+    "keyReleaseEvent",
     "createNode",
     "schemaCanvas*",
     "deleteNode",
@@ -61,7 +64,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaCanvasENDCLASS[] = {
       12,       // revision
        0,       // classname
        1,   14, // classinfo
-       7,   16, // methods
+       9,   16, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -72,15 +75,17 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaCanvasENDCLASS[] = {
        1,    2,
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   58,    4, 0x06,    1 /* Public */,
+       3,    0,   70,    4, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    1,   59,    4, 0x09,    2 /* Protected */,
-       8,    1,   62,    4, 0x09,    4 /* Protected */,
-       9,    1,   65,    4, 0x09,    6 /* Protected */,
-      10,    2,   68,    4, 0x0a,    8 /* Public */,
-      12,    1,   73,    4, 0x0a,   11 /* Public */,
-      13,    1,   76,    4, 0x0a,   13 /* Public */,
+       5,    1,   71,    4, 0x09,    2 /* Protected */,
+       8,    1,   74,    4, 0x09,    4 /* Protected */,
+       9,    1,   77,    4, 0x09,    6 /* Protected */,
+      10,    1,   80,    4, 0x09,    8 /* Protected */,
+      12,    1,   83,    4, 0x09,   10 /* Protected */,
+      13,    2,   86,    4, 0x0a,   12 /* Public */,
+      15,    1,   91,    4, 0x0a,   15 /* Public */,
+      16,    1,   94,    4, 0x0a,   17 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -89,9 +94,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaCanvasENDCLASS[] = {
     QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void, 0x80000000 | 6,    7,
-    QMetaType::Void, QMetaType::QPointF, 0x80000000 | 11,    4,    4,
-    QMetaType::Void, 0x80000000 | 11,    4,
-    QMetaType::Void, 0x80000000 | 11,    4,
+    QMetaType::Void, 0x80000000 | 11,    7,
+    QMetaType::Void, 0x80000000 | 11,    7,
+    QMetaType::Void, QMetaType::QPointF, 0x80000000 | 14,    4,    4,
+    QMetaType::Void, 0x80000000 | 14,    4,
+    QMetaType::Void, 0x80000000 | 14,    4,
 
        0        // eod
 };
@@ -116,6 +123,12 @@ Q_CONSTINIT const QMetaObject schemaCanvas::staticMetaObject = { {
         // method 'mouseReleaseEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QGraphicsSceneMouseEvent *, std::false_type>,
+        // method 'keyPressEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>,
+        // method 'keyReleaseEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>,
         // method 'createNode'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QPointF, std::false_type>,
@@ -140,29 +153,31 @@ void schemaCanvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 1: _t->mouseMoveEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
         case 2: _t->mousePressEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
         case 3: _t->mouseReleaseEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
-        case 4: _t->createNode((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<schemaCanvas*>>(_a[2]))); break;
-        case 5: _t->deleteNode((*reinterpret_cast< std::add_pointer_t<schemaCanvas*>>(_a[1]))); break;
-        case 6: _t->updateNode((*reinterpret_cast< std::add_pointer_t<schemaCanvas*>>(_a[1]))); break;
+        case 4: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
+        case 5: _t->keyReleaseEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
+        case 6: _t->createNode((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<schemaCanvas*>>(_a[2]))); break;
+        case 7: _t->deleteNode((*reinterpret_cast< std::add_pointer_t<schemaCanvas*>>(_a[1]))); break;
+        case 8: _t->updateNode((*reinterpret_cast< std::add_pointer_t<schemaCanvas*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 4:
+        case 6:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 1:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< schemaCanvas* >(); break;
             }
             break;
-        case 5:
+        case 7:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< schemaCanvas* >(); break;
             }
             break;
-        case 6:
+        case 8:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -201,13 +216,13 @@ int schemaCanvas::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     }
     return _id;
 }

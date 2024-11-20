@@ -6,49 +6,66 @@
  *  -----------------------------------
  */
 
-#ifndef NODECTRL_H
-#define NODECTRL_H
+    #ifndef NODECTRL_H
+    #define NODECTRL_H
+
+//  Default definitions:
+    #define NODE_WS 300
+    #define NODE_HS 200
+    #define HDR_WS  300
+    #define HDR_HS  200
 
 //  Include Qt Core Classes:
-#include <QPen>
-#include <QRect>
-#include <QBrush>
-#include <QPointF>
-#include <QObject>
-#include <QString>
-#include <QGraphicsItem>
-#include <QGraphicsRectItem>
-#include <QGraphicsTextItem>
+    #include <QPen>
+    #include <QRect>
+    #include <QBrush>
+    #include <QPointF>
+    #include <QString>
+    #include <QPainter>
+    #include <QGraphicsItem>
+    #include <QGraphicsRectItem>
+    #include <QGraphicsTextItem>
 
 //  Convenience typedefs:
-using uint_t = unsigned int;
-using QItemG = QGraphicsItem;
-using QItemR = QGraphicsRectItem;
-using QItemT = QGraphicsTextItem;
+    using uint_t = unsigned int;
+    using QItemG = QGraphicsItem;
+    using QItemR = QGraphicsRectItem;
+    using QItemT = QGraphicsTextItem;
+    using QSOGI  = QStyleOptionGraphicsItem;
 
-class nodeControl : public QObject, public QItemR {
+//  Forward declaration of enum class:
+    enum class ENUM_OBJECT;
 
-    Q_OBJECT
-    Q_CLASSINFO("Author", "Sudharshan Saranathan")
+//  Class header:
+    class nodeControl : public QObject, public QItemR {
 
-public:
-   ~nodeControl() = default;
-    nodeControl() = delete;
-    nodeControl(qreal, qreal, const QString&, QItemG* parent = nullptr);
+        Q_OBJECT
+        Q_CLASSINFO("Author", "Sudharshan Saranathan")
 
-private:
-    struct _attr_ {
-        QPoint cpos;
-        QRect  rect;
-        uint_t space;
-    } attr;
+    public:
+        ~nodeControl() override = default;
+         nodeControl()          = delete;
+         nodeControl(const nodeControl&);
+         nodeControl(const QPointF&, const QString&, QItemG* parent = nullptr);
 
-    struct header {
-        QRect   rect;
-        QItemR* item;
-        QItemT* title;
-    } header;
+    private:
+        struct _attr_ {
+            QPointF cpos;
+            QRect   rect;
+        } attr;
 
-};
+        struct _hdr_ {
+            QRect   rect;
+            QItemR* hdrptr;
+            QItemT* txtptr;
+        } hdr;
 
-#endif
+    protected slots:
+        void paint(QPainter*, const QSOGI*, QWidget*) override;
+
+    public:
+        [[nodiscard]] QString getName() const {return(hdr.txtptr->toPlainText());}
+
+    };
+
+    #endif

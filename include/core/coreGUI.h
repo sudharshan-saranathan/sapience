@@ -1,29 +1,31 @@
 /*  -----------------------------------
- *  Project     : sapiens
+ *  Project     : sapience
  *  File        : coreGUI.h
  *  Date        : 16.11.2024
  *  Author      : Sudharshan Saranathan
+ *  License     : GNU GPL v3.0
  *  -----------------------------------
  */
 
     #ifndef COREGUI_H
     #define COREGUI_H
 
-//	Include QtCore:
-    #include <QApplication>
+//	Include from QtCore module:
     #include <QSize>
     #include <QString>
 
-//	Include QtWidgets:
+//	Include from QtWidgets module:
     #include <QLabel>
-    #include <QSplitter>
     #include <QGroupBox>
+    #include <QTabBar>
+    #include <QTabWidget>
     #include <QToolButton>
     #include <QGridLayout>
     #include <QHBoxLayout>
     #include <QMainWindow>
+    #include <QApplication>
 
-//  Include derived UI element:
+//  Include class schemaViewer (schematic/schemaViewer.h):
     #include "schematic/schemaViewer.h"
 
 //  Convenience Typedefs:
@@ -31,12 +33,11 @@
     using QApp   = QApplication;
     using QGridL = QGridLayout;
     using QGrBox = QGroupBox;
-    using QSplit = QSplitter;
     using QHBoxL = QHBoxLayout;
     using QToolB = QToolButton;
 
 //  -------------------------------------------------
-//  Name        : CoreGUI
+//  Class       : coreGUI
 //  Description : Main Graphical User Interface (GUI)
 //  -------------------------------------------------
     class coreGUI final : public QMainWindow {
@@ -47,32 +48,31 @@
 
     public:
         ~coreGUI() override  = default;
-         coreGUI()           = default;
          coreGUI(int, int, QApplication*);
 
     protected:
-
+    //  Default attributes:
         struct _attr_ {
             int    ws;
             int    hs;
             QApp* app;
-        } attr;
+        } attr{};
 
         struct _widget_ {
             QWidget* objptr;
             QGridL*  layout;
-        } widget;
+        } widget{};
 
-        struct _splitter_ {
-            QSplitter* objptr;
-            QList<int> widths;
-        } splitter;
+        struct _tabs_ {
+            QTabWidget* objptr;
+            QList<int>  number;
+        } tabs;
 
         struct _groupbox_ {
             QGrBox *objptr;
             QHBoxL *layout;
             QLabel *label;
-            QToolB *chart;
+            QToolB *graph;
             QToolB *setup;
             bool isHidden;
         } groupbox;
@@ -87,9 +87,9 @@
     protected slots:
         void showGraph();
         void showSetup();
+        void quitClicked();
 
     public slots:
-        static void quitClicked();
         void keyPressEvent(QKeyEvent*) override;
         void keyReleaseEvent(QKeyEvent*) override;
     };

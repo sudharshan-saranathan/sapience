@@ -37,7 +37,12 @@ struct qt_meta_stringdata_CLASSnodeControlENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSnodeControlENDCLASS = QtMocHelpers::stringData(
     "nodeControl",
     "Author",
-    "Sudharshan Saranathan"
+    "Sudharshan Saranathan",
+    "paint",
+    "",
+    "QPainter*",
+    "const QSOGI*",
+    "QWidget*"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -50,7 +55,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSnodeControlENDCLASS[] = {
       12,       // revision
        0,       // classname
        1,   14, // classinfo
-       0,    0, // methods
+       1,   16, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -59,6 +64,12 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSnodeControlENDCLASS[] = {
 
  // classinfo: key, value
        1,    2,
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       3,    3,   22,    4, 0x09,    1 /* Protected */,
+
+ // slots: parameters
+    QMetaType::Void, 0x80000000 | 5, 0x80000000 | 6, 0x80000000 | 7,    4,    4,    4,
 
        0        // eod
 };
@@ -71,17 +82,26 @@ Q_CONSTINIT const QMetaObject nodeControl::staticMetaObject = { {
     nullptr,
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSnodeControlENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<nodeControl, std::true_type>
+        QtPrivate::TypeAndForceComplete<nodeControl, std::true_type>,
+        // method 'paint'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QPainter *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QSOGI *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QWidget *, std::false_type>
     >,
     nullptr
 } };
 
 void nodeControl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    (void)_o;
-    (void)_id;
-    (void)_c;
-    (void)_a;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<nodeControl *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->paint((*reinterpret_cast< std::add_pointer_t<QPainter*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<const QSOGI*>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QWidget*>>(_a[3]))); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObject *nodeControl::metaObject() const
@@ -102,6 +122,17 @@ void *nodeControl::qt_metacast(const char *_clname)
 int nodeControl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
     return _id;
 }
 QT_WARNING_POP

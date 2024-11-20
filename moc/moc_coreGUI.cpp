@@ -75,7 +75,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScoreGUIENDCLASS[] = {
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        5,    0,   53,    4, 0x09,    2 /* Protected */,
        6,    0,   54,    4, 0x09,    3 /* Protected */,
-       7,    0,   55,    4, 0x0a,    4 /* Public */,
+       7,    0,   55,    4, 0x09,    4 /* Protected */,
        8,    1,   56,    4, 0x0a,    5 /* Public */,
       10,    1,   59,    4, 0x0a,    7 /* Public */,
 

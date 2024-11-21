@@ -3,95 +3,97 @@
  *  File        : coreGUI.h
  *  Date        : 16.11.2024
  *  Author      : Sudharshan Saranathan
- *  License     : GNU GPL v3.0
  *  -----------------------------------
  */
 
-    #ifndef COREGUI_H
-    #define COREGUI_H
+#ifndef COREGUI_H
+#define COREGUI_H
 
-//	Include from QtCore module:
-    #include <QSize>
-    #include <QString>
+/* Include from Qt core */
+#include <QSize>
+#include <QString>
 
-//	Include from QtWidgets module:
-    #include <QLabel>
-    #include <QGroupBox>
-    #include <QTabBar>
-    #include <QTabWidget>
-    #include <QToolButton>
-    #include <QGridLayout>
-    #include <QHBoxLayout>
-    #include <QMainWindow>
-    #include <QApplication>
+/*	Include from QtWidgets module  */
+#include <QLabel>
+#include <QGroupBox>
+#include <QTabBar>
+#include <QTabWidget>
+#include <QToolButton>
+#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QMainWindow>
+#include <QApplication>
 
-//  Include class schemaViewer (schematic/schemaViewer.h):
-    #include "schematic/schemaViewer.h"
+/*  Include class schemaViewer (schematic/schemaViewer.h)   */
+#include "schematic/schemaViewer.h"
 
-//  Convenience Typedefs:
-    using uint_t = unsigned int;
-    using QApp   = QApplication;
-    using QGridL = QGridLayout;
-    using QGrBox = QGroupBox;
-    using QHBoxL = QHBoxLayout;
-    using QToolB = QToolButton;
+/*  Convenience Typedefs    */
+using uint_t = unsigned int;
+using QApp   = QApplication;
+using QGridL = QGridLayout;
+using QGrBox = QGroupBox;
+using QHBoxL = QHBoxLayout;
+using QToolB = QToolButton;
 
-//  -------------------------------------------------
-//  Class       : coreGUI
-//  Description : Main Graphical User Interface (GUI)
-//  -------------------------------------------------
-    class coreGUI final : public QMainWindow {
+/*  -------------------------------------------------
+ *  Class       : coreGUI
+ *  Description : Main Graphical User Interface (GUI)
+ *  -----------------------------------------------*/
+class coreGUI final : public QMainWindow {
 
-        Q_OBJECT
-        Q_DISABLE_COPY_MOVE(coreGUI)
-        Q_CLASSINFO("Author", "Sudharshan Saranathan")
+    Q_OBJECT
+    Q_DISABLE_COPY_MOVE(coreGUI)
+    Q_CLASSINFO("Author", "Sudharshan Saranathan")
 
-    public:
-        ~coreGUI() override  = default;
-         coreGUI(int, int, QApplication*);
+public:
+    ~coreGUI() override  = default;
+     coreGUI()           = delete;
+     coreGUI(const int&, const int&, QApplication*);
 
     protected:
-    //  Default attributes:
-        struct _attr_ {
-            int    ws;
-            int    hs;
-            QApp* app;
-        } attr{};
+    /*  Default attributes  */
+    struct _attr_ {
+        int    ws;      //  GUI width in pixels
+        int    hs;      //  GUI height in pixels
+        QApp* app;      //  Pointer to QApplication object
+    } attr;
 
-        struct _widget_ {
-            QWidget* objptr;
-            QGridL*  layout;
-        } widget{};
+    /*  QWidget */
+    struct _widget_ {
+        QWidget* objptr;    //  Pointer to QWidget object
+        QGridL*  layout;    //  Pointer to QGridLayout object
+    } widget;
 
-        struct _tabs_ {
-            QTabWidget* objptr;
-            QList<int>  number;
-        } tabs;
+    /*  QTabWidget  */
+    struct _tabs_ {
+        QTabWidget* objptr;
+        QList<int>  number;
+    } tabs;
 
-        struct _groupbox_ {
-            QGrBox *objptr;
-            QHBoxL *layout;
-            QLabel *label;
-            QToolB *graph;
-            QToolB *setup;
-            bool isHidden;
-        } groupbox;
+    /*  Groupbox containing tool buttons and a label    */
+    struct _groupbox_ {
+        QGrBox *objptr;     //  Pointer to QGroupBox object
+        QHBoxL *layout;     //  Pointer to QHBoxLayout object
+        QLabel *label;      //  Pointer to QLabel object
+        QToolB *graph;      //  Pointer to QToolButton object
+        QToolB *setup;      //  Pointer to QToolButton object
+    } groupbox;
 
-        struct _viewer_ {
-            schemaViewer *objptr;
-        } viewer;
+    /*  Class schemaViewer: Derived from QGraphicsView (schematic/schemaViewer.h)   */
+    struct _viewer_ {
+        schemaViewer *objptr;   //  Pointer to schemaViewer object
+    } viewer;
 
-    signals:
-        void initialized();
+signals:
+    void initialized();         //  Constructor emits this signal upon completion
 
-    protected slots:
-        void showGraph();
-        void showSetup();
-        void quitClicked();
+protected slots:
+    void showGraph();           //  Tool button event-handler
+    void showSetup();           //  Tool button event-handler
 
-    public slots:
-        void keyPressEvent(QKeyEvent*) override;
-        void keyReleaseEvent(QKeyEvent*) override;
-    };
+protected slots:
+    void keyPressEvent(QKeyEvent*) override;
+    void keyReleaseEvent(QKeyEvent*) override {}
+};
 
-    #endif
+#endif

@@ -64,7 +64,7 @@ void schemaViewer::keyPressEvent(QKeyEvent *event) {
             event->accept();
             break;
 
-        case Qt::MetaModifier:
+        case Qt::ControlModifier:
             setDragMode(QGraphicsView::RubberBandDrag);
             setCursor(Qt::CrossCursor);
             event->accept();

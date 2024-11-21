@@ -6,126 +6,140 @@
  *  -----------------------------------
  */
 
-//  Include Qt Core Classes:
-    #include <QPointF>
+/*  Include Qt Core Classes */
+#include <QPointF>
 
-//  Include project headers:
-    #include "core/coreIOF.h"
-    #include "node/nodeControl.h"
-    #include "schematic/schemaCanvas.h"
+/*  Include project headers */
+#include "core/coreIOF.h"
+#include "node/nodeControl.h"
+#include "schematic/schemaCanvas.h"
 
-//  Constructor:
-    schemaCanvas::schemaCanvas(const QRect& rect, QObject* parent) :
-    //  Initialize base-class constructor:
-        QGraphicsScene(parent),
-    //  Initialize attributes:
-        attr{rect, 1.0},
-    //  Initialize clipboard:
-        list{QList<QGraphicsItem*>{}, QList<nodeControl*>{}}
-    {
-    //  Add gridpoints to the scene:
-        addItem(new schemaGrid(attr.rect));
+/*  Class constructor   */
+schemaCanvas::schemaCanvas(const QRect &rect, QObject *parent) :
 
-    //  Emit initialized() signal upon Constructor completion:
-        emit initialized();
-    }
+    /*  Initialize base-class constructor   */
+    QGraphicsScene(parent),
 
-    void schemaCanvas::mouseMoveEvent(QGraphicsSceneMouseEvent* event) {
-        Q_UNUSED(event)
-        QGraphicsScene::mouseMoveEvent(event);
-    }
+    /*  Initialize attributes   */
+    attr{rect, 1.0},
 
-    void schemaCanvas::mousePressEvent(QGraphicsSceneMouseEvent* event) {
-        Q_UNUSED(event)
-        QGraphicsScene::mousePressEvent(event);
+    /*  Initialize clipboard    */
+    list{QList<QGraphicsItem *>{}, QList<nodeControl *>{}}
 
-        switch(event->button()) {
-            case Qt::LeftButton: {
-                mouse::is_pressed_lmb = true;
-                break;
-            }
-            case Qt::MiddleButton: {
-            //  Create a new node and add it to scene:
-                schemaCanvas::createNode(event->scenePos(), this);
-                mouse::is_pressed_mmb = true;
-                break;
-            }
-            case Qt::RightButton: {
-                mouse::is_pressed_rmb = true;
-                break;
-            }
-            default:
-                break;
+/*  Constructor body begin  */
+{
+    /*  Add grid-points to the QGraphicsScene   */
+    addItem(new schemaGrid(attr.rect));
+
+    /*  Emit initialized() to signal constructor completion */
+    emit initialized();
+}
+
+/*  Event-handler for mouse-move    */
+void schemaCanvas::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
+    Q_UNUSED(event)
+    QGraphicsScene::mouseMoveEvent(event);
+}
+
+/*  Event-handler for mouse-press   */
+void schemaCanvas::mousePressEvent(QGraphicsSceneMouseEvent *event) {
+    Q_UNUSED(event)
+    QGraphicsScene::mousePressEvent(event);
+
+    /*  Switch-case block   */
+    switch (event->button()) {
+        /*  Handle LMB-press events */
+        case Qt::LeftButton: {
+            mouse::is_pressed_lmb = true;
+            break;
         }
+        /*  Handle MMB-press events */
+        case Qt::MiddleButton: {
+            //  Create a new node, add it to scene:
+            schemaCanvas::createNode(event->scenePos(), this);
+            mouse::is_pressed_mmb = true;
+            break;
+        }
+        /*  Handle RMB-press events */
+        case Qt::RightButton: {
+            mouse::is_pressed_rmb = true;
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+/*  Event-handler for mouse-release */
+void schemaCanvas::mouseReleaseEvent(QGraphicsSceneMouseEvent *event) {
+    Q_UNUSED(event)
+    QGraphicsScene::mouseReleaseEvent(event);
+
+    mouse::is_pressed_lmb = false;
+    mouse::is_pressed_mmb = false;
+    mouse::is_pressed_rmb = false;
+}
+
+/*  Event-handler for key-presses   */
+void schemaCanvas::keyPressEvent(QKeyEvent *event) {
+    Q_UNUSED(event)
+    QGraphicsScene::keyPressEvent(event);
+
+    /*  Handle Ctrl+C (Copy)    */
+    if (event->matches(QKeySequence::Copy)) {
+        list.clipboard = selectedItems();
+        event->accept();
     }
 
-    void schemaCanvas::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
-        Q_UNUSED(event)
-        QGraphicsScene::mouseReleaseEvent(event);
-
-        mouse::is_pressed_lmb = false;
-        mouse::is_pressed_mmb = false;
-        mouse::is_pressed_rmb = false;
+    /*  Handle Ctrl+V (Paste)    */
+    if (event->matches(QKeySequence::Paste)) {
+        /*  Paste if clipboard isn't empty  */
+        if (!list.clipboard.isEmpty()) {
+            /*  Loop over clipboard items   */
+            for (auto j: list.clipboard) {
+                const auto node = qgraphicsitem_cast<nodeControl *>(j);
+                const auto copy = new nodeControl(*node);
+                addItem(copy);
+            }
+        }
+        event->accept();
     }
 
-    void schemaCanvas::keyPressEvent(QKeyEvent* event) {
-        Q_UNUSED(event)
-        QGraphicsScene::keyPressEvent(event);
-
-    //  Handle Ctrl+C (Copy):
-        if(event->matches(QKeySequence::Copy)) {
-            list.clipboard = selectedItems();
+    /*  Switch-case block to handle other key-presses   */
+    switch (event->key()) {
+        /*  Handle delete operation */
+        case Qt::Key_Delete:
+            /*  Loop over selection-clipboard to delete items   */
+            for (auto j: selectedItems()) {
+                removeItem(j);
+                list.nodelist.removeAll(j);
+            }
             event->accept();
-        }
+            break;
 
-    //  Handle Ctrl+V (Paste):
-        if(event->matches(QKeySequence::Paste)) {
-        //  Begin paste operation if clipboard isn't empty:
-            if(!list.clipboard.isEmpty()) {
-            //  Loop over clipboard items and copy them:
-                for(auto j : list.clipboard) {
-                    const auto node = qgraphicsitem_cast<nodeControl*>(j);
-                    const auto copy = new nodeControl(*node);
-
-                    addItem(copy);
-                    copy->setSelected(true);
-                }
-            }
-            event->accept();
-        }
-
-        switch(event->key()) {
-            case Qt::Key_Delete:
-                for( auto j : selectedItems()) {
-                    removeItem(j);
-                    list.nodelist.removeAll(j);
-                }
-                event->accept();
-                break;
-
-            default:
-                event->ignore();
-                break;
-        }
+        default:
+            event->ignore();
+            break;
     }
+}
 
-    void schemaCanvas::keyReleaseEvent(QKeyEvent* event) {
-        Q_UNUSED(event)
-        QGraphicsScene::keyReleaseEvent(event);
-    }
+void schemaCanvas::keyReleaseEvent(QKeyEvent *event) {
+    Q_UNUSED(event)
+    QGraphicsScene::keyReleaseEvent(event);
+}
 
-    void schemaCanvas::createNode(QPointF cpos, schemaCanvas* scenePtr) {
-        Q_UNUSED(cpos)
+void schemaCanvas::createNode(const QPointF &cpos, schemaCanvas *scenePtr) {
+    Q_UNUSED(cpos)
 
-        auto node = new nodeControl(cpos, "Node");
-        scenePtr->list.nodelist.append(node);
-        scenePtr->addItem(node);
-    }
+    const auto node = new nodeControl(cpos, "Node", GITEM_::NODE);
+    scenePtr->list.nodelist.append(node);
+    scenePtr->addItem(node);
+}
 
-    void schemaCanvas::deleteNode(schemaCanvas* scenePtr) {
-        Q_UNUSED(scenePtr)
-    }
+void schemaCanvas::deleteNode(const schemaCanvas *scenePtr) {
+    Q_UNUSED(scenePtr)
+}
 
-    void schemaCanvas::updateNode(schemaCanvas* scenePtr) {
-        Q_UNUSED(scenePtr)
-    }
+void schemaCanvas::updateNode(const schemaCanvas *scenePtr) {
+    Q_UNUSED(scenePtr)
+}

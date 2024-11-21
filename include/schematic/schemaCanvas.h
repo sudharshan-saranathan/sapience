@@ -19,9 +19,9 @@
     #include "node/nodeControl.h"
 
 //  Define enum of graphics objects (node, link, handle, ...):
-    enum class ENUM_OBJECT {
-        NODE,
-        LINK,
+enum class GITEM_ {
+    NODE,
+    LINK,
         HANDLE
     };
 
@@ -61,9 +61,11 @@
         void keyReleaseEvent(QKeyEvent *event) override;
 
     public slots:
-        static void createNode(QPointF, schemaCanvas*);
-        static void deleteNode(schemaCanvas*);
-        static void updateNode(schemaCanvas*);
-    };
+        static void createNode(const QPointF &, schemaCanvas *);
+
+        static void deleteNode(const schemaCanvas *);
+
+        static void updateNode(const schemaCanvas *);
+};
 
 #endif

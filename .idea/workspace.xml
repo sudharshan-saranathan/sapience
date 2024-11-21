@@ -58,11 +58,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Tested node-copying functionality">
+    <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Added SVG buttons">
+      <change afterPath="$PROJECT_DIR$/include/node/nodeVar.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/node/svgButton.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/nodeVar.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/svgButton.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/sapience.app/Contents/MacOS/sapience" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sapience.app/Contents/MacOS/sapience" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/coreGUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreGUI.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/core/coreQSS.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreQSS.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/node/nodeControl.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeControl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/coreGUI.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreGUI.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/coreQSS.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreQSS.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.o" afterDir="false" />
@@ -74,15 +82,19 @@
       <change beforePath="$PROJECT_DIR$/lib/qrc_sapience.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/qrc_sapience.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaCanvas.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaCanvas.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaViewer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.pro" beforeDir="false" afterPath="$PROJECT_DIR$/main.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_coreGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_coreGUI.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moc/moc_nodeControl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_nodeControl.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_schemaViewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_schemaViewer.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qrc_sapience.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/qrc_sapience.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/style/sapience.qss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/style/sapience.qss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sapience.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sapience.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/coreGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreGUI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/coreIOF.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreIOF.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/coreQSS.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreQSS.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/node/nodeControl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeControl.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +110,11 @@
     </projectState>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="sudharshan-saranathan &lt;sudharshan.saranathan@outlook.in&gt;" />
+      </list>
+    </option>
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--follow-tags" />
@@ -105,19 +122,20 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "sudharshan-saranathan"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;sudharshan-saranathan&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/sudharshan-saranathan/sapience.git",
-    "accountId": "9e9435ab-58a9-4367-abba-e1100f251141"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sudharshan-saranathan/sapience.git&quot;,
+    &quot;accountId&quot;: &quot;9e9435ab-58a9-4367-abba-e1100f251141&quot;
   }
-}]]></component>
+}</component>
   <component name="MakefileLocalSettings">
     <option name="availableProjects">
       <map>
@@ -145,6 +163,9 @@
       </map>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
     <option name="majorVersion" value="2024" />
@@ -162,6 +183,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Native Application.all.executor": "Debug",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
@@ -175,11 +197,21 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderInlayHintsCppOptions",
+    "settings.editor.selected.configurable": "settings.qodana",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/node" />
+    </key>
+  </component>
   <component name="RunManager" selected="Native Application.all">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FORCE" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="FORCE" CONFIG_NAME="FORCE" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -190,7 +222,7 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="./bin/sapience.app/Contents/MacOS/sapience">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
@@ -355,11 +387,6 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Native Application.all" />
       <item itemvalue="Native Application.benchmark" />
@@ -408,6 +435,9 @@
       <updated>1732075152153</updated>
       <workItem from="1732075153507" duration="8266000" />
       <workItem from="1732086996748" duration="22956000" />
+      <workItem from="1732121048847" duration="330000" />
+      <workItem from="1732121385938" duration="1404000" />
+      <workItem from="1732157504280" duration="21907000" />
     </task>
     <task id="LOCAL-00001" summary="Tested node-copying functionality">
       <option name="closed" value="true" />
@@ -417,7 +447,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732103058082</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Tested node-copying functionality">
+      <option name="closed" value="true" />
+      <created>1732121063360</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732121063360</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Tested node-copying functionality">
+      <option name="closed" value="true" />
+      <created>1732121126586</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732121126586</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,8 +481,24 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Tested node-copying functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tested node-copying functionality" />
+    <MESSAGE value="Added SVG buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added SVG buttons" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/node/nodeControl.cpp</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

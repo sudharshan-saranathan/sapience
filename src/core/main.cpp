@@ -6,32 +6,32 @@
  *  -----------------------------------
  */
 
-//  Define app dimensions:
-    #define XS 1920
-    #define YS 1200
-    #define TARGET_OS_OSX
+/*  Default defines */
+#define XS 1920
+#define YS 1200
+#define TARGET_OS_OSX
 
-//  Include UI/UX Objects:
-    #include "core/coreGUI.h"
-    #include "core/coreQSS.h"
+/*  Include project headers */
+#include "core/coreGUI.h"
+#include "core/coreQSS.h"
 
-//  Include Qt Font:
-    #include <QFont>
+/*  QtCore module   */
+#include <QFont>
 
-//  Main executable function:
-    int main(int argc, char *argv[]) {
+/*  main()  */
+int main(int argc, char *argv[])
+{
+    /*  Instantiate application and GUI */
+    QApp    main_app(argc, argv);
+    coreGUI core_gui(3024, 1964, &main_app);
 
-    //  Instantiate application and GUI:
-        QApp    main_app(argc, argv);
-        coreGUI core_gui(3024, 1964, &main_app);
+    /*  Customize appearance    */
+    QApp::setFont(QFont("Gill Sans", 14));
+    main_app.setStyleSheet(coreQSS::readQSS(":/style/sapience.qss"));
 
-    //  Set style, font:
-        main_app.setFont(QFont("Gill Sans", 14));
-        main_app.setStyleSheet(coreQSS::readQSS(":/style/sapience.qss"));
+    /*  Display GUI */
+    core_gui.show();
 
-    //  Display GUI:    
-        core_gui.show();
-
-    //  Executable application loop:
-        return(main_app.exec());
-    }
+    /*  Enter execution loop    */
+    return(main_app.exec());
+}

@@ -45,14 +45,16 @@
 #----------------------------------------
 
   HEADERS +=	include/core/coreIOF.h		\
-		include/core/coreGUI.h		\
-		include/core/coreQSS.h		\
+		        include/core/coreGUI.h		\
+		        include/core/coreQSS.h		\
 
   HEADERS +=    include/schematic/schemaViewer.h	\
-		include/schematic/schemaCanvas.h	\
-		include/schematic/schemaGrid.h		\
+		        include/schematic/schemaCanvas.h	\
+		        include/schematic/schemaGrid.h		\
 
-  HEADERS +=	include/node/nodeControl.h
+  HEADERS +=	include/node/nodeControl.h		\
+		        include/node/nodeVar.h          \
+		        include/node/svgButton.h
 
   optim {
 
@@ -64,16 +66,18 @@
 # Project source files:
 #----------------------------------------
 
-  SOURCES += 	src/core/main.cpp		\
-		src/core/coreGUI.cpp		\
-		src/core/coreIOF.cpp		\
-		src/core/coreQSS.cpp		\
+  SOURCES += 	src/core/main.cpp		    \
+		        src/core/coreGUI.cpp		\
+		        src/core/coreIOF.cpp		\
+		        src/core/coreQSS.cpp		\
 
   SOURCES +=	src/schematic/schemaViewer.cpp	\
-		src/schematic/schemaCanvas.cpp	\
-		src/schematic/schemaGrid.cpp	\
+		        src/schematic/schemaCanvas.cpp	\
+		        src/schematic/schemaGrid.cpp	\
 
-  SOURCES +=	src/node/nodeControl.cpp
+  SOURCES +=	src/node/nodeControl.cpp	\
+		        src/node/nodeVar.cpp        \
+		        src/node/svgButton.cpp
 
   optim {
 

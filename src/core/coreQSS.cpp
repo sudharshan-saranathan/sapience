@@ -12,7 +12,7 @@
 /*  Static members declaration  */
 const QBrush QSSBrush::normal       = QBrush(Qt::black, Qt::SolidPattern);
 const QBrush QSSBrush::circle       = QBrush(Qt::darkGray, Qt::SolidPattern);
-const QBrush QSSBrush::handle       = QBrush(QColor(255, 255, 0), Qt::SolidPattern);
+const QBrush QSSBrush::handle       = QBrush(QColor(243, 146, 55), Qt::SolidPattern);
 const QBrush QSSBrush::background   = QBrush(QColor(220, 220, 220), Qt::SolidPattern);
 const QBrush QSSBrush::foreground   = QBrush(Qt::black, Qt::SolidPattern);
 const QBrush QSSBrush::node         = QBrush(Qt::white, Qt::SolidPattern);

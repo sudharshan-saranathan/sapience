@@ -59,17 +59,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Added SVG buttons">
-      <change afterPath="$PROJECT_DIR$/include/node/nodeVar.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/node/svgButton.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/node/nodeVar.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/node/svgButton.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/sapience.app/Contents/MacOS/sapience" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sapience.app/Contents/MacOS/sapience" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/coreGUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreGUI.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/coreQSS.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreQSS.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/node/nodeControl.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeControl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeVar.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeVar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/svgButton.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/svgButton.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/coreGUI.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreGUI.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/coreQSS.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreQSS.o" afterDir="false" />
@@ -82,19 +77,14 @@
       <change beforePath="$PROJECT_DIR$/lib/qrc_sapience.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/qrc_sapience.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaCanvas.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaCanvas.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaViewer.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.pro" beforeDir="false" afterPath="$PROJECT_DIR$/main.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_coreGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_coreGUI.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moc/moc_nodeControl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_nodeControl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qrc_sapience.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/qrc_sapience.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sapience.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sapience.qrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/coreGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreGUI.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/coreIOF.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreIOF.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/coreQSS.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreQSS.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/node/nodeControl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeControl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeVar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeVar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/svgButton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/svgButton.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +154,11 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <hideBySeverity>
+      <option value="200" />
+      <option value="300" />
+    </hideBySeverity>
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -437,7 +431,7 @@
       <workItem from="1732086996748" duration="22956000" />
       <workItem from="1732121048847" duration="330000" />
       <workItem from="1732121385938" duration="1404000" />
-      <workItem from="1732157504280" duration="21907000" />
+      <workItem from="1732157504280" duration="32360000" />
     </task>
     <task id="LOCAL-00001" summary="Tested node-copying functionality">
       <option name="closed" value="true" />
@@ -463,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732121126586</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added SVG buttons">
+      <option name="closed" value="true" />
+      <created>1732191272481</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732191272481</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

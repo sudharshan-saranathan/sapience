@@ -19,18 +19,42 @@ void svgButton::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
     QGraphicsSvgItem::hoverEnterEvent(event);
 
     setOpacity(0.50);
-    qInfo() << "hoverEnterEvent";
 }
 
 void svgButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
     QGraphicsSvgItem::hoverLeaveEvent(event);
 
     setOpacity(1.0);
-    qInfo() << "hoverLeaveEvent";
 }
 
 void svgButton::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     QGraphicsSvgItem::mousePressEvent(event);
+
+    /*  Switch-case block to handle mouse-press */
+    switch(event->button()) {
+        /*  Filter left clicks  */
+        case Qt::LeftButton: {
+            emit leftClicked();
+            event->accept();
+            break;
+        }
+        /*  Filter middle clicks  */
+        case Qt::MiddleButton: {
+            emit middleClicked();
+            event->accept();
+            break;
+        }
+        /*  Filter right clicks  */
+        case Qt::RightButton: {
+            emit rightClicked();
+            event->accept();
+            break;
+        }
+        /*  Default case  */
+        default:
+            event->ignore();
+            break;
+    }
 }
 
 void svgButton::mouseReleaseEvent(QGraphicsSceneMouseEvent *event) {

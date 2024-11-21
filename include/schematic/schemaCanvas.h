@@ -48,6 +48,7 @@ enum class GITEM_ {
         struct _list_ {
             QList<QGraphicsItem*> clipboard;
             QList<nodeControl*>    nodelist;
+            QList<QString>         namelist;
         } list;
 
     signals:

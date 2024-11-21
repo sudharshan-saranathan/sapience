@@ -35,9 +35,11 @@ protected:
     } attr;
 
 signals:
-    void lclicked();
-    void rclicked();
-    void mclicked();
+    void leftClicked();
+
+    void rightClicked();
+
+    void middleClicked();
 
 protected:
     void hoverEnterEvent(QGraphicsSceneHoverEvent *) override;

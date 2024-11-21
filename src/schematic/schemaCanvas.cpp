@@ -24,7 +24,7 @@ schemaCanvas::schemaCanvas(const QRect &rect, QObject *parent) :
     attr{rect, 1.0},
 
     /*  Initialize clipboard    */
-    list{QList<QGraphicsItem *>{}, QList<nodeControl *>{}}
+    list{QList<QGraphicsItem *>{}, QList<nodeControl *>{}, QList<QString>{}}
 
 /*  Constructor body begin  */
 {

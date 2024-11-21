@@ -1,6 +1,9 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
     <file>icons/var.inp.svg</file>
+    <file>icons/gear-solid.svg</file>
+    <file>icons/circle-up.svg</file>
+    <file>icons/circle-down.svg</file>
     <file>icons/var.out.svg</file>
     <file>icons/var.par.svg</file>
     <file>icons/node.close.svg</file>

@@ -31,8 +31,9 @@
 #include <QGraphicsTextItem>
 #include <QGraphicsProxyWidget>
 
-/*  Include svgButtons  */
+/*  Include project headers */
 #include "svgButton.h"
+#include "nodeVar.h"
 
 //  Convenience typedefs:
 using uint_t = unsigned int;
@@ -69,12 +70,14 @@ private:
         GITEM_ type;
     } attr;
 
+    /*  Header attributes   */
     struct _hdr_ {
         QRect rect;
         QItemR *hdrptr;
         QItemT *txtptr;
     } hdr;
 
+    /*  SVG icon-buttons */
     struct _svg_ {
         svgButton *addInp;
         svgButton *addOut;
@@ -82,22 +85,30 @@ private:
         svgButton *delNode;
     } svg;
 
+    /*  Command-prompt  */
     struct _prompt_ {
         QProxy *proxy;
         QEditL *objptr;
     } prompt;
 
-signals:
-    void initialized();
+    /*  Lists to store node-variables   */
+    struct _list_ {
+        QList<nodeVar *> input;
+        QList<nodeVar *> output;
+        QList<nodeVar *> parameter;
+    } list;
 
-    void updateLink();
+signals:
+    void initialized(); //  Constructor emits this signal
+    void nodeMoved(); //  Signal is emitted when node is moved around
 
 protected slots:
     void handlePrompt() const;
-
     void paint(QPainter *, const QSOGI *, QWidget *) override;
-
     QVariant itemChange(QGraphicsItem::GraphicsItemChange, const QVariant &) override;
+
+public slots:
+    void addStream(VARITEM_);
 
 public:
     [[nodiscard]] QString getName() const { return (hdr.txtptr->toPlainText()); }

@@ -96,7 +96,7 @@ void schemaCanvas::keyPressEvent(QKeyEvent *event) {
         /*  Paste if clipboard isn't empty  */
         if (!list.clipboard.isEmpty()) {
             /*  Loop over clipboard items   */
-            for (auto j: list.clipboard) {
+            for (const auto j: list.clipboard) {
                 const auto node = qgraphicsitem_cast<nodeControl *>(j);
                 const auto copy = new nodeControl(*node);
                 addItem(copy);

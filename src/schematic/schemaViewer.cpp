@@ -37,7 +37,7 @@ schemaViewer::schemaViewer(QWidget *parent)  :
 void schemaViewer::wheelEvent(QWheelEvent *event) {
     Q_UNUSED(event)
 
-    auto scroll = (double) event->angleDelta().y() / WHEEL_DELTA;
+    auto scroll = static_cast<double>(event->angleDelta().y()) / WHEEL_DELTA;
     auto factor = pow(WHEEL_EXP, scroll);
 
     if(scroll > 0 && attr.zoom * factor >= attr.zmax)

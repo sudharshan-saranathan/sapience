@@ -16,19 +16,13 @@
 #define HDR_HS  28
 
 /*  QtCore module   */
-#include <QPen>
 #include <QRect>
-#include <QBrush>
 #include <QPointF>
 #include <QString>
 #include <QPainter>
 #include <QLineEdit>
 
 /*  QtGui module    */
-#include <QGraphicsItem>
-#include <QGraphicsSvgItem>
-#include <QGraphicsRectItem>
-#include <QGraphicsTextItem>
 #include <QGraphicsProxyWidget>
 
 /*  Include project headers */
@@ -55,15 +49,9 @@ class nodeCtrl final : public QObject, public QItemR {
 
 public:
     ~nodeCtrl() override = default;
-
-    nodeCtrl() = delete;
-
-    nodeCtrl(const nodeCtrl &);
-
-    nodeCtrl(const QPointF &, const QString &);
-
-public:
-    enum { Type = UserType + 1 };
+    nodeCtrl()           = delete;
+    nodeCtrl(const QPointF&, const QString&);
+    nodeCtrl(const nodeCtrl&);
 
 private:
     /*  Node attributes */
@@ -74,29 +62,32 @@ private:
     } attr;
 
     /*  Header attributes   */
-    struct _hdr_ {
-        QRect rect = QRect(0, 0, 296, 38);
-        QItemR *hdrPtr = nullptr;
-        QItemT *txtPtr = nullptr;
+    struct _hdr_
+    {
+        QRect   rect   = QRect(0, 0, HDR_WS, HDR_HS);
+        QItemR* hdrPtr = nullptr;
+        QItemT* txtPtr = nullptr;
     } hdr;
 
     /*  SVG icon-buttons */
     struct _svg_ {
-        svgButton *addInp = nullptr;
-        svgButton *addOut = nullptr;
-        svgButton *addPar = nullptr;
+        svgButton *addInp  = nullptr;
+        svgButton *addOut  = nullptr;
+        svgButton *addPar  = nullptr;
         svgButton *delNode = nullptr;
     } svg;
 
     /*  Command-prompt  */
-    struct _prompt_ {
-        QProxy *proxy = nullptr;
-        QEditL *objptr = nullptr;
+    struct _prompt_
+    {
+        QProxy* proxy  = nullptr;
+        QEditL* objptr = nullptr;
     } prompt;
 
     /*  Lists to store node-variables   */
-    struct _list_ {
-        QList<nodeVar *> input = QList<nodeVar *>{};
+    struct _list_
+    {
+        QList<nodeVar*>  input  = QList<nodeVar*>{};
         QList<nodeVar *> output = QList<nodeVar *>{};
         QList<nodeVar *> params = QList<nodeVar *>{};
     } list;
@@ -115,7 +106,7 @@ public slots:
     void addStream(QString, VARTYPE);
 
 public:
-    [[nodiscard]] QString getName() const { return (hdr.txtPtr->toPlainText()); }
+    [[nodiscard]] QString  getName() const { return (hdr.txtPtr->toPlainText()); }
     [[nodiscard]] ITEMTYPE getType() const { return (attr.type); }
 
 private:

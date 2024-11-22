@@ -881,12 +881,8 @@ moc/moc_coreGUI.cpp: include/core/coreGUI.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		include/node/nodeCtrl.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QRect \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qrect.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QPointF \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qpoint.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QString \
@@ -895,25 +891,27 @@ moc/moc_coreGUI.cpp: include/core/coreGUI.h \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsProxyWidget \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
 		include/node/svgButton.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneHoverEvent \
 		include/node/nodeVar.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		include/core/coreQSS.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QFile \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		include/core/coreEnum.h \
 		../../../qt/6.8.0/macos/libexec/moc
 	/opt/qt/6.8.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/opt/qt/6.8.0/macos/mkspecs/macx-clang -I/opt/developer/cplusplus/sapience -I/opt/developer/cplusplus/sapience/include -I/opt/qt/6.8.0/macos/lib -I/opt/qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtWidgets.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtSvg.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtGui.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/opt/qt/6.8.0/macos/lib include/core/coreGUI.h -o moc/moc_coreGUI.cpp
@@ -925,12 +923,8 @@ moc/moc_schemaViewer.cpp: include/schematic/schemaViewer.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		include/node/nodeCtrl.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QRect \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qrect.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QPointF \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qpoint.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QString \
@@ -939,25 +933,27 @@ moc/moc_schemaViewer.cpp: include/schematic/schemaViewer.h \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsProxyWidget \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
 		include/node/svgButton.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneHoverEvent \
 		include/node/nodeVar.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		include/core/coreQSS.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QFile \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		include/core/coreEnum.h \
 		../../../qt/6.8.0/macos/libexec/moc
 	/opt/qt/6.8.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/opt/qt/6.8.0/macos/mkspecs/macx-clang -I/opt/developer/cplusplus/sapience -I/opt/developer/cplusplus/sapience/include -I/opt/qt/6.8.0/macos/lib -I/opt/qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtWidgets.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtSvg.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtGui.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/opt/qt/6.8.0/macos/lib include/schematic/schemaViewer.h -o moc/moc_schemaViewer.cpp
@@ -966,12 +962,8 @@ moc/moc_schemaCanvas.cpp: include/schematic/schemaCanvas.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		include/node/nodeCtrl.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QRect \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qrect.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QPointF \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qpoint.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QString \
@@ -980,36 +972,34 @@ moc/moc_schemaCanvas.cpp: include/schematic/schemaCanvas.h \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsProxyWidget \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
 		include/node/svgButton.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneHoverEvent \
 		include/node/nodeVar.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		include/core/coreQSS.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QFile \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		include/core/coreEnum.h \
 		../../../qt/6.8.0/macos/libexec/moc
 	/opt/qt/6.8.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/opt/qt/6.8.0/macos/mkspecs/macx-clang -I/opt/developer/cplusplus/sapience -I/opt/developer/cplusplus/sapience/include -I/opt/qt/6.8.0/macos/lib -I/opt/qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtWidgets.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtSvg.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtGui.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/opt/qt/6.8.0/macos/lib include/schematic/schemaCanvas.h -o moc/moc_schemaCanvas.cpp
 
 moc/moc_nodeCtrl.cpp: include/node/nodeCtrl.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QRect \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qrect.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QPointF \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qpoint.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QString \
@@ -1018,25 +1008,27 @@ moc/moc_nodeCtrl.cpp: include/node/nodeCtrl.h \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsProxyWidget \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
 		include/node/svgButton.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneHoverEvent \
 		include/node/nodeVar.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		include/core/coreQSS.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QFile \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		include/core/coreEnum.h \
 		../../../qt/6.8.0/macos/libexec/moc
 	/opt/qt/6.8.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/opt/qt/6.8.0/macos/mkspecs/macx-clang -I/opt/developer/cplusplus/sapience -I/opt/developer/cplusplus/sapience/include -I/opt/qt/6.8.0/macos/lib -I/opt/qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtWidgets.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtSvg.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtGui.framework/Headers -I/opt/qt/6.8.0/macos/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/opt/qt/6.8.0/macos/lib include/node/nodeCtrl.h -o moc/moc_nodeCtrl.cpp
@@ -1114,12 +1106,8 @@ lib/main.o: src/core/main.cpp include/core/coreGUI.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		include/node/nodeCtrl.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QRect \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qrect.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QPointF \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qpoint.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QString \
@@ -1128,25 +1116,27 @@ lib/main.o: src/core/main.cpp include/core/coreGUI.h \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsProxyWidget \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
 		include/node/svgButton.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneHoverEvent \
 		include/node/nodeVar.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		include/core/coreQSS.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QFile \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		include/core/coreEnum.h \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QFont \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qfont.h
@@ -1176,12 +1166,8 @@ lib/coreGUI.o: src/core/coreGUI.cpp include/core/coreGUI.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		include/node/nodeCtrl.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QRect \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qrect.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QPointF \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qpoint.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QString \
@@ -1190,25 +1176,27 @@ lib/coreGUI.o: src/core/coreGUI.cpp include/core/coreGUI.h \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsProxyWidget \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
 		include/node/svgButton.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneHoverEvent \
 		include/node/nodeVar.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		include/core/coreQSS.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QFile \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		include/core/coreEnum.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lib/coreGUI.o src/core/coreGUI.cpp
 
@@ -1233,12 +1221,8 @@ lib/schemaViewer.o: src/schematic/schemaViewer.cpp include/schematic/schemaViewe
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		include/node/nodeCtrl.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QRect \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qrect.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QPointF \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qpoint.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QString \
@@ -1247,25 +1231,27 @@ lib/schemaViewer.o: src/schematic/schemaViewer.cpp include/schematic/schemaViewe
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsProxyWidget \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
 		include/node/svgButton.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneHoverEvent \
 		include/node/nodeVar.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		include/core/coreQSS.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QFile \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		include/core/coreEnum.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lib/schemaViewer.o src/schematic/schemaViewer.cpp
 
@@ -1274,37 +1260,35 @@ lib/schemaCanvas.o: src/schematic/schemaCanvas.cpp ../../../qt/6.8.0/macos/lib/Q
 		include/core/coreIOF.h \
 		include/core/coreEnum.h \
 		include/node/nodeCtrl.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QRect \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qrect.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QString \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qstring.h \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPainter \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsProxyWidget \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
 		include/node/svgButton.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneHoverEvent \
 		include/node/nodeVar.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		include/core/coreQSS.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QFile \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		include/schematic/schemaGrid.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItemGroup \
 		include/schematic/schemaCanvas.h \
@@ -1330,12 +1314,8 @@ lib/schemaGrid.o: src/schematic/schemaGrid.cpp include/schematic/schemaGrid.h \
 lib/nodeCtrl.o: src/node/nodeCtrl.cpp ../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QKeyEvent \
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qevent.h \
 		include/node/nodeCtrl.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QRect \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qrect.h \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
-		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QPointF \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qpoint.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QString \
@@ -1344,25 +1324,27 @@ lib/nodeCtrl.o: src/node/nodeCtrl.cpp ../../../qt/6.8.0/macos/lib/QtGui.framewor
 		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
-		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsProxyWidget \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsproxywidget.h \
 		include/node/svgButton.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/QGraphicsSvgItem \
+		../../../qt/6.8.0/macos/lib/QtSvgWidgets.framework/Headers/qgraphicssvgitem.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneHoverEvent \
 		include/node/nodeVar.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		include/core/coreQSS.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QPen \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qpen.h \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/QFile \
 		../../../qt/6.8.0/macos/lib/QtCore.framework/Headers/qfile.h \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/QBrush \
+		../../../qt/6.8.0/macos/lib/QtGui.framework/Headers/qbrush.h \
 		include/core/coreEnum.h \
 		include/schematic/schemaCanvas.h \
 		../../../qt/6.8.0/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \

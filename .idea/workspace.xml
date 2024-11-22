@@ -58,52 +58,25 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Refactored code">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/core/coreEnum.h" afterDir="false" />
+    <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Refactored code, deleted enum {UserType}">
+      <change afterPath="$PROJECT_DIR$/lib/moc_nodeCtrl.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/nodeCtrl.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/moc/moc_nodeCtrl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sapience.app/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sapience.app/Contents/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/sapience.app/Contents/MacOS/sapience" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sapience.app/Contents/MacOS/sapience" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/coreGUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreGUI.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/coreQSS.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreQSS.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/node/nodeControl.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeCtrl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/node/nodeVar.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeVar.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/schematic/schemaGrid.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaGrid.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/schematic/schemaViewer.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaViewer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeCtrl.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeCtrl.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/coreGUI.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreGUI.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/coreQSS.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreQSS.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/moc_coreGUI.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_coreGUI.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/moc_nodeControl.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_nodeControl.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/moc_nodeVar.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_nodeVar.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/moc_schemaCanvas.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_schemaCanvas.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/moc_schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_schemaViewer.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/moc_svgButton.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_svgButton.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/nodeControl.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nodeControl.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/nodeVar.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nodeVar.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/qrc_sapience.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/qrc_sapience.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaCanvas.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaCanvas.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/schemaGrid.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaGrid.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaViewer.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/svgButton.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/svgButton.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.pro" beforeDir="false" afterPath="$PROJECT_DIR$/main.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_nodeControl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_nodeControl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_qNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_qNode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qrc_sapience.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/qrc_sapience.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/coreGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreGUI.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/coreIOF.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreIOF.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/coreQSS.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreQSS.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/node/nodeControl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/node/nodeVar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeVar.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schematic/schemaGrid.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaGrid.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,16 +119,6 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -226,6 +189,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C++&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.22918384&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -410,6 +374,11 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Native Application.all" />
       <item itemvalue="Native Application.benchmark" />
@@ -461,7 +430,7 @@
       <workItem from="1732121048847" duration="330000" />
       <workItem from="1732121385938" duration="1404000" />
       <workItem from="1732157504280" duration="53610000" />
-      <workItem from="1732268938338" duration="337000" />
+      <workItem from="1732268938338" duration="1688000" />
     </task>
     <task id="LOCAL-00001" summary="Tested node-copying functionality">
       <option name="closed" value="true" />
@@ -519,7 +488,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732241240323</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Refactored code">
+      <option name="closed" value="true" />
+      <created>1732269329709</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732269329709</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +520,8 @@
     <MESSAGE value="Added SVG buttons" />
     <MESSAGE value="Variable (Input/Output addition)" />
     <MESSAGE value="Refactored code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored code" />
+    <MESSAGE value="Refactored code, deleted enum {UserType}" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored code, deleted enum {UserType}" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

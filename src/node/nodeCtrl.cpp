@@ -17,7 +17,7 @@
 /*  Class constructor   */
 nodeCtrl::nodeCtrl(const QPointF &cpos, const QString &name) :
     /*  Default attributes  */
-    attr{cpos, QRect(0, 0, NODE_WS, NODE_HS)},
+    attr{cpos, QRect(0, 0, NODE_WS, NODE_HS), ITEMTYPE::NODE},
     /*  Header attributes   */
     hdr{QRect(2, 2, 296, 33), new QItemR(this), new QItemT(name)},
 /*  Initialize SVG buttons  */
@@ -44,12 +44,12 @@ nodeCtrl::nodeCtrl(const QPointF &cpos, const QString &name) :
 /*  Class copy-constructor  */
 nodeCtrl::nodeCtrl(const nodeCtrl &source) :
 /*  Initialize default attributes   */
-attr{source.scenePos() + QPointF(20, 20), source.attr.bounds, source.attr.type},
+attr{source.scenePos() + QPointF(10, 10), source.attr.bounds, ITEMTYPE::NODE},
 /*  Initialize header and attributes    */
 hdr{
     source.hdr.rect,
     new QItemR(this),
-    new QItemT("Node-Copy", hdr.hdrPtr)
+    new QItemT("Node-Copy")
 },
 /*  Initialize SVG icons    */
 svg{
@@ -104,6 +104,7 @@ void nodeCtrl::init()
     hdr.hdrPtr->setBrush(QBrush(QSSRGB::moonstone, Qt::SolidPattern));
     hdr.hdrPtr->setPen(QPen(QBrush(Qt::white), 0.2, Qt::SolidLine));
     hdr.hdrPtr->setRect(hdr.rect);
+    hdr.txtPtr->setParentItem(hdr.hdrPtr);
 
     /*  Customize command-prompt    */
     prompt.objptr->setFixedSize(296, 28);

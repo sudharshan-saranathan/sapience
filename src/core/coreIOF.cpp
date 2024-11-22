@@ -6,6 +6,7 @@
  *  -----------------------------------
  */
 
+/*  Include project headers  */
 #include "core/coreIOF.h"
 
 bool mouse::is_pressed_lmb = false;

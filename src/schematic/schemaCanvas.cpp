@@ -11,7 +11,9 @@
 
 /*  Include project headers */
 #include "core/coreIOF.h"
-#include "node/nodeControl.h"
+#include "core/coreEnum.h"
+#include "node/nodeCtrl.h"
+#include "schematic/schemaGrid.h"
 #include "schematic/schemaCanvas.h"
 
 /*  Class constructor   */
@@ -24,7 +26,7 @@ schemaCanvas::schemaCanvas(const QRect &rect, QObject *parent) :
     attr{rect, 1.0},
 
     /*  Initialize clipboard    */
-    list{QList<QGraphicsItem *>{}, QList<nodeControl *>{}, QList<QString>{}}
+    list{QList<QGraphicsItem *>{}, QList<nodeCtrl *>{}, QList<QString>{}}
 
 /*  Constructor body begin  */
 {
@@ -56,7 +58,7 @@ void schemaCanvas::mousePressEvent(QGraphicsSceneMouseEvent *event) {
         /*  Handle MMB-press events */
         case Qt::MiddleButton: {
             //  Create a new node, add it to scene:
-            schemaCanvas::createNode(event->scenePos(), this);
+            createNode(event->scenePos());
             mouse::is_pressed_mmb = true;
             break;
         }
@@ -97,9 +99,7 @@ void schemaCanvas::keyPressEvent(QKeyEvent *event) {
         if (!list.clipboard.isEmpty()) {
             /*  Loop over clipboard items   */
             for (const auto j: list.clipboard) {
-                const auto node = qgraphicsitem_cast<nodeControl *>(j);
-                const auto copy = new nodeControl(*node);
-                addItem(copy);
+                createNode(*qgraphicsitem_cast<nodeCtrl *>(j));
             }
         }
         event->accept();
@@ -128,18 +128,27 @@ void schemaCanvas::keyReleaseEvent(QKeyEvent *event) {
     QGraphicsScene::keyReleaseEvent(event);
 }
 
-void schemaCanvas::createNode(const QPointF &cpos, schemaCanvas *scenePtr) {
+void schemaCanvas::createNode(const QPointF &cpos) {
     Q_UNUSED(cpos)
 
-    const auto node = new nodeControl(cpos, "Node", GITEM_::NODE);
-    scenePtr->list.nodelist.append(node);
-    scenePtr->addItem(node);
+    const auto node = new nodeCtrl(cpos, "Node-I");
+    list.nodelist.append(node);
+    addItem(node);
+
+    auto c4 = QObject::connect(node, &nodeCtrl::nodeDeleted, this, [this, node]() { deleteNode(node); });
 }
 
-void schemaCanvas::deleteNode(const schemaCanvas *scenePtr) {
-    Q_UNUSED(scenePtr)
+void schemaCanvas::createNode(const nodeCtrl &node) {
+    const auto copy = new nodeCtrl(node);
+    list.nodelist.append(copy);
+    addItem(copy);
+
+    auto c4 = QObject::connect(copy, &nodeCtrl::nodeDeleted, this, [this, copy]() { deleteNode(copy); });
 }
 
-void schemaCanvas::updateNode(const schemaCanvas *scenePtr) {
-    Q_UNUSED(scenePtr)
+void schemaCanvas::deleteNode(nodeCtrl *node) {
+    Q_UNUSED(node)
+
+    qInfo() << "Deleting " << node->getName();
+    removeItem(qgraphicsitem_cast<QGraphicsItem *>(node));
 }

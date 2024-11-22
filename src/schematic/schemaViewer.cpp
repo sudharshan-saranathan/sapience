@@ -10,27 +10,24 @@
 #include <cmath>
 #include <iostream>
 
-//  Include Class Header:
+//  Include project headers:
 #include "schematic/schemaViewer.h"
 
 //  Constructor:
 schemaViewer::schemaViewer(QWidget *parent)  :
-//  Initialize base-class constructor:
+/*  Initialize base-class constructor  */
     QGraphicsView(parent),
-
-//  Initialize attributes:
-    attr(1.0, 4.0, 0.25),
-
-//  Initialize QGraphicsScene object:
-    canvas(QRect(0, 0, SCENE_XS, SCENE_YS), new schemaCanvas(canvas.canvasBounds, this))
+/*  Instantiate schemaCanvas  */
+    canvas(QRect(0, 0, SCENE_XS, SCENE_YS), new schemaCanvas(canvas.bounds, this))
+/*  Constructor body-begin  */
 {
-//  Set RenderHint:
+/*  Set render hint, do not delete  */
     setRenderHint(QPainter::Antialiasing);
 
-//  Set QGraphicsScene object:
-    setScene(canvas.item);
+/*  Set QGraphicsScene object  */
+    setScene(canvas.objptr);
 
-//  Emit initialized() signal upon Constructor completion:
+/*  Signal contructor completion  */
     emit initialized();
 }
 
@@ -52,25 +49,24 @@ void schemaViewer::wheelEvent(QWheelEvent *event) {
 void schemaViewer::keyPressEvent(QKeyEvent *event) {
     Q_UNUSED(event)
 
-//  Propagate event to base-class handler:
+/*  Propagate event to base-class event-handler  */
     QGraphicsView::keyPressEvent(event);
 
-//  Switch-Case Block:
+/*  Switch-case block   */
     switch(event->modifiers())
     {
-    //  Filter Shift modifier:
+    /*  Filter <shift> presses  */
         case Qt::ShiftModifier:
             setDragMode(QGraphicsView::ScrollHandDrag);
             event->accept();
             break;
-
+    /*  Filter <ctrl> presses (cmd on MacOS)  */
         case Qt::ControlModifier:
             setDragMode(QGraphicsView::RubberBandDrag);
             setCursor(Qt::CrossCursor);
             event->accept();
             break;
-
-        //  Default:
+    /*  Default  */
         default:
             event->ignore();
             break;

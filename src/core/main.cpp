@@ -7,23 +7,23 @@
  */
 
 /*  Default defines */
-#define XS 1920
-#define YS 1200
+#define APP_XS 1920
+#define APP_YS 1200
 #define TARGET_OS_OSX
 
 /*  Include project headers */
 #include "core/coreGUI.h"
 #include "core/coreQSS.h"
 
-/*  QtCore module   */
+/*  QtGui module  */
 #include <QFont>
 
-/*  main()  */
+/*  main executable  */
 int main(int argc, char *argv[])
 {
     /*  Instantiate application and GUI */
     QApp    main_app(argc, argv);
-    coreGUI core_gui(3024, 1964, &main_app);
+    coreGUI core_gui(APP_XS, APP_YS, &main_app);
 
     /*  Customize appearance    */
     QApp::setFont(QFont("Gill Sans", 14));

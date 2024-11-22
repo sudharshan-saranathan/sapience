@@ -38,6 +38,7 @@ struct QSSPen {
 /*  Custom QColor objects   */
 struct QSSRGB {
     static const QColor moonstone;
+    static const QColor spaceCadet;
     static const QColor englishViolet;
     static const QColor lilac;
     static const QColor yaleBlue;

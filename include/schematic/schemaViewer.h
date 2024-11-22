@@ -20,11 +20,10 @@
 
 #define PANE_OPAC   0.90
 
-//  Include Qt Core Classes:
-#include <QKeyEvent>
+/*  QtWidgets module  */
 #include <QGraphicsView>
 
-//  Include QGraphicsScene:
+/*  Include project header  */
 #include "schematic/schemaCanvas.h"
 
 class schemaViewer final : public QGraphicsView {
@@ -35,18 +34,19 @@ class schemaViewer final : public QGraphicsView {
 
 public:
    ~schemaViewer() override = default;
-    schemaViewer(QWidget* parent = nullptr);
+
+    explicit schemaViewer(QWidget *parent = nullptr);
 
 protected:
     struct _attr_ {
-        double zoom;
-        double zmax;
-        double zmin;
+        double zoom = 1.0;
+        double zmax = 4.0;
+        double zmin = 0.20;
     } attr;
 
     struct _canvas_ {
-        QRect canvasBounds;
-        schemaCanvas *item;
+        QRect bounds = QRect(0, 0, SCENE_XS, SCENE_YS);
+        schemaCanvas *objptr = nullptr;
     } canvas;
 
 signals:

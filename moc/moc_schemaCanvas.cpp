@@ -50,10 +50,9 @@ constexpr auto qt_meta_stringdata_CLASSschemaCanvasENDCLASS = QtMocHelpers::stri
     "QKeyEvent*",
     "keyReleaseEvent",
     "createNode",
-    "schemaCanvas*",
+    "nodeCtrl",
     "deleteNode",
-    "const schemaCanvas*",
-    "updateNode"
+    "nodeCtrl*"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -85,9 +84,9 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaCanvasENDCLASS[] = {
        9,    1,   77,    4, 0x09,    6 /* Protected */,
       10,    1,   80,    4, 0x09,    8 /* Protected */,
       12,    1,   83,    4, 0x09,   10 /* Protected */,
-      13,    2,   86,    4, 0x0a,   12 /* Public */,
-      15,    1,   91,    4, 0x0a,   15 /* Public */,
-      17,    1,   94,    4, 0x0a,   17 /* Public */,
+      13,    1,   86,    4, 0x0a,   12 /* Public */,
+      13,    1,   89,    4, 0x0a,   14 /* Public */,
+      15,    1,   92,    4, 0x0a,   16 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -98,8 +97,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaCanvasENDCLASS[] = {
     QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void, 0x80000000 | 11,    7,
     QMetaType::Void, 0x80000000 | 11,    7,
-    QMetaType::Void, QMetaType::QPointF, 0x80000000 | 14,    4,    4,
-    QMetaType::Void, 0x80000000 | 16,    4,
+    QMetaType::Void, QMetaType::QPointF,    4,
+    QMetaType::Void, 0x80000000 | 14,    4,
     QMetaType::Void, 0x80000000 | 16,    4,
 
        0        // eod
@@ -134,13 +133,12 @@ Q_CONSTINIT const QMetaObject schemaCanvas::staticMetaObject = { {
         // method 'createNode'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QPointF &, std::false_type>,
-        QtPrivate::TypeAndForceComplete<schemaCanvas *, std::false_type>,
+        // method 'createNode'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const nodeCtrl &, std::false_type>,
         // method 'deleteNode'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const schemaCanvas *, std::false_type>,
-        // method 'updateNode'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const schemaCanvas *, std::false_type>
+        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>
     >,
     nullptr
 } };
@@ -157,19 +155,19 @@ void schemaCanvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 3: _t->mouseReleaseEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
         case 4: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
         case 5: _t->keyReleaseEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
-        case 6: _t->createNode((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<schemaCanvas*>>(_a[2]))); break;
-        case 7: _t->deleteNode((*reinterpret_cast< std::add_pointer_t<const schemaCanvas*>>(_a[1]))); break;
-        case 8: _t->updateNode((*reinterpret_cast< std::add_pointer_t<const schemaCanvas*>>(_a[1]))); break;
+        case 6: _t->createNode((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
+        case 7: _t->createNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl>>(_a[1]))); break;
+        case 8: _t->deleteNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 6:
+        case 8:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-            case 1:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< schemaCanvas* >(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeCtrl* >(); break;
             }
             break;
         }

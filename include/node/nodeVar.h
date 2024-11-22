@@ -5,21 +5,12 @@
 #ifndef NODEVAR_H
 #define NODEVAR_H
 
-/*  QtCore module   */
-#include <QObject>
-
 /*  QtGui module    */
-#include <QGraphicsItem>
 #include <QGraphicsEllipseItem>
 
 /*  Include project headers */
 #include "core/coreQSS.h"
-
-enum class VARITEM_ {
-    INPUT,
-    OUTPUT,
-    PARAMETER
-};
+#include "core/coreEnum.h"
 
 /*  Main Class  */
 class nodeVar final : public QObject, public QGraphicsEllipseItem {
@@ -29,14 +20,21 @@ class nodeVar final : public QObject, public QGraphicsEllipseItem {
 
 public:
     ~nodeVar() override = default;
+     nodeVar(const QString&, VARTYPE, QGraphicsItem *parent = nullptr);
 
-    nodeVar(const QString &, VARITEM_, QGraphicsItem *parent = nullptr);
+public:
+    enum { Type = UserType + 2 };
 
 protected:
     struct _attr_ {
-        VARITEM_ type;
-        QRect rect;
+        QString name = QString();
+        VARTYPE type = VARTYPE::NONE;
+        QRect   rect = QRect(0, 0, 4, 4);
     } attr;
+
+public:
+    [[nodiscard]] QString  getName() const { return(attr.name); }
+    [[nodiscard]] VARTYPE getType() const { return(attr.type); }
 };
 
 #endif //NODEVAR_H

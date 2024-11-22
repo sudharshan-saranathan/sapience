@@ -10,36 +10,30 @@
 #include "core/coreGUI.h"
 
 /*  Class constructor   */
-coreGUI::coreGUI(const int& xs, const int& ys, QApplication* app) :
-
+coreGUI::coreGUI(const uint_t& xs, const uint_t& ys, QApplication* app) :
 /*  GUI attributes      */
-attr{xs, ys, app},
-
+    attr{xs, ys, app, QCursor(Qt::ArrowCursor)},
 /*  Central widget and layout   */
-widget{new QWidget(this), new QGridLayout(widget.objptr)},
-
+    widget{new QWidget(this), new QGridLayout(widget.objptr)},
 /*  Initialize QTabWidget   */
-tabs{new QTabWidget(widget.objptr), QList<int>{}},
-
+    tabs{new QTabWidget(widget.objptr)},
 /*  Initialize QGroupBox and its children   */
-groupbox {
-    new QGroupBox(widget.objptr),
-    new QHBoxLayout(groupbox.objptr),
-    new QLabel(widget.objptr),
-    new QToolButton(groupbox.objptr),
-    new QToolButton(groupbox.objptr)
-},
-
+    groupbox {
+        new QGroupBox   (widget.objptr),
+        new QHBoxLayout (groupbox.objptr),
+        new QToolButton (groupbox.objptr),
+        new QToolButton (groupbox.objptr),
+        new QLabel      (widget.objptr)
+    },
 /*  Initialize schemaViewer */
-viewer{new schemaViewer(tabs.objptr)}
-
+    viewer{new schemaViewer(tabs.objptr)}
 /*  Constructor body begin  */
 {
     /*  Set object name for internal reference  */
     setObjectName ("Main GUI");
 
     /*  Resize GUI  */
-    resize(attr.ws, attr.hs);
+    resize(static_cast<int>(attr.ws), static_cast<int>(attr.hs));
 
     /*  Set central widget  */
     setCentralWidget(widget.objptr);

@@ -6,67 +6,56 @@
  *  -----------------------------------
  */
 
-    #ifndef CANVAS_H
-    #define CANVAS_H
+#ifndef CANVAS_H
+#define CANVAS_H
 
-//  Include Qt Core Classes:
-    #include <QKeyEvent>
-    #include <QGraphicsScene>
-    #include <QGraphicsSceneMouseEvent>
+/*  QtWidgets module   */
+#include <QGraphicsScene>
 
-//  Include class schemaGrid:
-    #include "schematic/schemaGrid.h"
-    #include "node/nodeControl.h"
+/*  Project header(s) */
+#include "node/nodeCtrl.h"
 
-//  Define enum of graphics objects (node, link, handle, ...):
-enum class GITEM_ {
-    NODE,
-    LINK,
-        HANDLE
-    };
+/*  Forward declaration of class schemaViewer */
+class schemaViewer;
 
-//  Forward declaration of QGraphicsView-Derived Class:
-    class schemaViewer;
+/*  Class schemaCanvas  */
+class schemaCanvas final : public QGraphicsScene {
 
-//  Main Class:
-    class schemaCanvas final : public QGraphicsScene {
-        Q_OBJECT
-        Q_DISABLE_COPY_MOVE(schemaCanvas)
-        Q_CLASSINFO("Author", "Sudharshan Saranathan")
+    Q_OBJECT
+    Q_DISABLE_COPY_MOVE(schemaCanvas)
+    Q_CLASSINFO("Author", "Sudharshan Saranathan")
 
-    public:
-        ~schemaCanvas() override = default;
-         schemaCanvas()          = default;
-         explicit schemaCanvas(const QRect&, QObject* parent = nullptr);
+public:
+    ~schemaCanvas() override = default;
+     schemaCanvas()          = default;
+     explicit schemaCanvas(const QRect&, QObject* parent = nullptr);
 
-    protected:
-        struct _attr_ {
-            QRect rect;
-            float dist;
-        } attr;
+protected:
+    struct _attr_ {
+        QRect rect;
+        float dist;
+    } attr;
 
-        struct _list_ {
-            QList<QGraphicsItem*> clipboard;
-            QList<nodeControl*>    nodelist;
-            QList<QString>         namelist;
-        } list;
+    struct _list_ {
+        QList<QGraphicsItem*> clipboard;
+        QList<nodeCtrl*>    nodelist;
+        QList<QString>         namelist;
+    } list;
 
-    signals:
-        void initialized();
+signals:
+    void initialized();
 
-    protected slots:
-        void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
-        void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
-        void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
-        void keyPressEvent(QKeyEvent *event) override;
-        void keyReleaseEvent(QKeyEvent *event) override;
+protected slots:
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
+    void keyReleaseEvent(QKeyEvent *event) override;
 
-    public slots:
-        static void createNode(const QPointF &, schemaCanvas *);
-
-        static void deleteNode(const schemaCanvas *);
-
-        static void updateNode(const schemaCanvas *);
+public slots:
+    void createNode(const QPointF&);
+    void createNode(const nodeCtrl&);
+    void deleteNode(nodeCtrl*);
 };
 
 #endif

@@ -47,12 +47,13 @@
   HEADERS +=	include/core/coreIOF.h		\
 		        include/core/coreGUI.h		\
 		        include/core/coreQSS.h		\
+		        include/core/coreEnum.h		\
 
   HEADERS +=    include/schematic/schemaViewer.h	\
 		        include/schematic/schemaCanvas.h	\
 		        include/schematic/schemaGrid.h		\
 
-  HEADERS +=	include/node/nodeControl.h		\
+  HEADERS +=	include/node/nodeCtrl.h		    \
 		        include/node/nodeVar.h          \
 		        include/node/svgButton.h
 
@@ -75,7 +76,7 @@
 		        src/schematic/schemaCanvas.cpp	\
 		        src/schematic/schemaGrid.cpp	\
 
-  SOURCES +=	src/node/nodeControl.cpp	\
+  SOURCES +=	src/node/nodeCtrl.cpp	    \
 		        src/node/nodeVar.cpp        \
 		        src/node/svgButton.cpp
 

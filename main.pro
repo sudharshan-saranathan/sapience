@@ -8,13 +8,7 @@
   CONFIG += debug warn_on c++20
 
 # Default defines:
-  DEFINES += QT_VERSION_6 QT_WITH_OPENMP QT_WITH_LOGGING
-
-  optim {
-
-      DEFINES += QT_WITH_OPTIMIZER
-
-  }
+  DEFINES += QT_VERSION_6 QT_WITH_LOGGING
 
 # Directory to store main executable:
   DESTDIR = bin
@@ -23,14 +17,8 @@
 # Include directories:
   INCLUDEPATH += ./include /opt/qt/6.8.0/macos/lib/
 
-  optim {
-      INCLUDEPATH += /opt/local/include/optim
-      INCLUDEPATH += /opt/local/include/eigen3
-  }
-
   ampl {
-      INCLUDEPATH += /opt/local/include/ampl
-
+      INCLUDEPATH += /Applications/AMPL/amplapi/include/
   }
 
 # Default temporary files location:
@@ -44,51 +32,43 @@
 # Project header files:
 #----------------------------------------
 
-  HEADERS +=	include/core/coreIOF.h		\
-		        include/core/coreGUI.h		\
-		        include/core/coreQSS.h		\
-		        include/core/coreEnum.h		\
+  HEADERS +=	include/core/coreGUI.h	\
+		        include/core/coreQSS.h  \
 
-  HEADERS +=    include/schematic/schemaViewer.h	\
-		        include/schematic/schemaCanvas.h	\
-		        include/schematic/schemaGrid.h		\
+  HEADERS +=    include/schematic/schemaViewer.h    \
+                include/schematic/schemaCanvas.h
 
-  HEADERS +=	include/node/nodeCtrl.h		    \
-		        include/node/nodeVar.h          \
-		        include/node/svgButton.h
+  HEADERS +=    include/node/nodeCtrl.h             \
+                include/node/nodeSVG.h              \
+                include/node/nodeVar.h
 
-  optim {
+  HEADERS +=    include/path/pathElement.h          \
 
-      HEADERS += include/optim/qMatrix.h	\
-
-  }
+  HEADERS +=    include/ampl/amplSolver.h
 
 #----------------------------------------
 # Project source files:
 #----------------------------------------
 
-  SOURCES += 	src/core/main.cpp		    \
-		        src/core/coreGUI.cpp		\
-		        src/core/coreIOF.cpp		\
-		        src/core/coreQSS.cpp		\
+  SOURCES += 	src/core/main.cpp	    \
+		        src/core/coreGUI.cpp	\
+		        src/core/coreQSS.cpp
 
-  SOURCES +=	src/schematic/schemaViewer.cpp	\
-		        src/schematic/schemaCanvas.cpp	\
-		        src/schematic/schemaGrid.cpp	\
+  SOURCES +=	src/schematic/schemaViewer.cpp  \
+                src/schematic/schemaCanvas.cpp
 
-  SOURCES +=	src/node/nodeCtrl.cpp	    \
-		        src/node/nodeVar.cpp        \
-		        src/node/svgButton.cpp
+  SOURCES +=    src/node/nodeCtrl.cpp           \
+                src/node/nodeSVG.cpp            \
+                src/node/nodeVar.cpp            \
+                src/node/nodeActions.cpp
 
-  optim {
+  SOURCES +=    src/path/pathElement.cpp
 
-      SOURCES += src/optim/qMatrix.cc
-
-  }
+  SOURCES +=    src/ampl/amplSolver.cpp
 
 # Qt Resource files:
-  RESOURCES       += resources/sapience.qrc
+  RESOURCES         += resources/sapience.qrc
 
 # Additional Qt flags:
-  QMAKE_CXXFLAGS += -std=c++20
-  QT 		 += core gui widgets svgwidgets
+  QMAKE_CXXFLAGS    += -std=c++20 -Wno-uninitialized
+  QT 		        += core gui widgets svgwidgets

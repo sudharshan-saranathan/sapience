@@ -7,7 +7,6 @@
 *****************************************************************************/
 
 #include "../include/schematic/schemaViewer.h"
-#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -43,6 +42,10 @@ constexpr auto qt_meta_stringdata_CLASSschemaViewerENDCLASS = QtMocHelpers::stri
     "",
     "wheelEvent",
     "QWheelEvent*",
+    "mousePressEvent",
+    "QMouseEvent*",
+    "event",
+    "mouseReleaseEvent",
     "keyPressEvent",
     "QKeyEvent*",
     "keyReleaseEvent"
@@ -58,7 +61,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaViewerENDCLASS[] = {
       12,       // revision
        0,       // classname
        1,   14, // classinfo
-       4,   16, // methods
+       6,   16, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -69,20 +72,24 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaViewerENDCLASS[] = {
        1,    2,
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   40,    4, 0x06,    1 /* Public */,
+       3,    0,   52,    4, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    1,   41,    4, 0x09,    2 /* Protected */,
-       7,    1,   44,    4, 0x09,    4 /* Protected */,
-       9,    1,   47,    4, 0x09,    6 /* Protected */,
+       5,    1,   53,    4, 0x09,    2 /* Protected */,
+       7,    1,   56,    4, 0x09,    4 /* Protected */,
+      10,    1,   59,    4, 0x09,    6 /* Protected */,
+      11,    1,   62,    4, 0x09,    8 /* Protected */,
+      13,    1,   65,    4, 0x09,   10 /* Protected */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 6,    4,
-    QMetaType::Void, 0x80000000 | 8,    4,
-    QMetaType::Void, 0x80000000 | 8,    4,
+    QMetaType::Void, 0x80000000 | 8,    9,
+    QMetaType::Void, 0x80000000 | 8,    9,
+    QMetaType::Void, 0x80000000 | 12,    4,
+    QMetaType::Void, 0x80000000 | 12,    4,
 
        0        // eod
 };
@@ -101,6 +108,12 @@ Q_CONSTINIT const QMetaObject schemaViewer::staticMetaObject = { {
         // method 'wheelEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QWheelEvent *, std::false_type>,
+        // method 'mousePressEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QMouseEvent *, std::false_type>,
+        // method 'mouseReleaseEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QMouseEvent *, std::false_type>,
         // method 'keyPressEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>,
@@ -119,8 +132,10 @@ void schemaViewer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->initialized(); break;
         case 1: _t->wheelEvent((*reinterpret_cast< std::add_pointer_t<QWheelEvent*>>(_a[1]))); break;
-        case 2: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
-        case 3: _t->keyReleaseEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
+        case 2: _t->mousePressEvent((*reinterpret_cast< std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
+        case 3: _t->mouseReleaseEvent((*reinterpret_cast< std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
+        case 4: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
+        case 5: _t->keyReleaseEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -154,13 +169,13 @@ int schemaViewer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }

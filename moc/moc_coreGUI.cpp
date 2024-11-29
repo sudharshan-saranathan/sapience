@@ -45,6 +45,7 @@ constexpr auto qt_meta_stringdata_CLASScoreGUIENDCLASS = QtMocHelpers::stringDat
     "showSetup",
     "keyPressEvent",
     "QKeyEvent*",
+    "event",
     "keyReleaseEvent"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -75,7 +76,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScoreGUIENDCLASS[] = {
        5,    0,   47,    4, 0x09,    2 /* Protected */,
        6,    0,   48,    4, 0x09,    3 /* Protected */,
        7,    1,   49,    4, 0x09,    4 /* Protected */,
-       9,    1,   52,    4, 0x09,    6 /* Protected */,
+      10,    1,   52,    4, 0x09,    6 /* Protected */,
 
  // signals: parameters
     QMetaType::Void,
@@ -83,8 +84,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScoreGUIENDCLASS[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 8,    4,
-    QMetaType::Void, 0x80000000 | 8,    4,
+    QMetaType::Void, 0x80000000 | 8,    9,
+    QMetaType::Void, 0x80000000 | 8,    9,
 
        0        // eod
 };

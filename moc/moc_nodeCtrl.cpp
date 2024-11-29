@@ -41,18 +41,30 @@ constexpr auto qt_meta_stringdata_CLASSnodeCtrlENDCLASS = QtMocHelpers::stringDa
     "Sudharshan Saranathan",
     "initialized",
     "",
-    "nodeChanged",
+    "nodeShifted",
     "nodeDeleted",
-    "handlePrompt",
-    "paint",
-    "QPainter*",
-    "const QSOGI*",
-    "QWidget*",
+    "nodeCtrl*",
+    "linkVariable",
+    "nodeVar*",
     "itemChange",
     "QVariant",
-    "QGraphicsItem::GraphicsItemChange",
-    "addStream",
-    "VARTYPE"
+    "GraphicsItemChange",
+    "change",
+    "value",
+    "paint",
+    "QPainter*",
+    "const QStOGI*",
+    "QWidget*",
+    "hoverMoveEvent",
+    "QGraphicsSceneHoverEvent*",
+    "hoverEnterEvent",
+    "hoverLeaveEvent",
+    "mousePressEvent",
+    "QGraphicsSceneMouseEvent*",
+    "event",
+    "mouseReleaseEvent",
+    "contextMenuEvent",
+    "QGraphicsSceneContextMenuEvent*"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -65,37 +77,47 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSnodeCtrlENDCLASS[] = {
       12,       // revision
        0,       // classname
        1,   14, // classinfo
-       7,   16, // methods
+      12,   16, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // classinfo: key, value
        1,    2,
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   58,    4, 0x06,    1 /* Public */,
-       5,    0,   59,    4, 0x06,    2 /* Public */,
-       6,    0,   60,    4, 0x06,    3 /* Public */,
+       3,    0,   88,    4, 0x06,    1 /* Public */,
+       5,    0,   89,    4, 0x06,    2 /* Public */,
+       6,    1,   90,    4, 0x06,    3 /* Public */,
+       8,    2,   93,    4, 0x06,    5 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       7,    0,   61,    4, 0x109,    4 /* Protected | MethodIsConst  */,
-       8,    3,   62,    4, 0x09,    5 /* Protected */,
-      12,    2,   69,    4, 0x09,    9 /* Protected */,
-      15,    2,   74,    4, 0x0a,   12 /* Public */,
+      10,    2,   98,    4, 0x09,    8 /* Protected */,
+      15,    3,  103,    4, 0x09,   11 /* Protected */,
+      19,    1,  110,    4, 0x09,   15 /* Protected */,
+      21,    1,  113,    4, 0x09,   17 /* Protected */,
+      22,    1,  116,    4, 0x09,   19 /* Protected */,
+      23,    1,  119,    4, 0x09,   21 /* Protected */,
+      26,    1,  122,    4, 0x09,   23 /* Protected */,
+      27,    1,  125,    4, 0x09,   25 /* Protected */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 7,    4,
+    QMetaType::Void, 0x80000000 | 7, 0x80000000 | 9,    4,    4,
 
  // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 9, 0x80000000 | 10, 0x80000000 | 11,    4,    4,    4,
-    0x80000000 | 13, 0x80000000 | 14, 0x80000000 | 13,    4,    4,
-    QMetaType::Void, QMetaType::QString, 0x80000000 | 16,    4,    4,
+    0x80000000 | 11, 0x80000000 | 12, 0x80000000 | 11,   13,   14,
+    QMetaType::Void, 0x80000000 | 16, 0x80000000 | 17, 0x80000000 | 18,    4,    4,    4,
+    QMetaType::Void, 0x80000000 | 20,    4,
+    QMetaType::Void, 0x80000000 | 20,    4,
+    QMetaType::Void, 0x80000000 | 20,    4,
+    QMetaType::Void, 0x80000000 | 24,   25,
+    QMetaType::Void, 0x80000000 | 24,   25,
+    QMetaType::Void, 0x80000000 | 28,   25,
 
        0        // eod
 };
@@ -111,25 +133,42 @@ Q_CONSTINIT const QMetaObject nodeCtrl::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<nodeCtrl, std::true_type>,
         // method 'initialized'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'nodeChanged'
+        // method 'nodeShifted'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'nodeDeleted'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'handlePrompt'
+        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
+        // method 'linkVariable'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<nodeVar *, std::false_type>,
+        // method 'itemChange'
+        QtPrivate::TypeAndForceComplete<QVariant, std::false_type>,
+        QtPrivate::TypeAndForceComplete<GraphicsItemChange, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QVariant &, std::false_type>,
         // method 'paint'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QPainter *, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QSOGI *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QStOGI *, std::false_type>,
         QtPrivate::TypeAndForceComplete<QWidget *, std::false_type>,
-        // method 'itemChange'
-        QtPrivate::TypeAndForceComplete<QVariant, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QGraphicsItem::GraphicsItemChange, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QVariant &, std::false_type>,
-        // method 'addStream'
+        // method 'hoverMoveEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
-        QtPrivate::TypeAndForceComplete<VARTYPE, std::false_type>
+        QtPrivate::TypeAndForceComplete<QGraphicsSceneHoverEvent *, std::false_type>,
+        // method 'hoverEnterEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QGraphicsSceneHoverEvent *, std::false_type>,
+        // method 'hoverLeaveEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QGraphicsSceneHoverEvent *, std::false_type>,
+        // method 'mousePressEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QGraphicsSceneMouseEvent *, std::false_type>,
+        // method 'mouseReleaseEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QGraphicsSceneMouseEvent *, std::false_type>,
+        // method 'contextMenuEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QGraphicsSceneContextMenuEvent *, std::false_type>
     >,
     nullptr
 } };
@@ -137,23 +176,44 @@ Q_CONSTINIT const QMetaObject nodeCtrl::staticMetaObject = { {
 void nodeCtrl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = dynamic_cast<nodeCtrl *>(_o);
+        auto *_t = static_cast<nodeCtrl *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->initialized(); break;
-        case 1: _t->nodeChanged(); break;
-        case 2: _t->nodeDeleted(); break;
-        case 3: _t->handlePrompt(); break;
-        case 4: _t->paint((*reinterpret_cast< std::add_pointer_t<QPainter*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<const QSOGI*>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QWidget*>>(_a[3]))); break;
-        case 5: { QVariant _r = _t->itemChange((*reinterpret_cast< std::add_pointer_t<QGraphicsItem::GraphicsItemChange>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QVariant>>(_a[2])));
+        case 1: _t->nodeShifted(); break;
+        case 2: _t->nodeDeleted((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1]))); break;
+        case 3: _t->linkVariable((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<nodeVar*>>(_a[2]))); break;
+        case 4: { QVariant _r = _t->itemChange((*reinterpret_cast< std::add_pointer_t<GraphicsItemChange>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QVariant>>(_a[2])));
             if (_a[0]) *reinterpret_cast< QVariant*>(_a[0]) = std::move(_r); }  break;
-        case 6: _t->addStream((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<VARTYPE>>(_a[2]))); break;
+        case 5: _t->paint((*reinterpret_cast< std::add_pointer_t<QPainter*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<const QStOGI*>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QWidget*>>(_a[3]))); break;
+        case 6: _t->hoverMoveEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneHoverEvent*>>(_a[1]))); break;
+        case 7: _t->hoverEnterEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneHoverEvent*>>(_a[1]))); break;
+        case 8: _t->hoverLeaveEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneHoverEvent*>>(_a[1]))); break;
+        case 9: _t->mousePressEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
+        case 10: _t->mouseReleaseEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
+        case 11: _t->contextMenuEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneContextMenuEvent*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 4:
+        case 2:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeCtrl* >(); break;
+            }
+            break;
+        case 3:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeCtrl* >(); break;
+            case 1:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeVar* >(); break;
+            }
+            break;
+        case 5:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 2:
@@ -172,15 +232,22 @@ void nodeCtrl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         }
         {
             using _t = void (nodeCtrl::*)();
-            if (_t _q_method = &nodeCtrl::nodeChanged; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &nodeCtrl::nodeShifted; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
             }
         }
         {
-            using _t = void (nodeCtrl::*)();
+            using _t = void (nodeCtrl::*)(nodeCtrl * );
             if (_t _q_method = &nodeCtrl::nodeDeleted; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 2;
+                return;
+            }
+        }
+        {
+            using _t = void (nodeCtrl::*)(nodeCtrl * , nodeVar * );
+            if (_t _q_method = &nodeCtrl::linkVariable; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 3;
                 return;
             }
         }
@@ -197,8 +264,8 @@ void *nodeCtrl::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_CLASSnodeCtrlENDCLASS.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "QItemR"))
-        return static_cast< QItemR*>(this);
+    if (!strcmp(_clname, "QGraphicsRectItem"))
+        return static_cast< QGraphicsRectItem*>(this);
     return QObject::qt_metacast(_clname);
 }
 
@@ -208,13 +275,13 @@ int nodeCtrl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 12;
     }
     return _id;
 }
@@ -226,14 +293,22 @@ void nodeCtrl::initialized()
 }
 
 // SIGNAL 1
-void nodeCtrl::nodeChanged()
+void nodeCtrl::nodeShifted()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 
 // SIGNAL 2
-void nodeCtrl::nodeDeleted()
+void nodeCtrl::nodeDeleted(nodeCtrl * _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void nodeCtrl::linkVariable(nodeCtrl * _t1, nodeVar * _t2)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 QT_WARNING_POP

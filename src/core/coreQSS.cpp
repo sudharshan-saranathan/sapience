@@ -6,6 +6,9 @@
  *  -----------------------------------
  */
 
+/*	QtCore module	*/
+#include <QRandomGenerator>
+
 /*  Class header file   */
 #include "core/coreQSS.h"
 
@@ -34,3 +37,11 @@ const QColor QSSRGB::lapisLazuli    = QColor(65, 101, 138);
 const QColor QSSRGB::carrotOrange   = QColor(241, 143, 1);
 const QColor QSSRGB::cordovan       = QColor(118, 66, 72);
 const QColor QSSRGB::darkslateGray  = QColor(59, 96, 100);
+
+QColor QSSHex::colorGenerator() {
+
+	const auto color = QRandomGenerator::global()->bounded(0x1000000);
+	const auto hex   = QColor(QString("#%1").arg(color, 6, 16, QLatin1Char('0')));
+
+	return(hex);
+}

@@ -1,7 +1,6 @@
 /*  -----------------------------------
- *  Project     : sapience
+ *  Project     : sapience-debug
  *  File        : nodeCtrl.h
- *  Date        : 19.11.2024
  *  Author      : Sudharshan Saranathan
  *  -----------------------------------
  */
@@ -13,104 +12,194 @@
 #define NODE_WS 300
 #define NODE_HS 200
 #define HDR_WS  296
-#define HDR_HS  28
+#define HDR_HS  33
+#define NODE_TEXT_WIDTH 120
 
-/*  QtCore module   */
-#include <QRect>
-#include <QPointF>
-#include <QString>
-#include <QPainter>
+/*	QtGui module	*/
+#include <QLabel>
 #include <QLineEdit>
+#include <QStatusBar>
+#include <QCompleter>
+#include <QStyleOptionGraphicsItem>
 
-/*  QtGui module    */
-#include <QGraphicsProxyWidget>
+//	Include SVG buttons	*/
+#include <QTextEdit>
 
-/*  Include project headers */
-#include "svgButton.h"
-#include "nodeVar.h"
+#include "node/nodeSVG.h"
+#include "node/nodeVar.h"
+#include "ampl/amplSolver.h"
 
-//  Convenience typedefs:
-using uint_t = unsigned int;
+//	Convenience typedefs:
+using QEditL = QLineEdit;
 using QItemG = QGraphicsItem;
+using QItemL = QGraphicsLineItem;
 using QItemR = QGraphicsRectItem;
 using QItemT = QGraphicsTextItem;
-using QItemS = QGraphicsSvgItem;
-using QSOGI = QStyleOptionGraphicsItem;
 using QProxy = QGraphicsProxyWidget;
-using QEditL = QLineEdit;
+using QStOGI = QStyleOptionGraphicsItem;
 
-//  Forward declaration of enum class:
-enum class ITEMTYPE;
+enum MessageType {
+	Info,
+	Error,
+	Warning
+};
 
-//  Class header:
-class nodeCtrl final : public QObject, public QItemR {
-    Q_OBJECT
-    Q_CLASSINFO("Author", "Sudharshan Saranathan")
+/*	Forward declaration of sub-classed QStatusBar	*/
+class status;
+
+class nodeCtrl final : public QObject, public QGraphicsRectItem {
+	Q_OBJECT
+	Q_CLASSINFO("Author", "Sudharshan Saranathan")
 
 public:
-    ~nodeCtrl() override = default;
-    nodeCtrl()           = delete;
-    nodeCtrl(const QPointF&, const QString&);
-    nodeCtrl(const nodeCtrl&);
+	~nodeCtrl() override = default;
+
+	nodeCtrl(const QPointF &, const QString &, QGraphicsItem *parent = nullptr);
+
+	nodeCtrl(const nodeCtrl &);
+
+public:
+	enum { Type = UserType + 1 };
 
 private:
-    /*  Node attributes */
-    struct _attr_ {
-        const QPointF origin;
-        const QRect bounds;
-        const ITEMTYPE type;
-    } attr;
+	/*	Default attribute(s)	*/
+	struct _attr_ {
+		QString name;          //	Node name
+		QString itemID;        //	Unique Identifier (UID)
+		QPointF origin;        //	Cursor position of created node
+		QRect   rect;          //	Node rectangle
+		bool    isBelowCursor; //	Flag set when cursor enters the node
+	} attr;
 
-    /*  Header attributes   */
-    struct _hdr_
-    {
-        QRect   rect   = QRect(0, 0, HDR_WS, HDR_HS);
-        QItemR* hdrPtr = nullptr;
-        QItemT* txtPtr = nullptr;
-    } hdr;
+	/*	Complete QGraphicsItem stack	*/
+	struct _stack_ {
+		//	Header section:
+		struct _header_ {
+			QItemR *ptr  = nullptr;
+			QRect   rect = QRect();
+		} header;
 
-    /*  SVG icon-buttons */
-    struct _svg_ {
-        svgButton *addInp  = nullptr;
-        svgButton *addOut  = nullptr;
-        svgButton *addPar  = nullptr;
-        svgButton *delNode = nullptr;
-    } svg;
+		struct _rails_ {
+			QItemL *left  = nullptr;
+			QItemL *right = nullptr;
+			QItemE *hintL = nullptr;
+			QItemE *hintR = nullptr;
+		} rails;
 
-    /*  Command-prompt  */
-    struct _prompt_
-    {
-        QProxy* proxy  = nullptr;
-        QEditL* objptr = nullptr;
-    } prompt;
+		//	Node title:
+		struct _title_ {
+			QItemT *ptr = nullptr;
+		} title;
 
-    /*  Lists to store node-variables   */
-    struct _list_
-    {
-        QList<nodeVar*>  input  = QList<nodeVar*>{};
-        QList<nodeVar *> output = QList<nodeVar *>{};
-        QList<nodeVar *> params = QList<nodeVar *>{};
-    } list;
+		//	SVG buttons for variable management:
+		struct _svg_ {
+			nodeSVG *input  = nullptr; //	Button for adding input variable to the node
+			nodeSVG *output = nullptr; //	Button for adding output variable to the node
+			nodeSVG *params = nullptr; //	Button for adding parameter/constant
+			nodeSVG *setup  = nullptr; //	Button opens the node's variable setup page
+			nodeSVG *close  = nullptr; //	Button to delete the node
+			nodeSVG *toggle = nullptr; //	Show/hide node's connections
+		} svg;
+
+		//	Lists to store variable pointers and names:
+		struct _list_ {
+			QList<nodeVar *> inp       = QList<nodeVar *>();
+			QList<nodeVar *> out       = QList<nodeVar *>();
+			QList<nodeVar *> par       = QList<nodeVar *>();
+			QCompleter *     completer = nullptr;
+		} list;
+
+		//	Struct _prompt_:
+		struct _statusBar_ {
+			QString message = QString();
+			QItemR *board   = nullptr;
+			status *pointer = nullptr;
+		} statusBar;
+	} stack;
+
+	//	Nodal context menu and actions:
+	struct _menu_ {
+		QMenu *  pointer  = nullptr;
+		QAction *save     = nullptr;
+		QAction *close    = nullptr;
+		QAction *erase    = nullptr;
+		QAction *input    = nullptr;
+		QAction *output   = nullptr;
+		QAction *constant = nullptr;
+		QAction* equation = nullptr;
+	} menu;
 
 signals:
-    void initialized(); //  Constructor emits this signal
-    void nodeChanged(); //  Signal emitted when node moved
-    void nodeDeleted(); //  Signal emitted when node closed
+	void initialized();                       //	Signal emitted upon constructor completion
+	void nodeShifted();                       //	Signal emitted when node is moved
+	void nodeDeleted(nodeCtrl *);             //	Signal emitted when node is deleted
+	void linkVariable(nodeCtrl *, nodeVar *); //	Signal emitted when the user wishes to draw a connection
 
 protected slots:
-    void handlePrompt() const;
-    void paint(QPainter *, const QSOGI *, QWidget *) override;
-    QVariant itemChange(QGraphicsItem::GraphicsItemChange, const QVariant &) override;
+	QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
-public slots:
-    void addStream(QString, VARTYPE);
+	void paint(QPainter *, const QStOGI *, QWidget *) override;
+
+	void hoverMoveEvent(QGraphicsSceneHoverEvent *) override;
+
+	void hoverEnterEvent(QGraphicsSceneHoverEvent *) override;
+
+	void hoverLeaveEvent(QGraphicsSceneHoverEvent *) override;
+
+	void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+
+	void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+
+	void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
+
+protected:
+	void actionSave() {
+	}
+
+	void actionErase() {
+	}
+
+	void actionSetup() const;
+
+	void actionPrint();
 
 public:
-    [[nodiscard]] QString  getName() const { return (hdr.txtPtr->toPlainText()); }
-    [[nodiscard]] ITEMTYPE getType() const { return (attr.type); }
+	[[nodiscard]] int     type() const override { return (Type); }
+	[[nodiscard]] QString name() const { return (attr.name); }
+	[[nodiscard]] QString getUID() const { return attr.itemID; }
+	[[nodiscard]] QPointF origin() const { return attr.origin; }
 
-private:
-    void init();
+	static void autoCompletion(const QString &, const QTextEdit *);
+
+	void createVariable(const VariableType &, const QString &variableName = QString(), QPointF pos = QPointF());
+
+	void deleteVariable(nodeVar *);
+
+	void onCloseClicked();
+};
+
+class status : public QGraphicsTextItem {
+public:
+	~status() override = default;
+
+	explicit status(QGraphicsItem *parent = nullptr) : QGraphicsTextItem(parent) {
+		document()->setDefaultFont(QFont("Gill Sans", 12, QFont::Light));
+		setDefaultTextColor(Qt::white);
+	}
+
+public:
+	void print(const QString &message, const MessageType type = Info) {
+		auto prefix = QString();
+		if (type == Info)
+			prefix = QString("[I]: ");
+		else if (type == Error)
+			prefix = QString("[E]: ");
+		else
+			prefix = QString("[W]: ");
+
+		setPlainText(prefix + message);
+	}
+
 };
 
 #endif

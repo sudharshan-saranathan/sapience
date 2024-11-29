@@ -22,16 +22,16 @@
 int main(int argc, char *argv[])
 {
     /*  Instantiate application and GUI */
-    QApp    main_app(argc, argv);
+    QApp_t  main_app(argc, argv);
+    QApp_t::setFont(QFont("Gill Sans", 14));
     coreGUI core_gui(APP_XS, APP_YS, &main_app);
 
-    /*  Customize appearance    */
-    QApp::setFont(QFont("Gill Sans", 14));
+    //	Set stylesheets:
     main_app.setStyleSheet(coreQSS::readQSS(":/style/sapience.qss"));
 
-    /*  Display GUI */
+    //	Display GUI:
     core_gui.show();
 
     /*  Enter execution loop    */
-    return(main_app.exec());
+    return(QApp_t::exec());
 }

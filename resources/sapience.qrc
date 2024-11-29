@@ -1,5 +1,7 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
+    <file>icons/lambda.svg</file>
+    <file>icons/arrow-right-solid.svg</file>
     <file>icons/var.inp.svg</file>
     <file>icons/gear-solid.svg</file>
     <file>icons/circle-up.svg</file>
@@ -17,8 +19,12 @@
     <file>icons/button.clear.svg</file>
     <file>icons/drawer-alt.svg</file>
     <file>icons/laptop-code.svg</file>
+    <file>icons/toggle-on.svg</file>
+    <file>icons/toggle-off.svg</file>
 
     <file>images/offwhite.jpg</file>
+    <file>images/gp-texture.png</file>
+    <file>images/concrete.jpg</file>
     
     <file>style/sapience.qss</file>
     <file>style/nodegui.qss</file>

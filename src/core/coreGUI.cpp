@@ -6,83 +6,102 @@
  *  -----------------------------------
  */
 
-/*  Class header file   */
+/*  Class header    */
 #include "core/coreGUI.h"
 
+/*  QtWidgets module    */
+#include <QTabBar>
+
 /*  Class constructor   */
-coreGUI::coreGUI(const uint_t& xs, const uint_t& ys, QApplication* app) :
-/*  GUI attributes      */
+coreGUI::coreGUI(const int& xs, const int& ys, QApplication* app) :
+
+/*  Initializer list    */
+//  struct _attr_
     attr{xs, ys, app, QCursor(Qt::ArrowCursor)},
-/*  Central widget and layout   */
-    widget{new QWidget(this), new QGridLayout(widget.objptr)},
-/*  Initialize QTabWidget   */
-    tabs{new QTabWidget(widget.objptr)},
-/*  Initialize QGroupBox and its children   */
-    groupbox {
-        new QGroupBox   (widget.objptr),
-        new QHBoxLayout (groupbox.objptr),
-        new QToolButton (groupbox.objptr),
-        new QToolButton (groupbox.objptr),
-        new QLabel      (widget.objptr)
-    },
-/*  Initialize schemaViewer */
-    viewer{new schemaViewer(tabs.objptr)}
-/*  Constructor body begin  */
+//  struct _stack_
+    stack
+    {
+        //  struct _center_
+        {
+            new QWidget(this),                      //  Widget
+            new QGridLayout(stack.center.ptr)       //  QGridLayout
+        },
+        //  struct _tabs_
+        {
+            QList<int>{},                           //  QList
+            new QTabWidget(stack.center.ptr),       //  QTabWidget
+            new schemaViewer(stack.tabs.ptr),       //  schemaViewer
+            new QWidget(stack.tabs.ptr)},           //  QWidget
+        //  struct _groupbox_
+        {
+            new QGroupBox(stack.center.ptr),        //  QGroupBox
+            new QHBoxLayout(stack.groupbox.ptr),    //  QHBoxLayout
+            new QToolButton (stack.groupbox.ptr),   //  QToolButton
+            new QToolButton (stack.groupbox.ptr),   //  QToolButton
+            new QLabel(stack.center.ptr)            //  QLabel
+        }
+    }
+
+//  -------------------------
+//  Constructor (body) begin:
 {
-    /*  Set object name for internal reference  */
-    setObjectName ("Main GUI");
+    //  Assert pointer allocations:
+    Q_ASSERT(attr.app);
+    Q_ASSERT(stack.center.ptr);
+    Q_ASSERT(stack.center.layout);
+    Q_ASSERT(stack.tabs.ptr);
+    Q_ASSERT(stack.tabs.graph);
+    Q_ASSERT(stack.tabs.setup);
+    Q_ASSERT(stack.groupbox.ptr);
+    Q_ASSERT(stack.groupbox.layout);
+    Q_ASSERT(stack.groupbox.graph);
+    Q_ASSERT(stack.groupbox.setup);
+    Q_ASSERT(stack.groupbox.label);
 
-    /*  Resize GUI  */
-    resize(static_cast<int>(attr.ws), static_cast<int>(attr.hs));
+    //  Setup GUI properties:
+    resize(attr.ws, attr.hs);
+    setObjectName("coreGUI");
+    setCentralWidget(stack.center.ptr);
 
-    /*  Set central widget  */
-    setCentralWidget(widget.objptr);
+    /*  Add QTabWidget and QGroupBox to QGridLayout and customize:
+     *  Do not delete or modify values (unless you're sure) */
+    stack.center.layout->addWidget(stack.tabs.ptr, 0, 0, 4, 3);
+    stack.center.layout->addWidget(stack.groupbox.ptr, 0, 1, 1, 1, Qt::AlignCenter);
+    stack.center.layout->addWidget(stack.groupbox.label, 1, 1, 1, 1, Qt::AlignCenter);
+    stack.center.layout->setContentsMargins(4, 4, 4, 4);
+    stack.center.layout->setRowStretch(2, 20);
+    stack.center.layout->setSpacing(2);
 
-    /*  Add grid-layout to central widget   */
-    widget.objptr->setLayout(widget.layout);
+    //  Insert schemaViewer and QWidget into QTabWidget:
+    stack.tabs.num.append(stack.tabs.ptr->addTab(stack.tabs.graph, QIcon(":/icons/drawer-alt.svg"), ""));
+    stack.tabs.num.append(stack.tabs.ptr->addTab(stack.tabs.setup, QIcon(":/icons/laptop-code.svg"), ""));
+    stack.tabs.ptr->tabBar()->hide();
 
-    /*  Add child widgets to layout and customize   */
-    widget.layout->addWidget(tabs.objptr, 0, 0, 4, 3);
-    widget.layout->addWidget(groupbox.objptr, 0, 1, 1, 1, Qt::AlignHCenter);
-    widget.layout->addWidget(groupbox.label, 1, 1, 1, 1, Qt::AlignHCenter);
-    widget.layout->setContentsMargins(4, 4, 4, 4);
-    widget.layout->setRowStretch(2, 20);
-    widget.layout->setSpacing(2);
+    //  Set label text (shortcut hint) and customize:
+    stack.groupbox.label->setContentsMargins(1, 1, 1, 1);
+    stack.groupbox.label->setFont(QFont("Gill Sans", 14));
+    stack.groupbox.label->setText("Press <font color='red'>Alt</font> + <font color='red'>Tab</font>");
 
-    /*  Add schemaViewer and optimization widgets as tabs to QTabWidget, but hide tab-bar   */
-    tabs.objptr->tabBar()->hide();
-    tabs.number.append(tabs.objptr->addTab(viewer.objptr, QIcon(":/icons/drawer-alt.svg"), ""));
-    tabs.number.append(tabs.objptr->addTab(new QWidget,  QIcon(":/icons/laptop-code.svg"), ""));
+    //  Customize tool button appearance and behaviour:
+    //  <graph>
+    stack.groupbox.graph->setIcon(QIcon(":/icons/drawer-alt.svg"));
+    stack.groupbox.graph->setIconSize(QSize(40, 20));
+    stack.groupbox.graph->setCheckable(true);
+    stack.groupbox.graph->setChecked(true);
+    //  <setup>
+    stack.groupbox.setup->setIcon(QIcon(":/icons/laptop-code.svg"));
+    stack.groupbox.setup->setIconSize(QSize(40, 20));
+    stack.groupbox.setup->setCheckable(true);
 
-    /*  Display label and customize */
-    groupbox.label->setContentsMargins(0, 0, 0, 0);
-    groupbox.label->setFont(QFont("Gill Sans", 14));
-#ifdef TARGET_OS_OSX
-    groupbox.label->setText("Press <font color='red'>Option</font> + <font color='red'>Tab</font>");
-#else
-    groupbox.label->setText("Press <font color='red'>Ctrl</font> + <font color='red'>Tab</font>");
-#endif
+    //  Add tool buttons to groupbox layout and customize:
+    stack.groupbox.layout->setContentsMargins(4, 4, 4, 4);
+    stack.groupbox.layout->addWidget(stack.groupbox.graph);
+    stack.groupbox.layout->addWidget(stack.groupbox.setup);
+    stack.groupbox.ptr->setLayout(stack.groupbox.layout);
 
-    /*  Initialize tool button, set icon and customize  */
-    groupbox.graph->setIcon(QIcon(":/icons/drawer-alt.svg"));
-    groupbox.graph->setIconSize(QSize(40, 20));
-    groupbox.graph->setCheckable(true);
-    groupbox.graph->setChecked(true);               //  The graph button is checked by default
-
-    /*  Initialize tool button, set icon and customize  */
-    groupbox.setup->setIcon(QIcon(":/icons/laptop-code.svg"));
-    groupbox.setup->setIconSize(QSize(40, 20));
-    groupbox.setup->setCheckable(true);
-
-    /*  Arrange tool buttons in layout and set layout   */
-    groupbox.layout->setContentsMargins(4, 4, 4, 4);
-    groupbox.layout->addWidget(groupbox.graph);
-    groupbox.layout->addWidget(groupbox.setup);
-    groupbox.objptr->setLayout(groupbox.layout);
-
-    /*  Connect buttons to event handlers   */
-    auto connection_1 = QObject::connect(groupbox.graph, &QToolButton::clicked, this, [this](){showGraph();});
-    auto connection_2 = QObject::connect(groupbox.setup, &QToolButton::clicked, this, [this](){showSetup();});
+    //  Connect buttons to event handlers:
+    connections.append(QObject::connect(stack.groupbox.graph, &QToolButton::clicked, this, [this](){showGraph();}));
+    connections.append(QObject::connect(stack.groupbox.setup, &QToolButton::clicked, this, [this](){showSetup();}));
 
     /*  Show GUI    */
     show();
@@ -91,43 +110,44 @@ coreGUI::coreGUI(const uint_t& xs, const uint_t& ys, QApplication* app) :
     emit initialized();
 }
 
-/*  Tool button event-handler   */
+//  Event-handler for <graph>
 void coreGUI::showGraph()
 {
-    /*  Show graph  */
-    groupbox.graph->setChecked(true);
-    groupbox.setup->setChecked(false);
-    tabs.objptr->setCurrentIndex(tabs.number[0]);
+    //  Toggle checked button, show graph tab:
+    stack.groupbox.graph->setChecked(true);
+    stack.groupbox.setup->setChecked(false);
+    stack.tabs.ptr->setCurrentIndex(stack.tabs.num[0]);
 }
 
-/*  Tool button event-handler   */
+//  Event-handler for <setup>:
 void coreGUI::showSetup()
 {
-    /*  Show setup  */
-    groupbox.graph->setChecked(false);
-    groupbox.setup->setChecked(true);
-    tabs.objptr->setCurrentIndex(tabs.number[1]);
+    //  Toggle checked button, show setup tab:
+    stack.groupbox.graph->setChecked(false);
+    stack.groupbox.setup->setChecked(true);
+    stack.tabs.ptr->setCurrentIndex(stack.tabs.num[1]);
 }
 
-/*  Key-press event-handler */
-void coreGUI::keyPressEvent(QKeyEvent *event)
+void coreGUI::keyPressEvent(QKeyEvent* event)
 {
-    /*  Propagate event to base-class handler   */
-    QMainWindow::keyPressEvent(event);
-
-    /*  Switch-case block for event handling    */
-    switch(event->keyCombination())
-    {
-        /*  Filter <Alt+Tab>    */
-        case QKeyCombination(Qt::AltModifier, Qt::Key_Tab).toCombined(): {
-            groupbox.graph->isChecked() ? showSetup() : showGraph();
+    switch(event->keyCombination()) {
+        //  Handle Alt (Option on macOS) + Tab key-presses:
+        case QKeyCombination(Qt::AltModifier, Qt::Key_Tab).toCombined():
+            //  Toggle tabs, accept event:
+            stack.groupbox.graph->isChecked() ? showSetup() : showGraph();
             event->accept();
             break;
-        }
-        /*  Default */
-        default: {
-            event->ignore();
+
+        default:
+            //  Call base-class implementation:
+            QMainWindow::keyPressEvent(event);
             break;
-        }
     }
+}
+
+void coreGUI::keyReleaseEvent(QKeyEvent *event) {
+    event->ignore();
+
+    //  Call base-class implementation:
+    QMainWindow::keyReleaseEvent(event);
 }

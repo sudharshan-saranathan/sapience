@@ -13,6 +13,7 @@
 #include <QPen>
 #include <QFile>
 #include <QBrush>
+#include <QColor>
 #include <QString>
 
 /*  Custom QBrush objects   */
@@ -47,6 +48,10 @@ struct QSSRGB {
     static const QColor carrotOrange;
     static const QColor cordovan;
     static const QColor darkslateGray;
+};
+
+struct QSSHex {
+    static QColor colorGenerator();
 };
 
 /*  Class to parse stylesheets   */

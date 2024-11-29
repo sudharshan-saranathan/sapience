@@ -41,18 +41,21 @@ constexpr auto qt_meta_stringdata_CLASSschemaCanvasENDCLASS = QtMocHelpers::stri
     "Sudharshan Saranathan",
     "initialized",
     "",
+    "quitProgram",
     "mouseMoveEvent",
     "QGraphicsSceneMouseEvent*",
     "event",
     "mousePressEvent",
     "mouseReleaseEvent",
+    "contextMenuEvent",
+    "QGraphicsSceneContextMenuEvent*",
     "keyPressEvent",
     "QKeyEvent*",
     "keyReleaseEvent",
-    "createNode",
-    "nodeCtrl",
-    "deleteNode",
-    "nodeCtrl*"
+    "onCreateLink",
+    "nodeCtrl*",
+    "nodeVar*",
+    "onDeleteNode"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -65,41 +68,43 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaCanvasENDCLASS[] = {
       12,       // revision
        0,       // classname
        1,   14, // classinfo
-       9,   16, // methods
+      10,   16, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // classinfo: key, value
        1,    2,
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   70,    4, 0x06,    1 /* Public */,
+       3,    0,   76,    4, 0x06,    1 /* Public */,
+       5,    0,   77,    4, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    1,   71,    4, 0x09,    2 /* Protected */,
-       8,    1,   74,    4, 0x09,    4 /* Protected */,
-       9,    1,   77,    4, 0x09,    6 /* Protected */,
-      10,    1,   80,    4, 0x09,    8 /* Protected */,
-      12,    1,   83,    4, 0x09,   10 /* Protected */,
-      13,    1,   86,    4, 0x0a,   12 /* Public */,
-      13,    1,   89,    4, 0x0a,   14 /* Public */,
-      15,    1,   92,    4, 0x0a,   16 /* Public */,
+       6,    1,   78,    4, 0x09,    3 /* Protected */,
+       9,    1,   81,    4, 0x09,    5 /* Protected */,
+      10,    1,   84,    4, 0x09,    7 /* Protected */,
+      11,    1,   87,    4, 0x09,    9 /* Protected */,
+      13,    1,   90,    4, 0x09,   11 /* Protected */,
+      15,    1,   93,    4, 0x09,   13 /* Protected */,
+      16,    2,   96,    4, 0x0a,   15 /* Public */,
+      19,    1,  101,    4, 0x0a,   18 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 6,    7,
-    QMetaType::Void, 0x80000000 | 6,    7,
-    QMetaType::Void, 0x80000000 | 6,    7,
-    QMetaType::Void, 0x80000000 | 11,    7,
-    QMetaType::Void, 0x80000000 | 11,    7,
-    QMetaType::Void, QMetaType::QPointF,    4,
-    QMetaType::Void, 0x80000000 | 14,    4,
-    QMetaType::Void, 0x80000000 | 16,    4,
+    QMetaType::Void, 0x80000000 | 7,    8,
+    QMetaType::Void, 0x80000000 | 7,    8,
+    QMetaType::Void, 0x80000000 | 7,    8,
+    QMetaType::Void, 0x80000000 | 12,    8,
+    QMetaType::Void, 0x80000000 | 14,    8,
+    QMetaType::Void, 0x80000000 | 14,    8,
+    QMetaType::Void, 0x80000000 | 17, 0x80000000 | 18,    4,    4,
+    QMetaType::Void, 0x80000000 | 17,    4,
 
        0        // eod
 };
@@ -115,6 +120,8 @@ Q_CONSTINIT const QMetaObject schemaCanvas::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<schemaCanvas, std::true_type>,
         // method 'initialized'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'quitProgram'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'mouseMoveEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QGraphicsSceneMouseEvent *, std::false_type>,
@@ -124,19 +131,20 @@ Q_CONSTINIT const QMetaObject schemaCanvas::staticMetaObject = { {
         // method 'mouseReleaseEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QGraphicsSceneMouseEvent *, std::false_type>,
+        // method 'contextMenuEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QGraphicsSceneContextMenuEvent *, std::false_type>,
         // method 'keyPressEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>,
         // method 'keyReleaseEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>,
-        // method 'createNode'
+        // method 'onCreateLink'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QPointF &, std::false_type>,
-        // method 'createNode'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const nodeCtrl &, std::false_type>,
-        // method 'deleteNode'
+        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<nodeVar *, std::false_type>,
+        // method 'onDeleteNode'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>
     >,
@@ -150,20 +158,30 @@ void schemaCanvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         (void)_t;
         switch (_id) {
         case 0: _t->initialized(); break;
-        case 1: _t->mouseMoveEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
-        case 2: _t->mousePressEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
-        case 3: _t->mouseReleaseEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
-        case 4: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
-        case 5: _t->keyReleaseEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
-        case 6: _t->createNode((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
-        case 7: _t->createNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl>>(_a[1]))); break;
-        case 8: _t->deleteNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1]))); break;
+        case 1: _t->quitProgram(); break;
+        case 2: _t->mouseMoveEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
+        case 3: _t->mousePressEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
+        case 4: _t->mouseReleaseEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
+        case 5: _t->contextMenuEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneContextMenuEvent*>>(_a[1]))); break;
+        case 6: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
+        case 7: _t->keyReleaseEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
+        case 8: _t->onCreateLink((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<nodeVar*>>(_a[2]))); break;
+        case 9: _t->onDeleteNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
         case 8:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeCtrl* >(); break;
+            case 1:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeVar* >(); break;
+            }
+            break;
+        case 9:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -177,6 +195,13 @@ void schemaCanvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
             using _t = void (schemaCanvas::*)();
             if (_t _q_method = &schemaCanvas::initialized; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (schemaCanvas::*)();
+            if (_t _q_method = &schemaCanvas::quitProgram; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
                 return;
             }
         }
@@ -202,13 +227,13 @@ int schemaCanvas::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }
@@ -217,5 +242,11 @@ int schemaCanvas::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void schemaCanvas::initialized()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void schemaCanvas::quitProgram()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 QT_WARNING_POP

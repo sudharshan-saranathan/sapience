@@ -4,12 +4,93 @@
 	background				: white;
 }
 
+QFrame {
+    border                  : none;
+    background              : white;
+}
+
+QComboBox {
+    border: 1px solid #d0d0d0; /* Light gray border for macOS look */
+    border-radius: 6px; /* Rounded corners */
+    background: #f8f8f8; /* Light background for macOS look */
+    color: #333; /* Text color */
+}
+
+QComboBox:hover {
+    border: 1px solid #a0a0a0; /* Slightly darker border on hover */
+}
+
+QComboBox::drop-down {
+    border: none; /* No additional border for drop-down */
+    width: 20px;
+    background: transparent;
+}
+
+QComboBox::down-arrow {
+    image: url(down_arrow.png); /* Use a custom down-arrow icon */
+    width: 8px;
+    height: 8px;
+}
+
+QComboBox QAbstractItemView {
+    border: 1px solid #d0d0d0; /* Border for the drop-down list */
+    background: #ffffff; /* White background for items */
+    selection-background-color: #0078d7; /* macOS-style blue selection */
+    selection-color: #ffffff; /* White text on selection */
+}
+
+QTextEdit {
+    border                  : 1px solid white;
+    color                   : black;
+}
+
+QMenu {
+    font-family             : "Gill Sans";
+    border                  : 1px solid black;
+    padding                 : 4px 4px 4px 4px;
+    color                   : black;
+    background              : white;
+    border-radius           : 8px;
+}
+
+QMenu::item {
+    padding                 : 4px 4px 4px 4px;
+    color                   : black;
+    background-color        : white;
+}
+
+QMenu::item:disabled {
+    padding                 : 4px 4px 4px 4px;
+    color                   : gray;
+    background-color        : white;
+}
+
+QMenu::item:selected {
+    padding                 : 4px 4px 4px 4px;
+    color                   : #187795;
+    background              : #dddddd;
+    border-radius           : 6px;
+}
+
 QLabel {
     color                   : black;
-    border                  : 2px solid white;
-    padding                 : 2px;
+    border                  : 1px solid black;
+    padding                 : 1px;
     background              : white;
-    border-radius           : 12px;
+    border-radius           : 10px;
+}
+
+QToolTip {
+    border                  : 1px solid black;
+    color                   : black;
+    font-family             : "Gill Sans";
+    font-size               : 14px;
+    background              : #D0F4EA;
+}
+
+QRadioButton {
+    color                   : black;
+    background              : transparent;
 }
 
 QSplitter {
@@ -44,11 +125,10 @@ QMenuBar {
 QStatusBar {
 	border					: none;
 	padding                 : 2px;
-	background				: #50727b;
+	background				: #22333B;
 }
 
 QGroupBox {
-    border                  : 0px;
     padding                 : 0px;
     border-radius           : 16px;
     background              : #64a6bd;
@@ -117,24 +197,24 @@ QLineEdit {
 }
 
 QScrollBar:horizontal {
-    height					: 20px;
+    height					: 12px;
 	border                  : none;
-	margin                  : 3px 3px 3px 3px;
+	margin                  : 1px 1px 1px 1px;
     background				: transparent;
 }
 
 QScrollBar::handle:horizontal {
-	border					: 2px solid black;
+	border					: 1px solid gray;
+	height                  : 6px;
 	min-width           	: 50px;
-    background				: white;
-	border-radius			: 6px;
+    background				: gray;
+	border-radius			: 4px;
 }
 
 QScrollBar::handle:hover:horizontal {
-	border					: 2px solid #aaaaaa;
+	border					: 1px solid #aaaaaa;
 	min-width               : 50px;
     background				: #aaaaaa;
-	border-radius			: 6px;
 }
 
 QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
@@ -143,24 +223,24 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
 }
 
 QScrollBar:vertical {
-    width					: 20px;
+    width					: 12px;
 	border            		: none;
-	margin                  : 3px 3px 3px 3px;
+	margin                  : 1px 1px 1px 1px;
     background				: transparent;
 }
 
 QScrollBar::handle:vertical {
-	border					: 2px solid black;
+	border					: 1px solid gray;
+	width                   : 6px;
 	min-height              : 50px;
-    background				: white;
-	border-radius			: 6px;
+    background				: gray;
+	border-radius			: 4px;
 }
 
 QScrollBar::handle:hover:vertical {
 	border					: 2px solid #aaaaaa;
 	min-width               : 50px;
     background				: #aaaaaa;
-	border-radius			: 6px;
 }
 
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{
@@ -168,53 +248,43 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{
 	background 				: transparent;
 }
 
+QTableWidget {
+    color: black;
+    font: 12px "Verdana";
+}
+
+QHeaderView::section {
+    color: black;
+    font: 12px "Gill Sans";
+}
+
 QListView {
-	color				: #FFFFFF;
-	border				: 1px solid #191919;
-	font-size			: 12px;
-	font-weight			: bold;
-	padding-left		: -10px;
-	padding-right		: -10px;
-	background-color	: #333333;
-}
+     font-family             : "Gill Sans";
+     border                  : 1px solid black;
+     padding                 : 4px 4px 4px 4px;
+     color                   : black;
+     background              : white;
+     border-radius           : 8px;
+ }
 
-QListView::item
-{
-	color: #31cecb;
-	background-color: #454e5e;
-	border: none;
-	padding: 5px;
-	border-radius: 0px;
-	padding-left : 10px;
-	height: 42px;
+ QListView::item {
+     padding                 : 4px 4px 4px 4px;
+     color                   : black;
+     background-color        : white;
+ }
 
-}
+ QListView::item:disabled {
+     padding                 : 4px 4px 4px 4px;
+     color                   : gray;
+     background-color        : white;
+ }
 
-QListView::item:selected
-{
-	color: #000;
-	background-color: #ff3333;
-
-}
-
-
-QListView::item:!selected
-{
-	color:white;
-	background-color: transparent;
-	border: none;
-	padding-left : 10px;
-
-}
-
-QListView::item:!selected:hover
-{
-	color: #000;
-	background-color: #bcbdbb;
-	border: none;
-	padding-left : 10px;
-
-}
+ QListView::item:selected {
+     padding                 : 4px 4px 4px 4px;
+     color                   : #187795;
+     background              : #dddddd;
+     border-radius           : 6px;
+ }
 
 QTreeView {
 		color				: black;

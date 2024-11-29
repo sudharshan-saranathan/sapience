@@ -7,49 +7,49 @@
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
-    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
     <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
   </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="sapience" targetName="compiler_rcc_clean" />
-      <config projectName="sapience" targetName="FORCE" />
-      <config projectName="sapience" targetName="compiler_lex_clean" />
-      <config projectName="sapience" targetName="compiler_uic_make_all" />
-      <config projectName="sapience" targetName="compiler_yacc_impl_clean" />
-      <config projectName="sapience" targetName="mocables" />
-      <config projectName="sapience" targetName="compiler_moc_header_clean" />
-      <config projectName="sapience" targetName="distclean" />
-      <config projectName="sapience" targetName="compiler_moc_objc_header_make_all" />
-      <config projectName="sapience" targetName="compiler_clean" />
-      <config projectName="sapience" targetName="compiler_moc_source_clean" />
-      <config projectName="sapience" targetName="compiler_yacc_decl_clean" />
-      <config projectName="sapience" targetName="compiler_yacc_impl_make_all" />
-      <config projectName="sapience" targetName="mocclean" />
-      <config projectName="sapience" targetName="first" />
-      <config projectName="sapience" targetName="compiler_uic_clean" />
-      <config projectName="sapience" targetName="benchmark" />
-      <config projectName="sapience" targetName="compiler_yacc_decl_make_all" />
-      <config projectName="sapience" targetName="qmake" />
-      <config projectName="sapience" targetName="check" />
-      <config projectName="sapience" targetName="compiler_moc_objc_header_clean" />
-      <config projectName="sapience" targetName="install" />
-      <config projectName="sapience" targetName="xcodeproj" />
-      <config projectName="sapience" targetName="compiler_moc_source_make_all" />
-      <config projectName="sapience" targetName="compiler_rez_source_make_all" />
-      <config projectName="sapience" targetName="qmake_all" />
-      <config projectName="sapience" targetName="all" />
-      <config projectName="sapience" targetName="distdir" />
-      <config projectName="sapience" targetName="compiler_rcc_make_all" />
-      <config projectName="sapience" targetName="compiler_rez_source_clean" />
-      <config projectName="sapience" targetName="compiler_lex_make_all" />
-      <config projectName="sapience" targetName="compiler_moc_header_make_all" />
-      <config projectName="sapience" targetName="dist" />
-      <config projectName="sapience" targetName="Makefile" />
-      <config projectName="sapience" targetName="uninstall" />
+      <config projectName="sapience-debug" targetName="compiler_moc_objc_header_make_all" />
+      <config projectName="sapience-debug" targetName="mocables" />
+      <config projectName="sapience-debug" targetName="compiler_lex_clean" />
+      <config projectName="sapience-debug" targetName="compiler_uic_make_all" />
+      <config projectName="sapience-debug" targetName="compiler_yacc_impl_clean" />
+      <config projectName="sapience-debug" targetName="compiler_moc_source_make_all" />
+      <config projectName="sapience-debug" targetName="compiler_rcc_clean" />
+      <config projectName="sapience-debug" targetName="FORCE" />
+      <config projectName="sapience-debug" targetName="compiler_clean" />
+      <config projectName="sapience-debug" targetName="first" />
+      <config projectName="sapience-debug" targetName="mocclean" />
+      <config projectName="sapience-debug" targetName="compiler_yacc_impl_make_all" />
+      <config projectName="sapience-debug" targetName="distclean" />
+      <config projectName="sapience-debug" targetName="compiler_yacc_decl_clean" />
+      <config projectName="sapience-debug" targetName="compiler_uic_clean" />
+      <config projectName="sapience-debug" targetName="qmake" />
+      <config projectName="sapience-debug" targetName="compiler_moc_header_make_all" />
+      <config projectName="sapience-debug" targetName="dist" />
+      <config projectName="sapience-debug" targetName="compiler_moc_source_clean" />
+      <config projectName="sapience-debug" targetName="install" />
+      <config projectName="sapience-debug" targetName="benchmark" />
+      <config projectName="sapience-debug" targetName="compiler_yacc_decl_make_all" />
+      <config projectName="sapience-debug" targetName="compiler_moc_objc_header_clean" />
+      <config projectName="sapience-debug" targetName="distdir" />
+      <config projectName="sapience-debug" targetName="check" />
+      <config projectName="sapience-debug" targetName="compiler_rez_source_clean" />
+      <config projectName="sapience-debug" targetName="Makefile" />
+      <config projectName="sapience-debug" targetName="all" />
+      <config projectName="sapience-debug" targetName="compiler_moc_header_clean" />
+      <config projectName="sapience-debug" targetName="xcodeproj" />
+      <config projectName="sapience-debug" targetName="qmake_all" />
+      <config projectName="sapience-debug" targetName="compiler_lex_make_all" />
+      <config projectName="sapience-debug" targetName="compiler_rcc_make_all" />
+      <config projectName="sapience-debug" targetName="uninstall" />
+      <config projectName="sapience-debug" targetName="compiler_rez_source_make_all" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -59,24 +59,84 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Refactored code, deleted enum {UserType}">
-      <change afterPath="$PROJECT_DIR$/lib/moc_nodeCtrl.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/nodeCtrl.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_nodeCtrl.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/ampl/amplSolver.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/ampl/amplVariable.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/path/pathElement.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ampl/amplSolver.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/nodeActions.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/path/pathElement.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/c_cpp_properties.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/sapience.app/Contents/MacOS/sapience" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sapience.app/Contents/MacOS/sapience" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/coreEnum.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/coreGUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreGUI.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/coreIOF.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/coreQSS.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreQSS.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/node/nodeCtrl.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeCtrl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeVar.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeVar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/svgButton.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeSVG.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/schematic/schemaGrid.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/schematic/schemaViewer.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaViewer.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/coreGUI.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreGUI.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/coreIOF.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/coreQSS.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreQSS.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/moc_coreGUI.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_coreGUI.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/moc_nodeControl.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/moc_nodeCtrl.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_nodeCtrl.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/moc_nodeVar.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_nodeVar.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/moc_schemaCanvas.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_schemaCanvas.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/moc_schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_schemaViewer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/moc_svgButton.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nodeControl.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nodeCtrl.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nodeCtrl.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nodeVar.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nodeVar.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/qrc_sapience.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/qrc_sapience.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/qrc_sapiens.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaCanvas.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaCanvas.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/schemaGrid.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaViewer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/svgButton.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.pro" beforeDir="false" afterPath="$PROJECT_DIR$/main.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_canvas.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_coreGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_coreGUI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeControl.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeCtrl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_nodeCtrl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeVar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_nodeVar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_qBezier.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_qMainGui.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_qNode.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_qPane.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_qPrompt.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_qScene.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_qSvgB.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_qVar.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_qView.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_scene.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_schemaViewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_schemaViewer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_svgButton.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_viewer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/qrc_sapience.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/qrc_sapience.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sapience.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sapience.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/style/sapience.qss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/style/sapience.qss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/coreGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreGUI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/coreIOF.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/coreQSS.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreQSS.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeVar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeVar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/svgButton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeSVG.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schematic/schemaGrid.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +181,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/include/ampl/amplOptim.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/include/node/nodeCtrl.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/include/node/nodeVar.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/include/schematic/schemaViewer.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/schematic/schemaViewer.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MakefileLocalSettings">
     <option name="availableProjects">
@@ -128,14 +194,14 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="sapience" />
+              <option name="name" value="sapience-debug" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="sapience" />
+                <option name="name" value="sapience-debug" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
@@ -177,206 +243,212 @@
     &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/opt/developer/cplusplus/sapience-debug/src/node&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C++&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.22918384&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/node" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/include/ampl" />
       <recent name="$PROJECT_DIR$/src/node" />
     </key>
   </component>
   <component name="RunManager" selected="Native Application.all">
-    <configuration name="FORCE" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="FORCE" CONFIG_NAME="FORCE" version="1">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FORCE" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="FORCE" CONFIG_NAME="FORCE" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Makefile" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="Makefile" CONFIG_NAME="Makefile" version="1">
+    <configuration name="Makefile" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="Makefile" CONFIG_NAME="Makefile" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="./bin/sapience.app/Contents/MacOS/sapience">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="./bin/sapience.app/Contents/MacOS/sapience">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="benchmark" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="benchmark" CONFIG_NAME="benchmark" version="1">
+    <configuration name="benchmark" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="benchmark" CONFIG_NAME="benchmark" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="check" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="check" CONFIG_NAME="check" version="1">
+    <configuration name="check" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="check" CONFIG_NAME="check" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_clean" CONFIG_NAME="compiler_clean" version="1">
+    <configuration name="compiler_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_clean" CONFIG_NAME="compiler_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_lex_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_lex_clean" CONFIG_NAME="compiler_lex_clean" version="1">
+    <configuration name="compiler_lex_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_lex_clean" CONFIG_NAME="compiler_lex_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_lex_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_lex_make_all" CONFIG_NAME="compiler_lex_make_all" version="1">
+    <configuration name="compiler_lex_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_lex_make_all" CONFIG_NAME="compiler_lex_make_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_moc_header_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_moc_header_clean" CONFIG_NAME="compiler_moc_header_clean" version="1">
+    <configuration name="compiler_moc_header_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_moc_header_clean" CONFIG_NAME="compiler_moc_header_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_moc_header_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_moc_header_make_all" CONFIG_NAME="compiler_moc_header_make_all" version="1">
+    <configuration name="compiler_moc_header_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_moc_header_make_all" CONFIG_NAME="compiler_moc_header_make_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_moc_objc_header_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_moc_objc_header_clean" CONFIG_NAME="compiler_moc_objc_header_clean" version="1">
+    <configuration name="compiler_moc_objc_header_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_moc_objc_header_clean" CONFIG_NAME="compiler_moc_objc_header_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_moc_objc_header_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_moc_objc_header_make_all" CONFIG_NAME="compiler_moc_objc_header_make_all" version="1">
+    <configuration name="compiler_moc_objc_header_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_moc_objc_header_make_all" CONFIG_NAME="compiler_moc_objc_header_make_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_moc_source_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_moc_source_clean" CONFIG_NAME="compiler_moc_source_clean" version="1">
+    <configuration name="compiler_moc_source_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_moc_source_clean" CONFIG_NAME="compiler_moc_source_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_moc_source_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_moc_source_make_all" CONFIG_NAME="compiler_moc_source_make_all" version="1">
+    <configuration name="compiler_moc_source_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_moc_source_make_all" CONFIG_NAME="compiler_moc_source_make_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_rcc_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_rcc_clean" CONFIG_NAME="compiler_rcc_clean" version="1">
+    <configuration name="compiler_rcc_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_rcc_clean" CONFIG_NAME="compiler_rcc_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_rcc_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_rcc_make_all" CONFIG_NAME="compiler_rcc_make_all" version="1">
+    <configuration name="compiler_rcc_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_rcc_make_all" CONFIG_NAME="compiler_rcc_make_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_rez_source_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_rez_source_clean" CONFIG_NAME="compiler_rez_source_clean" version="1">
+    <configuration name="compiler_rez_source_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_rez_source_clean" CONFIG_NAME="compiler_rez_source_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_rez_source_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_rez_source_make_all" CONFIG_NAME="compiler_rez_source_make_all" version="1">
+    <configuration name="compiler_rez_source_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_rez_source_make_all" CONFIG_NAME="compiler_rez_source_make_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_uic_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_uic_clean" CONFIG_NAME="compiler_uic_clean" version="1">
+    <configuration name="compiler_uic_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_uic_clean" CONFIG_NAME="compiler_uic_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_uic_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_uic_make_all" CONFIG_NAME="compiler_uic_make_all" version="1">
+    <configuration name="compiler_uic_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_uic_make_all" CONFIG_NAME="compiler_uic_make_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_yacc_decl_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_yacc_decl_clean" CONFIG_NAME="compiler_yacc_decl_clean" version="1">
+    <configuration name="compiler_yacc_decl_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_yacc_decl_clean" CONFIG_NAME="compiler_yacc_decl_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_yacc_decl_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_yacc_decl_make_all" CONFIG_NAME="compiler_yacc_decl_make_all" version="1">
+    <configuration name="compiler_yacc_decl_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_yacc_decl_make_all" CONFIG_NAME="compiler_yacc_decl_make_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_yacc_impl_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_yacc_impl_clean" CONFIG_NAME="compiler_yacc_impl_clean" version="1">
+    <configuration name="compiler_yacc_impl_clean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_yacc_impl_clean" CONFIG_NAME="compiler_yacc_impl_clean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compiler_yacc_impl_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="compiler_yacc_impl_make_all" CONFIG_NAME="compiler_yacc_impl_make_all" version="1">
+    <configuration name="compiler_yacc_impl_make_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="compiler_yacc_impl_make_all" CONFIG_NAME="compiler_yacc_impl_make_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="dist" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="dist" CONFIG_NAME="dist" version="1">
+    <configuration name="dist" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="dist" CONFIG_NAME="dist" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="distclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="distclean" CONFIG_NAME="distclean" version="1">
+    <configuration name="distclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="distclean" CONFIG_NAME="distclean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="distdir" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="distdir" CONFIG_NAME="distdir" version="1">
+    <configuration name="distdir" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="distdir" CONFIG_NAME="distdir" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="first" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="first" CONFIG_NAME="first" version="1">
+    <configuration name="first" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="first" CONFIG_NAME="first" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="install" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="install" CONFIG_NAME="install" version="1">
+    <configuration name="install" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="install" CONFIG_NAME="install" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="mocables" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="mocables" CONFIG_NAME="mocables" version="1">
+    <configuration name="mocables" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="mocables" CONFIG_NAME="mocables" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="mocclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="mocclean" CONFIG_NAME="mocclean" version="1">
+    <configuration name="mocclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="mocclean" CONFIG_NAME="mocclean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="qmake" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="qmake" CONFIG_NAME="qmake" version="1">
+    <configuration name="qmake" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="qmake" CONFIG_NAME="qmake" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="qmake_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="qmake_all" CONFIG_NAME="qmake_all" version="1">
+    <configuration name="qmake_all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="qmake_all" CONFIG_NAME="qmake_all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="uninstall" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="uninstall" CONFIG_NAME="uninstall" version="1">
+    <configuration name="uninstall" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="uninstall" CONFIG_NAME="uninstall" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="xcodeproj" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience" TARGET_NAME="xcodeproj" CONFIG_NAME="xcodeproj" version="1">
+    <configuration name="xcodeproj" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="xcodeproj" CONFIG_NAME="xcodeproj" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -430,7 +502,17 @@
       <workItem from="1732121048847" duration="330000" />
       <workItem from="1732121385938" duration="1404000" />
       <workItem from="1732157504280" duration="53610000" />
-      <workItem from="1732268938338" duration="1688000" />
+      <workItem from="1732268938338" duration="36971000" />
+      <workItem from="1732334961064" duration="14176000" />
+      <workItem from="1732349385824" duration="216000" />
+      <workItem from="1732349606657" duration="32000" />
+      <workItem from="1732349911824" duration="162000" />
+      <workItem from="1732350078636" duration="1025000" />
+      <workItem from="1732351538829" duration="240000" />
+      <workItem from="1732351783372" duration="439000" />
+      <workItem from="1732352393855" duration="9507000" />
+      <workItem from="1732379259092" duration="256916000" />
+      <workItem from="1732814289297" duration="41586000" />
     </task>
     <task id="LOCAL-00001" summary="Tested node-copying functionality">
       <option name="closed" value="true" />
@@ -496,7 +578,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732269329709</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Refactored code, deleted enum {UserType}">
+      <option name="closed" value="true" />
+      <created>1732270646905</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1732270646905</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

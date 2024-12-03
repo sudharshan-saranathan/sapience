@@ -27,7 +27,7 @@
 
 #include "node/nodeSVG.h"
 #include "node/nodeVar.h"
-#include "ampl/amplSolver.h"
+#include "ampl/amplDatabase.h"
 
 //	Convenience typedefs:
 using QEditL = QLineEdit;
@@ -52,23 +52,22 @@ class nodeCtrl final : public QObject, public QGraphicsRectItem {
 	Q_CLASSINFO("Author", "Sudharshan Saranathan")
 
 public:
-	~nodeCtrl() override = default;
+	~nodeCtrl() override;
+	 nodeCtrl(const nodeCtrl&);
+	 nodeCtrl(const QPointF&, const QString&, QGraphicsItem *parent = nullptr);
 
-	nodeCtrl(const QPointF &, const QString &, QGraphicsItem *parent = nullptr);
-
-	nodeCtrl(const nodeCtrl &);
-
-public:
-	enum { Type = UserType + 1 };
+	 enum { Type = UserType + 1 };
 
 private:
 	/*	Default attribute(s)	*/
 	struct _attr_ {
-		QString name;          //	Node name
-		QString itemID;        //	Unique Identifier (UID)
-		QPointF origin;        //	Cursor position of created node
-		QRect   rect;          //	Node rectangle
-		bool    isBelowCursor; //	Flag set when cursor enters the node
+		QString name;			//	Node name
+		QString itemID;			//	Unique Identifier (UID)
+		QPointF origin;			//	Cursor position of created node
+		QColor  color;			//	The color of the node's border, default is black
+		QRect   rect;			//	Node rectangle
+		bool  locked;			//	If the node is locked (i.e. no user interaction)
+		bool deleted;			//	Set to true if this item has been deleted by the user:
 	} attr;
 
 	/*	Complete QGraphicsItem stack	*/
@@ -96,17 +95,16 @@ private:
 			nodeSVG *input  = nullptr; //	Button for adding input variable to the node
 			nodeSVG *output = nullptr; //	Button for adding output variable to the node
 			nodeSVG *params = nullptr; //	Button for adding parameter/constant
-			nodeSVG *setup  = nullptr; //	Button opens the node's variable setup page
 			nodeSVG *close  = nullptr; //	Button to delete the node
 			nodeSVG *toggle = nullptr; //	Show/hide node's connections
 		} svg;
 
 		//	Lists to store variable pointers and names:
 		struct _list_ {
-			QList<nodeVar *> inp       = QList<nodeVar *>();
-			QList<nodeVar *> out       = QList<nodeVar *>();
-			QList<nodeVar *> par       = QList<nodeVar *>();
-			QCompleter *     completer = nullptr;
+			QList<nodeVar *> inp = QList<nodeVar *>();
+			QList<nodeVar *> out = QList<nodeVar *>();
+			QList<nodeVar *> par = QList<nodeVar *>();
+			QList<QString>   eqn = QList<QString>  ();
 		} list;
 
 		//	Struct _prompt_:
@@ -122,18 +120,20 @@ private:
 		QMenu *  pointer  = nullptr;
 		QAction *save     = nullptr;
 		QAction *close    = nullptr;
-		QAction *erase    = nullptr;
 		QAction *input    = nullptr;
 		QAction *output   = nullptr;
 		QAction *constant = nullptr;
-		QAction* equation = nullptr;
 	} menu;
 
 signals:
-	void initialized();                       //	Signal emitted upon constructor completion
-	void nodeShifted();                       //	Signal emitted when node is moved
-	void nodeDeleted(nodeCtrl *);             //	Signal emitted when node is deleted
-	void linkVariable(nodeCtrl *, nodeVar *); //	Signal emitted when the user wishes to draw a connection
+	void initialized();									//	Signal emitted upon constructor completion
+	void nodeRenamed();
+	void nodeShifted();									//	Signal emitted when node is moved around
+	void nodeRefresh();									//	Signal emitted when node is moved into or out of a folder
+	void nodeDeleted(nodeCtrl *);						//	Signal emitted when node is deleted
+	void variableCreated();								//	Signal emitted when a variable is created
+	void variableDeleted();								//	Signal emitted when a variable is deleted
+	void linkVariable(nodeCtrl *, nodeVar *);			//	Signal emitted when the user wishes to draw a connection
 
 protected slots:
 	QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
@@ -148,34 +148,35 @@ protected slots:
 
 	void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 
+	void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override { actionSetup(); event->accept(); }
+
 	void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 	void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
 
 protected:
-	void actionSave() {
-	}
+	void actionSave() {}
 
-	void actionErase() {
-	}
+	void actionErase() {}
 
 	void actionSetup() const;
-
-	void actionPrint();
 
 public:
 	[[nodiscard]] int     type() const override { return (Type); }
 	[[nodiscard]] QString name() const { return (attr.name); }
 	[[nodiscard]] QString getUID() const { return attr.itemID; }
 	[[nodiscard]] QPointF origin() const { return attr.origin; }
+	[[nodiscard]] bool isLocked () const { return attr.locked;}
 
 	static void autoCompletion(const QString &, const QTextEdit *);
 
-	void createVariable(const VariableType &, const QString &variableName = QString(), QPointF pos = QPointF());
+	void createVariable(const StreamType &, const QString &symbol = QString(), QPointF pos = QPointF());
 
 	void deleteVariable(nodeVar *);
 
-	void onCloseClicked();
+	void onLockToggled(bool);
+
+	void setColor(const QColor& color) const {stack.header.ptr->setBrush(QBrush(color));}
 };
 
 class status : public QGraphicsTextItem {
@@ -189,6 +190,7 @@ public:
 
 public:
 	void print(const QString &message, const MessageType type = Info) {
+
 		auto prefix = QString();
 		if (type == Info)
 			prefix = QString("[I]: ");

@@ -8,8 +8,10 @@
 
 /*  Default defines */
 #define APP_XS 1920
-#define APP_YS 1200
+#define APP_YS 1080
+
 #define TARGET_OS_OSX
+#define VERBOSE
 
 /*  Include project headers */
 #include "core/coreGUI.h"

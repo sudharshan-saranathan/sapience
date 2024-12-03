@@ -45,8 +45,7 @@ constexpr auto qt_meta_stringdata_CLASScoreGUIENDCLASS = QtMocHelpers::stringDat
     "showSetup",
     "keyPressEvent",
     "QKeyEvent*",
-    "event",
-    "keyReleaseEvent"
+    "event"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -59,7 +58,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScoreGUIENDCLASS[] = {
       12,       // revision
        0,       // classname
        1,   14, // classinfo
-       5,   16, // methods
+       4,   16, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,13 +69,12 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScoreGUIENDCLASS[] = {
        1,    2,
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   46,    4, 0x06,    1 /* Public */,
+       3,    0,   40,    4, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    0,   47,    4, 0x09,    2 /* Protected */,
-       6,    0,   48,    4, 0x09,    3 /* Protected */,
-       7,    1,   49,    4, 0x09,    4 /* Protected */,
-      10,    1,   52,    4, 0x09,    6 /* Protected */,
+       5,    0,   41,    4, 0x09,    2 /* Protected */,
+       6,    0,   42,    4, 0x09,    3 /* Protected */,
+       7,    1,   43,    4, 0x09,    4 /* Protected */,
 
  // signals: parameters
     QMetaType::Void,
@@ -84,7 +82,6 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScoreGUIENDCLASS[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 8,    9,
     QMetaType::Void, 0x80000000 | 8,    9,
 
        0        // eod
@@ -107,9 +104,6 @@ Q_CONSTINIT const QMetaObject coreGUI::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'keyPressEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>,
-        // method 'keyReleaseEvent'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>
     >,
     nullptr
@@ -125,7 +119,6 @@ void coreGUI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 1: _t->showGraph(); break;
         case 2: _t->showSetup(); break;
         case 3: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
-        case 4: _t->keyReleaseEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -159,13 +152,13 @@ int coreGUI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 4;
     }
     return _id;
 }

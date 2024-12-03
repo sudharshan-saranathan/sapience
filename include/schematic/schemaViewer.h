@@ -9,14 +9,14 @@
 #ifndef SCHEMAVIEWER_H
 #define SCHEMAVIEWER_H
 
-#define SCENE_XS    25000
-#define SCENE_YS    25000
+#define SCENE_XS    10000
+#define SCENE_YS    10000
 #define WHEEL_DELTA 100.0
-#define WHEEL_EXP   1.15
+#define WHEEL_EXP   1.45
 
 #define ZOOM_INIT   1.00
 #define ZOOM_MAX    4.00
-#define ZOOM_MIN    0.10
+#define ZOOM_MIN    0.20
 
 #define PANE_OPAC   0.90
 

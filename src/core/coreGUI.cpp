@@ -30,8 +30,8 @@ coreGUI::coreGUI(const int& xs, const int& ys, QApplication* app) :
         {
             QList<int>{},                           //  QList
             new QTabWidget(stack.center.ptr),       //  QTabWidget
-            new schemaViewer(stack.tabs.ptr),       //  schemaViewer
-            new QWidget(stack.tabs.ptr)},           //  QWidget
+            new schemaViewer (stack.tabs.ptr),      //  schemaViewer
+            new optimCtrl(stack.tabs.ptr)},     //  QWidget
         //  struct _groupbox_
         {
             new QGroupBox(stack.center.ptr),        //  QGroupBox
@@ -59,8 +59,9 @@ coreGUI::coreGUI(const int& xs, const int& ys, QApplication* app) :
     Q_ASSERT(stack.groupbox.label);
 
     //  Setup GUI properties:
-    resize(attr.ws, attr.hs);
+    resize(QSize(attr.ws, attr.hs));
     setObjectName("coreGUI");
+    setAcceptDrops(true);
     setCentralWidget(stack.center.ptr);
 
     /*  Add QTabWidget and QGroupBox to QGridLayout and customize:
@@ -73,7 +74,7 @@ coreGUI::coreGUI(const int& xs, const int& ys, QApplication* app) :
     stack.center.layout->setSpacing(2);
 
     //  Insert schemaViewer and QWidget into QTabWidget:
-    stack.tabs.num.append(stack.tabs.ptr->addTab(stack.tabs.graph, QIcon(":/icons/drawer-alt.svg"), ""));
+    stack.tabs.num.append(stack.tabs.ptr->addTab(stack.tabs.graph, QIcon(":/icons/drawer-alt.svg") , ""));
     stack.tabs.num.append(stack.tabs.ptr->addTab(stack.tabs.setup, QIcon(":/icons/laptop-code.svg"), ""));
     stack.tabs.ptr->tabBar()->hide();
 
@@ -100,8 +101,9 @@ coreGUI::coreGUI(const int& xs, const int& ys, QApplication* app) :
     stack.groupbox.ptr->setLayout(stack.groupbox.layout);
 
     //  Connect buttons to event handlers:
-    connections.append(QObject::connect(stack.groupbox.graph, &QToolButton::clicked, this, [this](){showGraph();}));
-    connections.append(QObject::connect(stack.groupbox.setup, &QToolButton::clicked, this, [this](){showSetup();}));
+    connect(stack.groupbox.graph, &QToolButton::clicked, [this](){showGraph();});
+    connect(stack.groupbox.setup, &QToolButton::clicked, [this](){showSetup();});
+    connect(stack.tabs.setup, &optimCtrl::tabSwitched, [this](){showGraph();});
 
     /*  Show GUI    */
     show();
@@ -114,6 +116,8 @@ coreGUI::coreGUI(const int& xs, const int& ys, QApplication* app) :
 void coreGUI::showGraph()
 {
     //  Toggle checked button, show graph tab:
+    stack.groupbox.ptr->show();
+    stack.groupbox.label->show();
     stack.groupbox.graph->setChecked(true);
     stack.groupbox.setup->setChecked(false);
     stack.tabs.ptr->setCurrentIndex(stack.tabs.num[0]);
@@ -123,6 +127,8 @@ void coreGUI::showGraph()
 void coreGUI::showSetup()
 {
     //  Toggle checked button, show setup tab:
+    stack.groupbox.ptr->hide();
+    stack.groupbox.label->hide();
     stack.groupbox.graph->setChecked(false);
     stack.groupbox.setup->setChecked(true);
     stack.tabs.ptr->setCurrentIndex(stack.tabs.num[1]);
@@ -143,11 +149,4 @@ void coreGUI::keyPressEvent(QKeyEvent* event)
             QMainWindow::keyPressEvent(event);
             break;
     }
-}
-
-void coreGUI::keyReleaseEvent(QKeyEvent *event) {
-    event->ignore();
-
-    //  Call base-class implementation:
-    QMainWindow::keyReleaseEvent(event);
 }

@@ -30,8 +30,9 @@ schemaViewer::schemaViewer(QWidget *parent) :
 //  -------------------------
 //  Constructor (body) begin:
 {
-	/*  Customize viewport behaviour. Do not change the antialiasing setting.    */
+	//	Enable panning the QGraphicsScene using mouse-drag operations:
 	setDragMode(ScrollHandDrag);
+	setResizeAnchor(AnchorUnderMouse);
 	setRenderHint(QPainter::Antialiasing);
 
 	//  Set <canvas.ptr> as the primary scene:
@@ -42,14 +43,15 @@ schemaViewer::schemaViewer(QWidget *parent) :
 }
 
 void schemaViewer::wheelEvent(QWheelEvent *event) {
+
 	auto scroll = static_cast<float>(event->angleDelta().y()) / WHEEL_DELTA; //  Retrieve scroll amount
 	auto factor = pow(WHEEL_EXP, scroll); //  Adjust WHEEL_EXP to fine-tune zoom step-size
 
 	//  Adjust factor if scrolling exceeds zoom limits:
-	if (scroll > 0 && attr.zoom * factor >= attr.zmax)      //  If zoom exceeds ZOOM_MAX,
-		factor = attr.zmax / attr.zoom;                     //  clip zoom to maximum value.
-	else if (scroll < 0 && attr.zoom * factor <= attr.zmin) //  If zoom exceeds ZOOM_MIN,
-		factor = attr.zmin / attr.zoom;                     //  clip zoom to minimum value.
+	if (scroll > 0 && attr.zoom * factor >= attr.zmax)      					//  If zoom exceeds ZOOM_MAX,
+		factor = attr.zmax / attr.zoom;                     					//  clip zoom to maximum value.
+	else if (scroll < 0 && attr.zoom * factor <= attr.zmin) 					//  If zoom exceeds ZOOM_MIN,
+		factor = attr.zmin / attr.zoom;                     					//  clip zoom to minimum value.
 
 	attr.zoom *= factor;   //  Store new zoom factor
 	scale(factor, factor); //  Execute zoom operation
@@ -86,7 +88,7 @@ void schemaViewer::keyPressEvent(QKeyEvent *event) {
 
 void schemaViewer::keyReleaseEvent(QKeyEvent *event) {
 	//  Reset to default drag mode and cursor:
-	setCursor(Qt::OpenHandCursor);
+	unsetCursor();
 	setDragMode(ScrollHandDrag);
 
 	//  Propagate event downstream:

@@ -4,7 +4,7 @@
 
 #include "node/nodeSVG.h"
 
-nodeSVG::nodeSVG(const QString &filename, const QSize &size, QItemG *parent) :
+nodeSVG::nodeSVG(const QString &filename, const QSize &size, const bool translate, QItemG *parent) :
 
     /*  Initializer list    */
     //  Base-class constructor:
@@ -29,8 +29,12 @@ nodeSVG::nodeSVG(const QString &filename, const QSize &size, QItemG *parent) :
      *  and translate to parent-origin. Do not delete or modify.  */
     setAcceptHoverEvents(true);
     setCacheMode(DeviceCoordinateCache);
-    setTransformOriginPoint(QGraphicsSvgItem::boundingRect().center());
-    setPos(-QGraphicsSvgItem::boundingRect().width() / 2.0, -QGraphicsSvgItem::boundingRect().height() / 2.0);
+
+    //  If translate is set to true, shift the SVG to its rectangle center:
+    if (translate) {
+        setTransformOriginPoint(QGraphicsSvgItem::boundingRect().center());
+        setPos(-QGraphicsSvgItem::boundingRect().width() / 2.0, -QGraphicsSvgItem::boundingRect().height() / 2.0);
+    }
 
     //  Resize icon and store the current scale:
     attr.scale = attr.size.width() / QGraphicsSvgItem::boundingRect().width();

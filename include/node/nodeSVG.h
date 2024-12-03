@@ -26,7 +26,7 @@ class nodeSVG final : public QGraphicsSvgItem {
 
 public:
     ~nodeSVG() override = default;
-    nodeSVG(const QString&, const QSize&, QItemG *parent = nullptr);
+    nodeSVG(const QString&, const QSize&, bool translate = true, QItemG *parent = nullptr);
 
 public:
     enum { Type = UserType + 3 };

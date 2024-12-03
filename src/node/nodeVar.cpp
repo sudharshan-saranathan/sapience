@@ -14,49 +14,61 @@
 #include <QGraphicsView>
 #include <QTimer>
 
-/*  Class constructor  */
-nodeVar::nodeVar(const QString &name, const QString &symname, const VariableType type, QGraphicsItem *parent) :
-    /*  Initialize base-class constructor   */
+//  Class Destructor:
+nodeVar::~nodeVar() {
+
+    qInfo() << __FILE__ << __func__;                            //  Print file and function name
+    free ();                                                    //  Reset the conjugate pointers
+
+    if (disconnect())                                           //  Disconnect this variable's signals
+        qInfo() << "\t- QObject::disconnect() successful";      //  from all slots
+
+    emit variableDeleted(this);                                 //  Emit signal variableDeleted(this)
+}
+
+/*  Class Constructor  */
+nodeVar::nodeVar(const QString &name, const QString &symbol, const StreamType type, QGraphicsItem *parent) :
+/*  Initialize base-class constructor   */
     QGraphicsEllipseItem{parent},
 /*  Default attributes  */
     attr{
         type,
         QString("V#") + QString::number(QRandomGenerator::global()->bounded(0x1000)),
-        symname,
+        symbol,
         QRect(0, 0, HANDLE_XS, HANDLE_YS)
     },
-    //  struct _symbol_
+    //  struct _symbol_:
     handle{
-        new QItemT(symname, this),
+        new QItemT(symbol, this),
         new QItemE(this),
         (attr.type == Input) * 4.0 + (attr.type == Output) * 288.0,
     },
-    //  struct _conjugate_
+    //  struct _conjugate_:
     variable{
         nullptr,
-        false
+        false,
+        0.0,
+        categoryList[0]
     }
 
 //  --------------------------
 /*  Constructor body-begin  */
 {
-    /*
-    const auto color  = QSSHex::colorGenerator();
-    const auto lumens = 0.212 * color.red() + 0.715 * color.green() + 0.0422 * color.blue();
-    */
-
     //  Customize the appearance and size of the handle:
     setBrush(QBrush(QColor(4, 220, 69), Qt::SolidPattern));
     setPen(QPen(Qt::black, 1.0));
     setRect(attr.rect);
 
-    /*  Customize the behaviour of the handle. Since the variable is re-scaled
-     *  when the handle is clicked, it is necessary to shift its origin point
-     *  to its center. Do not remove or modify the next lines */
+    /*  Customize the behaviour of the handle. Since the variable is temporarily enlarged when the handle is clicked,
+     *  it's origin point must be shifted from the default location to its rectangle's center. This is accomplished
+     *  with QGraphicsItem::setTransformOriginPoint()
+     */
     setAcceptHoverEvents(true);
     setTransformOriginPoint(rect().center());
     setFlag(ItemSendsScenePositionChanges, true);
-    setFlag(ItemDoesntPropagateOpacityToChildren);
+
+    //  Set cache mode to ItemCoordinateCache. This is supposed to reduce the viewport's lag when scrolling:
+    setCacheMode(DeviceCoordinateCache);
 
     /*  The QGraphicsTextItem is placed next to the handle. It shows the symbolic name
      *  of the variable (e.g. X1, X2, ...). The following customize its properties:
@@ -83,6 +95,7 @@ nodeVar::nodeVar(const QString &name, const QString &symname, const VariableType
 
 //  Open variable for new connections:
 void nodeVar::free(const QColor color) {
+
     if (variable.connected && variable.conjugate != nullptr) {
         variable.conjugate->setBrush(QBrush(color, Qt::SolidPattern));
         variable.conjugate->variable.connected = false;
@@ -148,6 +161,7 @@ void nodeVar::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
 }
 
 void nodeVar::mousePressEvent(QGraphicsSceneMouseEvent *event) {
+
     /*  If variable isn't connected, request a new link through the
      *  createLink() signal, which is handled by schemaCanvas   */
 
@@ -162,11 +176,8 @@ void nodeVar::mousePressEvent(QGraphicsSceneMouseEvent *event) {
         }
 
         case Qt::MiddleButton:
-            //  Unpair and clear conjugate pointers:
-            free();
-
-        //  Emit signal to notify node and connection:
-            emit variableDeleted(this); //  This signal triggers nodeCtrl::deleteVariable(nodeVar*)
+            //  Request deletion through SIGNAL(nodeVar::variableDeleted(nodeVar*)):
+            emit variableDeleted(this);
             break;
 
         default:

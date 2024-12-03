@@ -1,5 +1,15 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
+    <file>icons/play-busy.gif</file>
+    <file>icons/FontAwesome/svgs/solid/file.svg</file>
+    <file>icons/FontAwesome/svgs/solid/play.svg</file>
+    <file>icons/FontAwesome/svgs/solid/floppy-disk.svg</file>
+    <file>icons/FontAwesome/svgs/solid/eraser.svg</file>
+    <file>icons/FontAwesome/svgs/solid/wrench.svg</file>
+    <file>icons/node-unlock.svg</file>
+    <file>icons/node-lock.svg</file>
+    <file>icons/save-alt.svg</file>
+    <file>icons/folder-not-empty.svg</file>
     <file>icons/lambda.svg</file>
     <file>icons/arrow-right-solid.svg</file>
     <file>icons/var.inp.svg</file>

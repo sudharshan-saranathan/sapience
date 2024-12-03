@@ -9,16 +9,20 @@
 #ifndef CANVAS_H
 #define CANVAS_H
 
+#define FOLDERSIZE 64
+#define FOLDERSIZE 64
+
 /*  QtWidgets module    */
 #include <QAction>
 #include <QKeyEvent>
 #include <QGraphicsScene>
 
-//  Include nodeCtrl:
+//  Include node-objects:
 #include "node/nodeCtrl.h"
 #include "node/nodeVar.h"
 
 using QItemL = QGraphicsLineItem;
+using QGroup = QGraphicsItemGroup;
 
 /*  Forward declaration of class schemaViewer   */
 class schemaViewer;
@@ -39,8 +43,8 @@ public:
 protected:
     /*  Default attributes  */
     struct _attr_ {
-        QRect areaRect;                     //  Store the bounding rectangle for the scene
-        float distance;                     //  Snapping proximity for connections
+        QRect  areaRect;                     //  Store the bounding rectangle for the scene
+        float  distance;                     //  Snapping proximity for connections
     } attr;
 
     //  List of nodes, names, and other things:
@@ -48,6 +52,7 @@ protected:
         QList<nodeCtrl*> nodes;             //  QList of pointers to the currently drawn node(s)
         QList<QString>   nUIDs;             //  QList of node IDs
         QList<QItemG*> clipboard;           //  Clipboard used for copy-paste operation
+        QList<QGroup*> itemsGroup;          //  QList of item-groups
     } list;
 
     //  Context menu and associated actions:
@@ -55,7 +60,9 @@ protected:
         QPointF  pos;                       //  Context menu position (in scene coordinates)
         QMenu*   ptr;                       //  Pointer to QMenu
         QAction* createNode;                //  QAction for creating a new node at pos
-        QAction* clearScene;                //  QAction for deleting all elements in the scene
+        QAction* groupItems;                //  QAction for creating an item-group
+        QAction* createFolder;              //  QAction for creating a new folder at pos
+        QAction* deleteSchema;              //  QAction for deleting all elements in the scene
         QAction* quitApp;                   //  QAction for quitting the application
     } menu;
 
@@ -64,33 +71,30 @@ protected:
         bool      handleSnap = true;
         nodeCtrl* sourceNodePointer     = nullptr;
         nodeVar*  sourceVariablePointer = nullptr;
-        pathElement* pathElementPointer = nullptr;
+        nodeConnect* connector = nullptr;
     } connection;
 
 signals:
-    void initialized();                     //  Signal emitted upon constructor completion
-    void quitProgram();                     //  Signal emitted by scene context menu
+    void initialized();                     //  Emitted when the constructor has finished initialization
+    void quitProgram();                     //  Emitted when the user quits the program
 
 protected slots:
-    /*  Methods to handle keyboard and mouse events that trigger
-     *  various functions (e.g. copy, paste, delete). Do not delete
-     *  these   */
+    /*  Event-handlers for mouse click operations   */
     void mouseMoveEvent(QGraphicsSceneMouseEvent* event) override;
     void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
     void contextMenuEvent(QGraphicsSceneContextMenuEvent* event) override;
 
     void keyPressEvent(QKeyEvent *event) override;
-    void keyReleaseEvent(QKeyEvent *event) override;
 
 public slots:
-    void onCreateLink(nodeCtrl*, nodeVar*);
-    void onDeleteNode(nodeCtrl*);
-
-public:
-    /*  Methods to create a new node    */
-    void createNode(const QPointF&);                //  Create a new node at the cursor position (scene coordinates)
-    void createNode(const nodeCtrl&);               //  Copy an existing node using the copy-constructor of nodeCtrl
+    void createLink  (nodeCtrl*, nodeVar*);     //  Begins drawing a new connection from the specified variable
+    void createNode  (const QPointF&);          //  Creates a new node at cursor position (in scene coordinates)
+    void createNode  (const nodeCtrl&);         //  Copies an existing node and its variables
+    void groupItems  (const QList<QItemG*>&);   //  Groups the selected items
+    void deleteNode  (nodeCtrl*);               //  Deletes the node pointer to by the argument
+    void createFolder(const QPointF&);          //  Moves selected nodes into a folder
+    void deleteSchema() const;                  //  Deletes all items in the scene
 };
 
 #endif

@@ -47,10 +47,10 @@ private:
 //  Default Attribute(s):
     struct _attr_
     {
-        int     ws     = 1920;                                      //  GUI width in pixels
-        int     hs     = 1080;                                      //  GUI height in pixels
-        QApp_t* app    = nullptr;                                   //  Pointer to QApplication object
-        QCursor cursor = QCursor(Qt::ArrowCursor);                  //  Default cursor
+        int     ws     = 1920;                     //  GUI width in pixels
+        int     hs     = 1080;                     //  GUI height in pixels
+        QApp_t* app    = nullptr;                  //  Pointer to QApplication object
+        QCursor cursor = QCursor(Qt::ArrowCursor); //  Default cursor
     } attr;
 
     /*  The complete widget stack for QMainWindow   */

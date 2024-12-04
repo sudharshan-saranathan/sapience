@@ -10,143 +10,134 @@
 #include "core/coreGUI.h"
 
 /*  QtWidgets module    */
+#include <QShortcut>
 #include <QTabBar>
 
 /*  Class constructor   */
 coreGUI::coreGUI(const int& xs, const int& ys, QApplication* app) :
 
 /*  Initializer list    */
-//  struct _attr_
-    attr{xs, ys, app, QCursor(Qt::ArrowCursor)},
-//  struct _stack_
-    stack
-    {
-        //  struct _center_
-        {
-            new QWidget(this),                      //  Widget
-            new QGridLayout(stack.center.ptr)       //  QGridLayout
-        },
-        //  struct _tabs_
-        {
-            QList<int>{},                           //  QList
-            new QTabWidget(stack.center.ptr),       //  QTabWidget
-            new schemaViewer (stack.tabs.ptr),      //  schemaViewer
-            new optimCtrl(stack.tabs.ptr)},     //  QWidget
-        //  struct _groupbox_
-        {
-            new QGroupBox(stack.center.ptr),        //  QGroupBox
-            new QHBoxLayout(stack.groupbox.ptr),    //  QHBoxLayout
-            new QToolButton (stack.groupbox.ptr),   //  QToolButton
-            new QToolButton (stack.groupbox.ptr),   //  QToolButton
-            new QLabel(stack.center.ptr)            //  QLabel
-        }
-    }
+//  Initialize Attribute(s)
+	attr{xs, ys, app, QCursor(Qt::ArrowCursor)},
+
+//  Initialize QTabWidget
+	tabs{
+		//	QList to store the indices of tabbed widgets
+		QList<int>{},
+		//  QTabWidget manages two children - <graph> and <setup>
+		new QTabWidget(this),
+		//  QLayout is added onto QTabWidget to arrange buttons
+		new QGridLayout(tabs.pointer),
+		//  schemaViewer (GUI where user constructs schematics)
+		new schemaViewer(tabs.pointer),
+		//  optimCtrl (page where user sets up the optimization problem)
+		new optimCtrl(tabs.pointer)
+	},
+
+//  Initialize groupbox
+	groupbox{
+		//  QGroupBox contains the buttons for switching tabs
+		new QGroupBox(tabs.pointer),
+		//  QHBoxLayout arranges the buttons
+		new QHBoxLayout(groupbox.pointer),
+		//  QToolButton
+		new QToolButton(groupbox.pointer),
+		//  QToolButton
+		new QToolButton(groupbox.pointer),
+		//  QLabel displays the shortcut to switch tabs
+		new QLabel(groupbox.pointer),
+	}
 
 //  -------------------------
 //  Constructor (body) begin:
 {
-    //  Assert pointer allocations:
-    Q_ASSERT(attr.app);
-    Q_ASSERT(stack.center.ptr);
-    Q_ASSERT(stack.center.layout);
-    Q_ASSERT(stack.tabs.ptr);
-    Q_ASSERT(stack.tabs.graph);
-    Q_ASSERT(stack.tabs.setup);
-    Q_ASSERT(stack.groupbox.ptr);
-    Q_ASSERT(stack.groupbox.layout);
-    Q_ASSERT(stack.groupbox.graph);
-    Q_ASSERT(stack.groupbox.setup);
-    Q_ASSERT(stack.groupbox.label);
+	//  Assert pointer allocations:
+	Q_ASSERT(attr.app);
+	Q_ASSERT(tabs.pointer);
+	Q_ASSERT(tabs.layout);
+	Q_ASSERT(tabs.graph);
+	Q_ASSERT(tabs.setup);
+	Q_ASSERT(groupbox.pointer);
+	Q_ASSERT(groupbox.layout);
+	Q_ASSERT(groupbox.graph);
+	Q_ASSERT(groupbox.setup);
+	Q_ASSERT(groupbox.label);
 
-    //  Setup GUI properties:
-    resize(QSize(attr.ws, attr.hs));
-    setObjectName("coreGUI");
-    setAcceptDrops(true);
-    setCentralWidget(stack.center.ptr);
+	//  Setup GUI properties:
+	resize(QSize(attr.ws, attr.hs));
+	setObjectName("coreGUI");
+	setCentralWidget(tabs.pointer);
 
-    /*  Add QTabWidget and QGroupBox to QGridLayout and customize:
-     *  Do not delete or modify values (unless you're sure) */
-    stack.center.layout->addWidget(stack.tabs.ptr, 0, 0, 4, 3);
-    stack.center.layout->addWidget(stack.groupbox.ptr, 0, 1, 1, 1, Qt::AlignCenter);
-    stack.center.layout->addWidget(stack.groupbox.label, 1, 1, 1, 1, Qt::AlignCenter);
-    stack.center.layout->setContentsMargins(4, 4, 4, 4);
-    stack.center.layout->setRowStretch(2, 20);
-    stack.center.layout->setSpacing(2);
+	//  Insert schemaViewer and QWidget into QTabWidget:
+	tabs.pointer->setLayout(tabs.layout);
+	tabs.num.append(tabs.pointer->addTab(tabs.graph, QString()));
+	tabs.num.append(tabs.pointer->addTab(tabs.setup, QString()));
+	tabs.pointer->tabBar()->hide();
 
-    //  Insert schemaViewer and QWidget into QTabWidget:
-    stack.tabs.num.append(stack.tabs.ptr->addTab(stack.tabs.graph, QIcon(":/icons/drawer-alt.svg") , ""));
-    stack.tabs.num.append(stack.tabs.ptr->addTab(stack.tabs.setup, QIcon(":/icons/laptop-code.svg"), ""));
-    stack.tabs.ptr->tabBar()->hide();
+	tabs.layout->setContentsMargins(0, 4, 0, 0);
+	tabs.layout->setSpacing(2);
+	tabs.layout->addWidget(groupbox.pointer, 0, 1);
+	tabs.layout->addWidget(groupbox.pointer, 1, 1);
+	tabs.layout->addWidget(groupbox.label, 2, 1);
+	tabs.layout->setRowStretch(3, 10);
+	tabs.layout->setColumnStretch(0, 10);
+	tabs.layout->setColumnStretch(2, 10);
 
-    //  Set label text (shortcut hint) and customize:
-    stack.groupbox.label->setContentsMargins(1, 1, 1, 1);
-    stack.groupbox.label->setFont(QFont("Gill Sans", 14));
-    stack.groupbox.label->setText("Press <font color='red'>Alt</font> + <font color='red'>Tab</font>");
+	//  Set label text (shortcut hint) and customize:
+	groupbox.label->setContentsMargins(1, 1, 1, 1);
+	groupbox.label->setFont(QFont("Gill Sans", 14));
+	groupbox.label->setText("Press <font color='red'>Alt</font> + <font color='red'>2</font>");
+	groupbox.label->setAlignment(Qt::AlignCenter);
 
-    //  Customize tool button appearance and behaviour:
-    //  <graph>
-    stack.groupbox.graph->setIcon(QIcon(":/icons/drawer-alt.svg"));
-    stack.groupbox.graph->setIconSize(QSize(40, 20));
-    stack.groupbox.graph->setCheckable(true);
-    stack.groupbox.graph->setChecked(true);
-    //  <setup>
-    stack.groupbox.setup->setIcon(QIcon(":/icons/laptop-code.svg"));
-    stack.groupbox.setup->setIconSize(QSize(40, 20));
-    stack.groupbox.setup->setCheckable(true);
+	//  Customize <graph> button appearance and behaviour:
+	groupbox.graph->setIcon(QIcon(":/icons/drawer-alt.svg"));
+	groupbox.graph->setIconSize(QSize(40, 20));
+	groupbox.graph->setCheckable(true);
+	groupbox.graph->setChecked(true);
 
-    //  Add tool buttons to groupbox layout and customize:
-    stack.groupbox.layout->setContentsMargins(4, 4, 4, 4);
-    stack.groupbox.layout->addWidget(stack.groupbox.graph);
-    stack.groupbox.layout->addWidget(stack.groupbox.setup);
-    stack.groupbox.ptr->setLayout(stack.groupbox.layout);
+	//	Customize <setup> button appearance and behaviour:
+	groupbox.setup->setIcon(QIcon(":/icons/laptop-code.svg"));
+	groupbox.setup->setIconSize(QSize(40, 20));
+	groupbox.setup->setCheckable(true);
 
-    //  Connect buttons to event handlers:
-    connect(stack.groupbox.graph, &QToolButton::clicked, [this](){showGraph();});
-    connect(stack.groupbox.setup, &QToolButton::clicked, [this](){showSetup();});
-    connect(stack.tabs.setup, &optimCtrl::tabSwitched, [this](){showGraph();});
+	//  Add tool buttons to groupbox layout and customize:
+	groupbox.layout->setContentsMargins(4, 4, 4, 4);
+	groupbox.layout->addWidget(groupbox.graph);
+	groupbox.layout->addWidget(groupbox.setup);
+	groupbox.pointer->setLayout(groupbox.layout);
 
-    /*  Show GUI    */
-    show();
+	const auto graphShortcut = new QShortcut(QKeySequence(Qt::ALT | Qt::Key_1), tabs.pointer);
+	const auto setupShortcut = new QShortcut(QKeySequence(Qt::ALT | Qt::Key_2), tabs.pointer);
 
-    /*  Emit initialized() signal   */
-    emit initialized();
+	//  Connect buttons to event handlers:™¡
+	connect(graphShortcut, &QShortcut::activated, [&]() { showGraph(); });
+	connect(setupShortcut, &QShortcut::activated, [&]() { showSetup(); });
+	connect(groupbox.graph, &QToolButton::clicked, [&]() { showGraph(); });
+	connect(groupbox.setup, &QToolButton::clicked, [&]() { showSetup(); });
+
+	//	Show GUI
+	show();
+
+	//	Emit initialized() signal:
+	emit initialized();
 }
 
-//  Event-handler for <graph>
-void coreGUI::showGraph()
-{
-    //  Toggle checked button, show graph tab:
-    stack.groupbox.ptr->show();
-    stack.groupbox.label->show();
-    stack.groupbox.graph->setChecked(true);
-    stack.groupbox.setup->setChecked(false);
-    stack.tabs.ptr->setCurrentIndex(stack.tabs.num[0]);
+void //	Shows the <graph> tab when called
+coreGUI::showGraph() {
+	//  Toggle checked button, show graph tab:
+	groupbox.pointer->show();
+	groupbox.label->show();
+	groupbox.graph->setChecked(true);
+	groupbox.setup->setChecked(false);
+	tabs.pointer->setCurrentIndex(tabs.num[0]);
 }
 
-//  Event-handler for <setup>:
-void coreGUI::showSetup()
-{
-    //  Toggle checked button, show setup tab:
-    stack.groupbox.ptr->hide();
-    stack.groupbox.label->hide();
-    stack.groupbox.graph->setChecked(false);
-    stack.groupbox.setup->setChecked(true);
-    stack.tabs.ptr->setCurrentIndex(stack.tabs.num[1]);
-}
-
-void coreGUI::keyPressEvent(QKeyEvent* event)
-{
-    switch(event->keyCombination()) {
-        //  Handle Alt (Option on macOS) + Tab key-presses:
-        case QKeyCombination(Qt::AltModifier, Qt::Key_Tab).toCombined():
-            //  Toggle tabs, accept event:
-            stack.groupbox.graph->isChecked() ? showSetup() : showGraph();
-            event->accept();
-            break;
-
-        default:
-            //  Call base-class implementation:
-            QMainWindow::keyPressEvent(event);
-            break;
-    }
+void //	Shows the <setup> tab when called
+coreGUI::showSetup() {
+	//  Toggle checked button, show setup tab:
+	groupbox.pointer->hide();
+	groupbox.label->hide();
+	groupbox.graph->setChecked(false);
+	groupbox.setup->setChecked(true);
+	tabs.pointer->setCurrentIndex(tabs.num[1]);
 }

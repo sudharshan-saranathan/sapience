@@ -6,34 +6,42 @@
  *  -----------------------------------
  */
 
-/*  Default defines */
+//  App dimensions
 #define APP_XS 1920
 #define APP_YS 1080
 
 #define TARGET_OS_OSX
 #define VERBOSE
 
-/*  Include project headers */
+//  Include core headers
 #include "core/coreGUI.h"
 #include "core/coreQSS.h"
 
-/*  QtGui module  */
+//  QtGui module
 #include <QFont>
+#include <QScreen>
 
-/*  main executable  */
-int main(int argc, char *argv[])
-{
-    /*  Instantiate application and GUI */
-    QApp_t  main_app(argc, argv);
-    QApp_t::setFont(QFont("Gill Sans", 14));
-    coreGUI core_gui(APP_XS, APP_YS, &main_app);
+//  Main executable
+int
+main(int argc, char* argv[]) {
+	//  Instantiate application and set font:
+	QApp_t main_app(argc, argv);
+	QApp_t::setFont(QFont("Gill Sans", 14));
 
-    //	Set stylesheets:
-    main_app.setStyleSheet(coreQSS::readQSS(":/style/sapience.qss"));
+	const auto screen = QGuiApplication::primaryScreen();
+	const auto width  = screen->size().width();
+	const auto height = screen->size().height();
 
-    //	Display GUI:
-    core_gui.show();
+	qInfo() << "Screen resolution - " << width << height;
 
-    /*  Enter execution loop    */
-    return(QApp_t::exec());
+	coreGUI core_gui(width, height, &main_app);
+
+	//	Set stylesheets:
+	main_app.setStyleSheet(coreQSS::readQSS(":/style/sapience.qss"));
+
+	//	Display GUI:
+	core_gui.show();
+
+	//  Enter execution loop:
+	return (QApp_t::exec());
 }

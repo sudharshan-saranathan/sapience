@@ -10,5 +10,5 @@
 QList<nodeCtrl*>	amplDatabase::nodeList		 = QList<nodeCtrl*>();
 QList<nodeVar *>	amplDatabase::variableList	 = QList<nodeVar *>();
 QStringList			amplDatabase::equationsList  = QStringList();
-QStringList			amplDatabase::deletedSymbols = QStringList();
+QList<int>			amplDatabase::deletedSymbols = QList<int>();
 QList<nodeConnect*> amplDatabase::connectionList = QList<nodeConnect*>();

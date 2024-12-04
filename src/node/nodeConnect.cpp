@@ -89,7 +89,7 @@ nodeConnect::nodeConnect(const QPen& pen, QGraphicsItem* parent) :
 			menu.pointer->setActiveAction(nullptr);
 
 			//	Wait for the user to select a category:
-			QObject::connect(action, &QAction::triggered, [this, category]{ categorySelected(category); });
+			QObject::connect(action, &QAction::triggered, [this, category]{ setCategory(category); });
 		}
 	});
 }
@@ -118,7 +118,7 @@ void nodeConnect::contextMenuEvent(QGraphicsSceneContextMenuEvent* event) {
 		action->setShortcutContext(Qt::WidgetWithChildrenShortcut);				//	Set shortcut context
 		action->setShortcutVisibleInContextMenu(true);							//	Set shortcut visible
 
-		QObject::connect(action, &QAction::triggered, [this, &category]() { categorySelected(category); });
+		QObject::connect(action, &QAction::triggered, [this, &category]() { setCategory(category); });
 	}
 
 	//	Show the menu:
@@ -131,38 +131,21 @@ void nodeConnect::contextMenuEvent(QGraphicsSceneContextMenuEvent* event) {
 	}
 }
 
-void nodeConnect::categorySelected(varCategory category) {
+void nodeConnect::setCategory(const varCategory& category) {
 
 	qInfo() << category.getColor() << " " << category.getName();
 	setPen(QPen(category.getColor(), 3.0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+
 	attr.sourceVar->setCategory(category);
 	attr.targetVar->setCategory(category);
+
 	menu.pointer->close();
 }
 
-void nodeConnect::clearConnection(const nodeVar* var){
+void nodeConnect::clearConnection(const nodeVar* var) const {
 	Q_UNUSED(var)
 
 	delete this;
-
-	/*
-	qInfo() << __FILE__ << __func__;
-	if (disconnect())
-		qInfo() << "\t- QObject::disconnect() successful";
-
-	//	Reset pointers to nullptr. This is not needed, but it's good practice:
-	attr.sourceNode = nullptr;
-	attr.targetNode = nullptr;
-	attr.sourceVar  = nullptr;
-	attr.targetVar  = nullptr;
-
-	//	If the path is added to a scene, remove from scene:
-	if (scene())
-		scene()->removeItem(this);
-
-	clear();
-	deleteLater();
-	*/
 }
 
 void nodeConnect::connect(const QPointF tpos) {
@@ -205,13 +188,16 @@ void nodeConnect::setAttr(nodeCtrl* srcn , nodeVar* srcv, nodeCtrl* tarn, nodeVa
 	attr.targetVar  = tarv;
 }
 
-void nodeConnect::update() {
+void nodeConnect::refresh() {
 
 	if (attr.sourceNode != nullptr && attr.targetNode != nullptr && \
 		attr.sourceVar  != nullptr && attr.targetVar  != nullptr)
 	{
-		const auto spos = attr.sourceVar->scenePos() + attr.sourceVar->rect().center();
-		const auto tpos = attr.targetVar->scenePos() + attr.targetVar->rect().center();
+		const auto spos  = attr.sourceVar->scenePos() + attr.sourceVar->rect().center();
+		const auto tpos  = attr.targetVar->scenePos() + attr.targetVar->rect().center();
+		const auto color = attr.sourceVar->getCategoryColor();
+
+		setPen(QPen(color, 3.0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 		connect(spos, tpos);
 	}
 

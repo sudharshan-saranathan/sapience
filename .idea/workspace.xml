@@ -59,37 +59,21 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Refactored code, deleted enum {UserType}">
-      <change afterPath="$PROJECT_DIR$/include/ampl/amplInterface.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/custom/customEditor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/node/nodeConnect.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/node/nodeGroup.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/optim/optimCtrl.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/optim/optimData.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/optim/optimEngine.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ampl/amplDatabase.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ampl/amplInterface.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/custom/customEditor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/node/nodeConnect.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/node/nodeGroup.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/optim/optimCtrl.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/optim/optimData.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/optim/optimEngine.cpp" afterDir="false" />
+    <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Refactored and reformatted code. Added integration with AMPL.">
+      <change afterPath="$PROJECT_DIR$/include/node/nodeConstant.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/nodeConstant.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sapience.app/Contents/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sapience.app/Contents/MacOS/sapience" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sapience.app/Contents/PkgInfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/ampl/amplSolver.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/ampl/amplDatabase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/ampl/amplVariable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/ampl/amplDatabase.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/ampl/amplDatabase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/core/coreGUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreGUI.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/coreQSS.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreQSS.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeConnect.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeConnect.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/node/nodeCtrl.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeCtrl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeGroup.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeGroup.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/node/nodeSVG.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeSVG.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/node/nodeVar.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeVar.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/path/pathElement.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/schematic/schemaViewer.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaViewer.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/coreGUI.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreGUI.o" afterDir="false" />
@@ -102,25 +86,20 @@
       <change beforePath="$PROJECT_DIR$/lib/moc_schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_schemaViewer.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/nodeCtrl.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nodeCtrl.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/nodeVar.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nodeVar.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/qrc_sapience.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/qrc_sapience.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaCanvas.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaCanvas.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaViewer.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.pro" beforeDir="false" afterPath="$PROJECT_DIR$/main.pro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moc/moc_coreGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_coreGUI.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_nodeCtrl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_nodeCtrl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_nodeVar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_nodeVar.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qrc_sapience.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/qrc_sapience.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sapience.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sapience.qrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/style/sapience.qss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/style/sapience.qss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ampl/amplSolver.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ampl/amplDatabase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/ampl/amplDatabase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/coreGUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreGUI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/coreQSS.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/coreQSS.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/node/nodeActions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeActions.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeConnect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeConnect.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/node/nodeSVG.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeSVG.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/node/nodeVar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeVar.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/path/pathElement.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optim/optimCtrl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optim/optimCtrl.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" afterDir="false" />
     </list>
@@ -246,8 +225,8 @@
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "service.view.auto.scroll.to.source": "true",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
-    "settings.editor.splitter.proportion": "0.1545303",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C/C++",
+    "settings.editor.splitter.proportion": "0.18398412",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -511,7 +490,7 @@
       <workItem from="1733056910536" duration="1734000" />
       <workItem from="1733058805039" duration="61943000" />
       <workItem from="1733191230324" duration="2454000" />
-      <workItem from="1733193755936" duration="29108000" />
+      <workItem from="1733193755936" duration="84797000" />
     </task>
     <task id="LOCAL-00001" summary="Tested node-copying functionality">
       <option name="closed" value="true" />
@@ -593,7 +572,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732890550839</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Refactored code, deleted enum {UserType}">
+      <option name="closed" value="true" />
+      <created>1733233549883</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1733233549883</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Refactored and reformatted code. Added integration with AMPL.">
+      <option name="closed" value="true" />
+      <created>1733233587629</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1733233587629</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,7 +613,8 @@
     <MESSAGE value="Variable (Input/Output addition)" />
     <MESSAGE value="Refactored code" />
     <MESSAGE value="Refactored code, deleted enum {UserType}" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored code, deleted enum {UserType}" />
+    <MESSAGE value="Refactored and reformatted code. Added integration with AMPL." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored and reformatted code. Added integration with AMPL." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

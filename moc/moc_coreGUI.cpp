@@ -42,10 +42,7 @@ constexpr auto qt_meta_stringdata_CLASScoreGUIENDCLASS = QtMocHelpers::stringDat
     "initialized",
     "",
     "showGraph",
-    "showSetup",
-    "keyPressEvent",
-    "QKeyEvent*",
-    "event"
+    "showSetup"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -58,7 +55,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScoreGUIENDCLASS[] = {
       12,       // revision
        0,       // classname
        1,   14, // classinfo
-       4,   16, // methods
+       3,   16, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -69,12 +66,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScoreGUIENDCLASS[] = {
        1,    2,
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   40,    4, 0x06,    1 /* Public */,
+       3,    0,   34,    4, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    0,   41,    4, 0x09,    2 /* Protected */,
-       6,    0,   42,    4, 0x09,    3 /* Protected */,
-       7,    1,   43,    4, 0x09,    4 /* Protected */,
+       5,    0,   35,    4, 0x09,    2 /* Protected */,
+       6,    0,   36,    4, 0x09,    3 /* Protected */,
 
  // signals: parameters
     QMetaType::Void,
@@ -82,7 +78,6 @@ Q_CONSTINIT static const uint qt_meta_data_CLASScoreGUIENDCLASS[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 8,    9,
 
        0        // eod
 };
@@ -101,10 +96,7 @@ Q_CONSTINIT const QMetaObject coreGUI::staticMetaObject = { {
         // method 'showGraph'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'showSetup'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'keyPressEvent'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -118,7 +110,6 @@ void coreGUI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 0: _t->initialized(); break;
         case 1: _t->showGraph(); break;
         case 2: _t->showSetup(); break;
-        case 3: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -131,6 +122,7 @@ void coreGUI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             }
         }
     }
+    (void)_a;
 }
 
 const QMetaObject *coreGUI::metaObject() const
@@ -152,13 +144,13 @@ int coreGUI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 3;
     }
     return _id;
 }

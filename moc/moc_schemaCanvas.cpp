@@ -43,6 +43,21 @@ constexpr auto qt_meta_stringdata_CLASSschemaCanvasENDCLASS = QtMocHelpers::stri
     "initialized",
     "",
     "quitProgram",
+    "startConnection",
+    "nodeCtrl*",
+    "nodeVar*",
+    "createNode",
+    "nodeCtrl",
+    "createGroup",
+    "QGroup*",
+    "QList<QItemG*>",
+    "createFolder",
+    "deleteNode",
+    "deleteSchema",
+    "shortcutCopy",
+    "shortcutPaste",
+    "shortcutDelete",
+    "shortcutSelect",
     "mouseMoveEvent",
     "QGraphicsSceneMouseEvent*",
     "event",
@@ -51,17 +66,7 @@ constexpr auto qt_meta_stringdata_CLASSschemaCanvasENDCLASS = QtMocHelpers::stri
     "contextMenuEvent",
     "QGraphicsSceneContextMenuEvent*",
     "keyPressEvent",
-    "QKeyEvent*",
-    "createLink",
-    "nodeCtrl*",
-    "nodeVar*",
-    "createNode",
-    "nodeCtrl",
-    "groupItems",
-    "QList<QItemG*>",
-    "deleteNode",
-    "createFolder",
-    "deleteSchema"
+    "QKeyEvent*"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -74,7 +79,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaCanvasENDCLASS[] = {
       12,       // revision
        0,       // classname
        1,   14, // classinfo
-      14,   16, // methods
+      18,   16, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -85,40 +90,48 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaCanvasENDCLASS[] = {
        1,    2,
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,  100,    4, 0x06,    1 /* Public */,
-       5,    0,  101,    4, 0x06,    2 /* Public */,
+       3,    0,  124,    4, 0x06,    1 /* Public */,
+       5,    0,  125,    4, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    1,  102,    4, 0x09,    3 /* Protected */,
-       9,    1,  105,    4, 0x09,    5 /* Protected */,
-      10,    1,  108,    4, 0x09,    7 /* Protected */,
-      11,    1,  111,    4, 0x09,    9 /* Protected */,
-      13,    1,  114,    4, 0x09,   11 /* Protected */,
-      15,    2,  117,    4, 0x0a,   13 /* Public */,
-      18,    1,  122,    4, 0x0a,   16 /* Public */,
-      18,    1,  125,    4, 0x0a,   18 /* Public */,
-      20,    1,  128,    4, 0x0a,   20 /* Public */,
-      22,    1,  131,    4, 0x0a,   22 /* Public */,
-      23,    1,  134,    4, 0x0a,   24 /* Public */,
-      24,    0,  137,    4, 0x10a,   26 /* Public | MethodIsConst  */,
+       6,    2,  126,    4, 0x0a,    3 /* Public */,
+       9,    1,  131,    4, 0x0a,    6 /* Public */,
+       9,    1,  134,    4, 0x0a,    8 /* Public */,
+      11,    1,  137,    4, 0x0a,   10 /* Public */,
+      14,    1,  140,    4, 0x0a,   12 /* Public */,
+      15,    1,  143,    4, 0x0a,   14 /* Public */,
+      16,    0,  146,    4, 0x10a,   16 /* Public | MethodIsConst  */,
+      17,    0,  147,    4, 0x0a,   17 /* Public */,
+      18,    0,  148,    4, 0x0a,   18 /* Public */,
+      19,    0,  149,    4, 0x0a,   19 /* Public */,
+      20,    0,  150,    4, 0x0a,   20 /* Public */,
+      21,    1,  151,    4, 0x09,   21 /* Protected */,
+      24,    1,  154,    4, 0x09,   23 /* Protected */,
+      25,    1,  157,    4, 0x09,   25 /* Protected */,
+      26,    1,  160,    4, 0x09,   27 /* Protected */,
+      28,    1,  163,    4, 0x09,   29 /* Protected */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 7,    8,
-    QMetaType::Void, 0x80000000 | 7,    8,
-    QMetaType::Void, 0x80000000 | 7,    8,
-    QMetaType::Void, 0x80000000 | 12,    8,
-    QMetaType::Void, 0x80000000 | 14,    8,
-    QMetaType::Void, 0x80000000 | 16, 0x80000000 | 17,    4,    4,
+    QMetaType::Void, 0x80000000 | 7, 0x80000000 | 8,    4,    4,
+    0x80000000 | 7, QMetaType::QPointF,    4,
+    0x80000000 | 7, 0x80000000 | 10,    4,
+    0x80000000 | 12, 0x80000000 | 13,    4,
     QMetaType::Void, QMetaType::QPointF,    4,
-    QMetaType::Void, 0x80000000 | 19,    4,
-    QMetaType::Void, 0x80000000 | 21,    4,
-    QMetaType::Void, 0x80000000 | 16,    4,
-    QMetaType::Void, QMetaType::QPointF,    4,
+    QMetaType::Void, 0x80000000 | 7,    4,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 22,   23,
+    QMetaType::Void, 0x80000000 | 22,   23,
+    QMetaType::Void, 0x80000000 | 22,   23,
+    QMetaType::Void, 0x80000000 | 27,   23,
+    QMetaType::Void, 0x80000000 | 29,   23,
 
        0        // eod
 };
@@ -136,6 +149,35 @@ Q_CONSTINIT const QMetaObject schemaCanvas::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'quitProgram'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'startConnection'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<nodeVar *, std::false_type>,
+        // method 'createNode'
+        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QPointF &, std::false_type>,
+        // method 'createNode'
+        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const nodeCtrl &, std::false_type>,
+        // method 'createGroup'
+        QtPrivate::TypeAndForceComplete<QGroup *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QList<QItemG*> &, std::false_type>,
+        // method 'createFolder'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QPointF &, std::false_type>,
+        // method 'deleteNode'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
+        // method 'deleteSchema'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'shortcutCopy'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'shortcutPaste'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'shortcutDelete'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'shortcutSelect'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'mouseMoveEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QGraphicsSceneMouseEvent *, std::false_type>,
@@ -150,28 +192,7 @@ Q_CONSTINIT const QMetaObject schemaCanvas::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QGraphicsSceneContextMenuEvent *, std::false_type>,
         // method 'keyPressEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>,
-        // method 'createLink'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
-        QtPrivate::TypeAndForceComplete<nodeVar *, std::false_type>,
-        // method 'createNode'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QPointF &, std::false_type>,
-        // method 'createNode'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const nodeCtrl &, std::false_type>,
-        // method 'groupItems'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QList<QItemG*> &, std::false_type>,
-        // method 'deleteNode'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
-        // method 'createFolder'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QPointF &, std::false_type>,
-        // method 'deleteSchema'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<QKeyEvent *, std::false_type>
     >,
     nullptr
 } };
@@ -184,24 +205,31 @@ void schemaCanvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->initialized(); break;
         case 1: _t->quitProgram(); break;
-        case 2: _t->mouseMoveEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
-        case 3: _t->mousePressEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
-        case 4: _t->mouseReleaseEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
-        case 5: _t->contextMenuEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneContextMenuEvent*>>(_a[1]))); break;
-        case 6: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
-        case 7: _t->createLink((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<nodeVar*>>(_a[2]))); break;
-        case 8: _t->createNode((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
-        case 9: _t->createNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl>>(_a[1]))); break;
-        case 10: _t->groupItems((*reinterpret_cast< std::add_pointer_t<QList<QItemG*>>>(_a[1]))); break;
-        case 11: _t->deleteNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1]))); break;
-        case 12: _t->createFolder((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
-        case 13: _t->deleteSchema(); break;
+        case 2: _t->startConnection((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<nodeVar*>>(_a[2]))); break;
+        case 3: { nodeCtrl* _r = _t->createNode((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< nodeCtrl**>(_a[0]) = std::move(_r); }  break;
+        case 4: { nodeCtrl* _r = _t->createNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< nodeCtrl**>(_a[0]) = std::move(_r); }  break;
+        case 5: { QGroup* _r = _t->createGroup((*reinterpret_cast< std::add_pointer_t<QList<QItemG*>>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< QGroup**>(_a[0]) = std::move(_r); }  break;
+        case 6: _t->createFolder((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
+        case 7: _t->deleteNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1]))); break;
+        case 8: _t->deleteSchema(); break;
+        case 9: _t->shortcutCopy(); break;
+        case 10: _t->shortcutPaste(); break;
+        case 11: _t->shortcutDelete(); break;
+        case 12: _t->shortcutSelect(); break;
+        case 13: _t->mouseMoveEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
+        case 14: _t->mousePressEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
+        case 15: _t->mouseReleaseEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneMouseEvent*>>(_a[1]))); break;
+        case 16: _t->contextMenuEvent((*reinterpret_cast< std::add_pointer_t<QGraphicsSceneContextMenuEvent*>>(_a[1]))); break;
+        case 17: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 7:
+        case 2:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -210,7 +238,7 @@ void schemaCanvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeVar* >(); break;
             }
             break;
-        case 11:
+        case 7:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -256,13 +284,13 @@ int schemaCanvas::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 18;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 18;
     }
     return _id;
 }

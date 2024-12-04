@@ -23,7 +23,7 @@ public:
 	static QList<nodeCtrl*>	nodeList;
 	static QList<nodeVar*> variableList;
 	static QStringList equationsList;
-	static QStringList deletedSymbols;
+	static QList<int>  deletedSymbols;
 	static QList<nodeConnect*> connectionList;
 };
 

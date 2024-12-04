@@ -5,6 +5,7 @@
 #ifndef SVGBUTTON_H
 #define SVGBUTTON_H
 
+#define SVGITEM 3
 #define ICONSIZE 16
 
 //  QtGui module:
@@ -29,7 +30,7 @@ public:
     nodeSVG(const QString&, const QSize&, bool translate = true, QItemG *parent = nullptr);
 
 public:
-    enum { Type = UserType + 3 };
+    enum { Type = UserType + SVGITEM };
 
 protected:
     //  Default attribute(s):

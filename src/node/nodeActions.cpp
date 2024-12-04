@@ -83,16 +83,16 @@ void nodeCtrl::actionSetup() const {
 	nodeData.horizontalHeader()->setSectionResizeMode(2, QHeaderView::ResizeToContents);
 	nodeData.horizontalHeader()->setSectionResizeMode(3, QHeaderView::ResizeToContents);
 
-	auto variableList = stack.list.inp + stack.list.out;
+	auto variableList = list.inp + list.out;
 	for (int j = 0; j < variableList.size(); j++) {
 
 		if (j == nodeData.rowCount())
 			nodeData.insertRow(nodeData.rowCount());
 
-		namesList.append(variableList[j]->symbolName());
+		namesList.append(variableList[j]->symbol());
 
 		nodeData.setItem(j, 1, new QTableWidgetItem(variableList[j]->name()));
-		nodeData.setItem(j, 0, new QTableWidgetItem(variableList[j]->symbolName()));
+		nodeData.setItem(j, 0, new QTableWidgetItem(variableList[j]->symbol()));
 		nodeData.setItem(j, 3, new QTableWidgetItem(variableList[j]->getCategoryName()));
 		nodeData.setItem(j, 2, new QTableWidgetItem(variableList[j]->getVariableType() == Input  ? "Input"  :
 													variableList[j]->getVariableType() == Output ? "Output" : "Parameter"));
@@ -148,7 +148,7 @@ void nodeCtrl::actionSetup() const {
 		const auto equationsList = textEditInput.split('\n');
 
 		if (!textEditInput.isEmpty()) {
-			for (auto equation : equationsList)
+			for (const auto& equation : equationsList)
 				amplDatabase::equationsList.append(equation);
 		}
 	});

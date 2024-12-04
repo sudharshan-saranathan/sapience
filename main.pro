@@ -41,7 +41,8 @@
                 include/node/nodeSVG.h              \
                 include/node/nodeVar.h              \
                 include/node/nodeGroup.h            \
-                include/node/nodeConnect.h
+                include/node/nodeConnect.h          \
+                include/node/nodeConstant.h
 
   HEADERS +=    include/ampl/amplDatabase.h         \
                 include/ampl/amplInterface.h
@@ -66,7 +67,8 @@
                 src/node/nodeVar.cpp                \
                 src/node/nodeGroup.cpp              \
                 src/node/nodeActions.cpp	        \
-		        src/node/nodeConnect.cpp
+		        src/node/nodeConnect.cpp            \
+		        src/node/nodeConstant.cpp
 
   SOURCES +=    src/ampl/amplDatabase.cpp           \
                 src/ampl/amplInterface.cpp          \

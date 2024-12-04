@@ -79,9 +79,6 @@ optimCtrl::optimCtrl(QWidget* parent) :
 	workbench.display->setAcceptDrops(false);
 	workbench.display->setTextColor(Qt::black);
 
-	const auto graphSwitch = new QShortcut(QKeySequence(Qt::ALT | Qt::Key_Tab), this);
-
-	connect(graphSwitch, &QShortcut::activated, this, &optimCtrl::tabSwitched);
 	connect(editor.buttons[0], &QPushButton::clicked, this, &optimCtrl::runOpt);
 	connect(editor.buttons[1], &QPushButton::clicked, [&](){ editor.pointer->open(); });
 	connect(editor.buttons[2], &QPushButton::clicked, [&](){ editor.pointer->save(); });

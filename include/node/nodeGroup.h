@@ -7,38 +7,54 @@
 
 #include "node/nodeCtrl.h"
 
-class nodeGroup final : public QGraphicsSvgItem {
+#define GROUPITEM 5
 
-	Q_OBJECT
-	Q_CLASSINFO("Author", "Sudharshan Saranathan")
+class nodeGroup final : public QGraphicsSvgItem
+{
 
-public:
-	~nodeGroup() override = default;
-	 nodeGroup()          = delete;
-	 nodeGroup(const QPointF& pos, const QString&, QGraphicsItem* parent = nullptr);
+    Q_OBJECT
+    Q_CLASSINFO("Author", "Sudharshan Saranathan")
 
 public:
-	enum { Type = UserType + 5 };
+
+    ~nodeGroup() override = default;
+    nodeGroup()           = delete;
+    nodeGroup(const QPointF& pos, const QString&, QGraphicsItem* parent = nullptr);
+
+public:
+
+    enum { Type = UserType + GROUPITEM };
 
 private:
-	struct _attr_ {
-		QPointF origin = QPointF();
-		QItemT* label  = nullptr;
-	} attr;
 
-	struct _contents_ {
-		QList<QItemG*> pointers = QList<QItemG*>();
-		QList<QPointF> position = QList<QPointF>();
-	} contents;
+    struct _attr_
+    {
+        QPointF origin = QPointF();
+        QItemT* label  = nullptr;
+    } attr;
+
+    struct _contents_
+    {
+        QList<QItemG*> pointers = QList<QItemG*>();
+        QList<QPointF> position = QList<QPointF>();
+    } contents;
 
 protected slots:
-	QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
-	void	 paint(QPainter *painter, const QStOGI *option, QWidget *widget) override;
-	void	 mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
+
+    QVariant
+    itemChange(GraphicsItemChange change, const QVariant& value) override;
+    void
+    paint(QPainter* painter, const QStOGI* option, QWidget* widget) override;
+    void
+    mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override;
 
 public:
-	void hold(QGraphicsItem* item);
-	int  type() const override { return Type; }
+
+    void
+    hold(QGraphicsItem* item);
+
+    int
+    type() const override { return Type; }
 
 };
 

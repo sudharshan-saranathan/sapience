@@ -44,10 +44,6 @@ protected slots:
 	void
 	wheelEvent(QWheelEvent*) override; //  Handle scrolling (zoom operation)
 	void
-	mousePressEvent(QMouseEvent* event) override; //  Empty function for printf() debugging
-	void
-	mouseReleaseEvent(QMouseEvent* event) override; //  Empty function for printf() debugging
-	void
 	keyPressEvent(QKeyEvent*) override; //  Graph-level shortcut handler
 	void
 	keyReleaseEvent(QKeyEvent*) override; //  Graph-level shortcut handler

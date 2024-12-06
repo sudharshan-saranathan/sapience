@@ -18,7 +18,8 @@
 #include "node/nodeCtrl.h"
 
 
-void nodeCtrl::actionSetup() const {
+void
+nodeCtrl::actionSetup() const {
 
 	auto dialog = QDialog(scene()->views()[0]);
 	auto layout = QGridLayout();
@@ -42,7 +43,7 @@ void nodeCtrl::actionSetup() const {
 	layout.addWidget(&nodeData, 0, 2, Qt::AlignTop);
 	layout.addWidget(&separator, 0, 1, 3, 1);
 	layout.addWidget(&arrow, 1, 0, Qt::AlignBottom | Qt::AlignHCenter);
-	layout.addWidget(&eqnsView, 1, 2, 2, 1,  Qt::AlignBottom);
+	layout.addWidget(&eqnsView, 1, 2, 2, 1, Qt::AlignBottom);
 	layout.setRowStretch(1, 10);
 	layout.setSpacing(2);
 
@@ -51,27 +52,21 @@ void nodeCtrl::actionSetup() const {
 								"3. Press <Enter> to start a new line\n4. Press <Ctrl+Enter> to save equations\n");
 
 	textEdit.setMinimumHeight(470);
-	eqnsView.setStyleSheet("QListView {"
-								"border: none;"
-								"background: white;"
-								"color: #187795; }");
+	eqnsView.setStyleSheet("QListView {" "border: none;" "background: white;" "color: #187795; }");
 
 	//	Customize arrow button:
 	arrow.setIcon(QIcon(":/icons/arrow-right-solid.svg"));
 	arrow.setIconSize(QSize(20, 20));
 	arrow.raise();
 	arrow.setStyleSheet("QToolButton {border: 1px solid black; background: white;}"
-		"QToolButton:hover {background: gray;}"
-		"QToolButton:pressed {border: 1px solid black; background : #9EE37D;}");
+						"QToolButton:hover {background: gray;}"
+						"QToolButton:pressed {border: 1px solid black; background : #9EE37D;}");
 
 	//	Customize separator:
 	separator.setFrameShape(QFrame::VLine);
 	separator.setFrameShadow(QFrame::Raised);
 	separator.setFixedWidth(1);
-	separator.setStyleSheet("QFrame {"
-		"border				: none;"
-		"border-radius		: 4px;"
-		"background-color	: gray;}");
+	separator.setStyleSheet("QFrame {" "border				: none;" "border-radius		: 4px;" "background-color	: gray;}");
 
 	//	----------------------------------------------------------------------------------------------------------------
 	//	Add items to the table:
@@ -83,33 +78,42 @@ void nodeCtrl::actionSetup() const {
 	nodeData.horizontalHeader()->setSectionResizeMode(2, QHeaderView::ResizeToContents);
 	nodeData.horizontalHeader()->setSectionResizeMode(3, QHeaderView::ResizeToContents);
 
+
 	auto variableList = list.inp + list.out;
+	int  row          = 0;
 	for (int j = 0; j < variableList.size(); j++) {
+		if (variableList[j]->isPaired()) {
+			if (row == nodeData.rowCount())
+				nodeData.insertRow(nodeData.rowCount());
 
-		if (j == nodeData.rowCount())
-			nodeData.insertRow(nodeData.rowCount());
+			nodeData.setItem(row, 0, new QTableWidgetItem(variableList[j]->symbol()));
+			nodeData.setItem(row, 1, new QTableWidgetItem(variableList[j]->name()));
+			nodeData.setItem(row,
+							 2,
+							 new QTableWidgetItem(variableList[j]->streamType()
+													  ? "Output"
+													  : "Input"));
+			nodeData.setItem(row, 3, new QTableWidgetItem(variableList[j]->categoryName()));
 
-		namesList.append(variableList[j]->symbol());
+			qInfo() << "stream: " << variableList[j]->streamType();
 
-		nodeData.setItem(j, 1, new QTableWidgetItem(variableList[j]->name()));
-		nodeData.setItem(j, 0, new QTableWidgetItem(variableList[j]->symbol()));
-		nodeData.setItem(j, 3, new QTableWidgetItem(variableList[j]->getCategoryName()));
-		nodeData.setItem(j, 2, new QTableWidgetItem(variableList[j]->getVariableType() == Input  ? "Input"  :
-													variableList[j]->getVariableType() == Output ? "Output" : "Parameter"));
+			const auto color = variableList[j]->streamType() == Input
+								   ? QColor("#91E5F6")
+								   : QColor("#ffb703");
 
-		const auto color = variableList[j]->getVariableType() == Input  ? QColor("#91E5F6") :
-						   variableList[j]->getVariableType() == Output ? QColor("#ffb703") : QColor(Qt::gray);
-
-		nodeData.item(j, 0)->setBackground(color);
-		nodeData.item(j, 0)->setTextAlignment(Qt::AlignCenter);
-		nodeData.item(j, 2)->setTextAlignment(Qt::AlignCenter);
+			nodeData.item(row, 0)->setBackground(color);
+			nodeData.item(row, 0)->setTextAlignment(Qt::AlignCenter);
+			nodeData.item(row, 1)->setTextAlignment(Qt::AlignCenter);
+			nodeData.item(row, 2)->setTextAlignment(Qt::AlignCenter);
+			row++;
+		}
 	}
 
-	/*	This code section handles auto-completion of variable(s) when the user is typing the equation
-	 *	in the text editor. If this feature is needed, uncomment the lines below. However, since the
-	 *	equations are typed using the variable's symbolic name (e.g. x1, x2, x3, ...), the auto-complete
-	 *	isn't really required.
-	 */
+/*	This code section handles auto-completion of variable(s) when the user is typing the equation
+ *	in the text editor. If this feature is needed, uncomment the lines below. However, since the
+ *	equations are typed using the variable's symbolic name (e.g. x1, x2, x3, ...), the auto-complete
+ *	isn't really required.
+
 
 	auto itemModel = QStringListModel(namesList);
 	auto completer = QCompleter(&itemModel, &textEdit);
@@ -152,11 +156,12 @@ void nodeCtrl::actionSetup() const {
 				amplDatabase::equationsList.append(equation);
 		}
 	});
-
+*/
 	dialog.exec();
 }
 
-void nodeCtrl::autoCompletion(const QString &text, const QTextEdit *editor) {
+void
+nodeCtrl::autoCompletion(const QString& text, const QTextEdit* editor) {
 	QTextCursor cursor = editor->textCursor();
 	cursor.select(QTextCursor::WordUnderCursor);
 	cursor.insertText(text);

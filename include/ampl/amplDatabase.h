@@ -8,8 +8,9 @@
 #include <QList>
 
 class nodeCtrl;
-class nodeVar;
+class nodeHandle;
 class nodeConnect;
+class variable;
 
 using uint_t = unsigned int;
 
@@ -21,10 +22,9 @@ public:
 
 public:
 	static QList<nodeCtrl*>	nodeList;
-	static QList<nodeVar*> variableList;
+	static QList<variable*> variableList;
 	static QStringList equationsList;
-	static QList<int>  deletedSymbols;
-	static QList<nodeConnect*> connectionList;
+	static QList<int> deletedSymbols;
 };
 
 #endif //AMPLDATABASE_H

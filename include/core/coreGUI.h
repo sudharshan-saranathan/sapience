@@ -20,10 +20,10 @@
 #include <QToolButton>
 
 //  Include class schemaViewer (schematic/schemaViewer.h)
-#include "schematic/schemaViewer.h"
 #include "optim/optimCtrl.h"
+#include "schematic/schemaViewer.h"
 
-//  Convenience Typedefs
+//  Define shorthand:
 using uint_t = unsigned int;
 using QApp_t = QApplication;
 using QGridL = QGridLayout;

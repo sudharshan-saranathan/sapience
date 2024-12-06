@@ -10,7 +10,6 @@
 #include <QPushButton>
 
 #include "node/nodeCtrl.h"
-#include "node/nodeVar.h"
 #include "ampl/ampl.h"
 #include "custom/customEditor.h"
 

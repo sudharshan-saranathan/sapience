@@ -45,6 +45,7 @@ schemaCanvas::schemaCanvas(const QRect& areaRect, QObject* parent) :
 //	Constructor (body) begin:
 {
 	//	Set background texture:
+	setObjectName("schemaCanvas");
 	setBackgroundBrush(QBrush(Qt::black, Qt::Dense6Pattern));
 	setSceneRect(attr.areaRect);
 
@@ -63,39 +64,39 @@ schemaCanvas::schemaCanvas(const QRect& areaRect, QObject* parent) :
 	menu.pointer->addAction(menu.quitApp);
 
 	//  Do not change shortcut context:
-	menu.createNode->setShortcutVisibleInContextMenu(true);					//	Show the shortcut in the menu
-	menu.createNode->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));		//	Define the custom shortcut
-	menu.createNode->setShortcutContext(Qt::WidgetWithChildrenShortcut);	//	Do not remove or modify
+	menu.createNode->setShortcutVisibleInContextMenu(true);              //	Show the shortcut in the menu
+	menu.createNode->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));    //	Define the custom shortcut
+	menu.createNode->setShortcutContext(Qt::WidgetWithChildrenShortcut); //	Do not remove or modify
 
 	//  Do not change shortcut context:
-	menu.createSource->setShortcutVisibleInContextMenu(true);				//	Show the shortcut in the menu
-	menu.createSource->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Less));	//	Define the custom shortcut
-	menu.createSource->setShortcutContext(Qt::WidgetWithChildrenShortcut);	//	Do not remove or modify
+	menu.createSource->setShortcutVisibleInContextMenu(true);              //	Show the shortcut in the menu
+	menu.createSource->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Less)); //	Define the custom shortcut
+	menu.createSource->setShortcutContext(Qt::WidgetWithChildrenShortcut); //	Do not remove or modify
 
 	//  Do not change shortcut context:
-	menu.createSink->setShortcutVisibleInContextMenu(true);					//	Show the shortcut in the menu
+	menu.createSink->setShortcutVisibleInContextMenu(true);                 //	Show the shortcut in the menu
 	menu.createSink->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Greater)); //	Define the custom shortcut
-	menu.createSink->setShortcutContext(Qt::WidgetWithChildrenShortcut);	//	Do not remove or modify
+	menu.createSink->setShortcutContext(Qt::WidgetWithChildrenShortcut);    //	Do not remove or modify
 
-	menu.groupItems->setShortcutVisibleInContextMenu(true);					//	Show the shortcut in the menu
-	menu.groupItems->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_G));		//	Define the custom shortcut
-	menu.groupItems->setShortcutContext(Qt::WidgetWithChildrenShortcut);	//	Do not remove or modify
+	menu.groupItems->setShortcutVisibleInContextMenu(true);              //	Show the shortcut in the menu
+	menu.groupItems->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_G));    //	Define the custom shortcut
+	menu.groupItems->setShortcutContext(Qt::WidgetWithChildrenShortcut); //	Do not remove or modify
 
-	menu.createFolder->setShortcutVisibleInContextMenu(true);				//	Show the shortcut in the menu
-	menu.createFolder->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));		//	Define the custom shortcut
-	menu.createFolder->setShortcutContext(Qt::WidgetWithChildrenShortcut);	//	Do not remove or modify
+	menu.createFolder->setShortcutVisibleInContextMenu(true);              //	Show the shortcut in the menu
+	menu.createFolder->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));    //	Define the custom shortcut
+	menu.createFolder->setShortcutContext(Qt::WidgetWithChildrenShortcut); //	Do not remove or modify
 
-	menu.importSchema->setShortcutVisibleInContextMenu(true);				//	Show the shortcut in the menu
-	menu.importSchema->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));		//	Define the custom shortcut
-	menu.importSchema->setShortcutContext(Qt::WidgetWithChildrenShortcut);	//	Do not remove or modify
+	menu.importSchema->setShortcutVisibleInContextMenu(true);              //	Show the shortcut in the menu
+	menu.importSchema->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));    //	Define the custom shortcut
+	menu.importSchema->setShortcutContext(Qt::WidgetWithChildrenShortcut); //	Do not remove or modify
 
-	menu.exportSchema->setShortcutVisibleInContextMenu(true);				//	Show the shortcut in the menu
-	menu.exportSchema->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));		//	Define the custom shortcut
-	menu.exportSchema->setShortcutContext(Qt::WidgetWithChildrenShortcut);	//	Do not remove or modify
+	menu.exportSchema->setShortcutVisibleInContextMenu(true);              //	Show the shortcut in the menu
+	menu.exportSchema->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));    //	Define the custom shortcut
+	menu.exportSchema->setShortcutContext(Qt::WidgetWithChildrenShortcut); //	Do not remove or modify
 
-	menu.deleteSchema->setShortcutVisibleInContextMenu(true);				//	Show the shortcut in the menu
-	menu.deleteSchema->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_D));		//	Define the custom shortcut
-	menu.deleteSchema->setShortcutContext(Qt::WidgetWithChildrenShortcut);	//	Do not remove or modify
+	menu.deleteSchema->setShortcutVisibleInContextMenu(true);              //	Show the shortcut in the menu
+	menu.deleteSchema->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_D));    //	Define the custom shortcut
+	menu.deleteSchema->setShortcutContext(Qt::WidgetWithChildrenShortcut); //	Do not remove or modify
 
 	menu.quitApp->setShortcutVisibleInContextMenu(true);              //	Show the shortcut in the menu
 	menu.quitApp->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));    //	Define the custom shortcut
@@ -119,14 +120,17 @@ schemaCanvas::schemaCanvas(const QRect& areaRect, QObject* parent) :
 
 void
 schemaCanvas::mouseMoveEvent(QGraphicsSceneMouseEvent* event) {
-	//	Resolve event handlers of nested item(s) first, if any:
+
+//	Resolve event handlers of nested item(s) first, if any:
 	QGraphicsScene::mouseMoveEvent(event);
 
-	//	Draw and update connection while the mouse moves:
-	if (connection.inProgress && connection.sourceVariablePointer) {
-		const auto spos = connection.sourceVariablePointer->scenePos() + connection.sourceVariablePointer->rect().
-			center();
-		const auto tpos = event->scenePos();
+//	Draw and update connection while the mouse moves:
+	if (connection.handleClicked && connection.originHandle) {
+		const auto spos = connection.originHandle->scenePos() + connection.originHandle->rect().center();
+		const auto tpos = connection.proximityPointer
+							  ? connection.proximityPointer->scenePos()
+							  : event->scenePos();
+
 		connection.connector->connect(spos, tpos);
 	}
 }
@@ -139,77 +143,76 @@ schemaCanvas::mousePressEvent(QGraphicsSceneMouseEvent* event) {
 
 void
 schemaCanvas::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
-	/*	Custom implementation of QGraphicsItem::mouseReleaseEvent() for derived class schemaCanvas.
-	 *	If the user is attempting to connect two variables in two different nodes, this handler
-	 *	executes the required tasks. For e.g., it connects each handle's signals to appropriate
-	 *	slots.
-	 */
 
+/*	Custom implementation of QGraphicsItem::mouseReleaseEvent() for derived class schemaCanvas.
+ *	If the user is attempting to connect two variables in two different nodes, this handler
+ *	executes the required tasks. For e.g., it connects each handle's signals to appropriate
+ *	slots.
+ */
+
+//	Print file and function name:
 	qInfo() << __FILE_NAME__ << __func__;
-	/*	The first if-condition checks a) the item below the cursor (if any) at mouse button
-	 *	release, and b) if the user is attempting to draw a connection.
-	 */
 
-	if (const auto item = itemAt(event->scenePos(), QTransform());
-		item && connection.inProgress) {
-		/*	The first nested-if condition checks if the cursor is positioned over the rails of
-		 *	a node at mouse-button release. If yes, the node is identified and a new variable
-		 *	is created.
-		 */
+//	Retrieve the item below the cursor at mouse-button release:
+	if (const auto item = itemAt(event->scenePos(), QTransform()); item && connection.handleClicked) {
+
+		//	If the item is a node-rail, create a handle at its position:
 		if (item->type() == QGraphicsLineItem::Type) {
-			//	Cast the item pointer to a QGraphicsLineItem, and the nodeRail
+
+			//	Cast the item pointer to a QGraphicsLineItem, and the nodeRail:
 			const auto nodeRail    = qgraphicsitem_cast<QGraphicsLineItem*>(item);
 			const auto nodePointer = qgraphicsitem_cast<nodeCtrl*>(nodeRail->parentItem());
 
-			//	Retrieve the VariableType of the source and target variables:
+			//	Retrieve the type of the handle that was clicked:
 			const auto railType   = nodeRail->data(0).value<StreamType>();
-			const auto sourceType = connection.sourceVariablePointer->getVariableType();
+			const auto sourceType = connection.originHandle->streamType();
 
 			/*	Check if:
-			 *	1. The rails in the target node are of the opposite type of the source variable.
-			 *	2. The targert node is different from the source node.
-			 */
-			if (railType != sourceType && nodePointer && nodePointer->getUID() != connection.sourceNodePointer->
-				getUID()) {
-				//	Convert the position of the cursor to the rail's local coordinates:
-				const auto ypos = nodeRail->mapFromScene(event->scenePos()).y() - nodeRail->mapFromParent(QPointF(0, 0))
-.y() - 4.0;
+			 *	1. The rails in the target node are of the opposite type of the source handle.
+			 *	2. The target node is different from the source node.	*/
+			if (railType != sourceType && nodePointer && nodePointer->getUID() != connection.originNode->getUID()) {
 
-				//	Create a new variable on the rail at the cursor's position (in local coordinates):
-				nodePointer->createVariable(railType, connection.sourceVariablePointer->name(), QPointF(0.0, ypos));
+				//	Convert the cursor's position (in scene coordinates) to the rail's local coordinates:
+				const auto yposLocal  = nodeRail->mapFromScene(event->scenePos()).y();
+				const auto yposOrigin = nodeRail->mapFromParent(QPointF(0, 0)).y() + 4.0;
+				const auto ypos       = yposLocal - yposOrigin;
+
+				//	Create a new handle on the rail at the cursor's position (in local coordinates):
+				nodePointer->createHandle(railType, QPointF(0.0, ypos));
 			}
 		}
 
-	//	If a variable handle exists under the cursor, retrieve its details:
+		//	If a handle exists under the cursor, retrieve its details:
 		if (const auto itemReload = itemAt(event->scenePos(), QTransform());
-			itemReload->type() == QGraphicsItem::UserType + VARITEM) {
+			itemReload->type() == QGraphicsItem::UserType + HANDLEITEM) {
 
-		//	Store the target node and variable's pointer:
-			const auto variablePointer = qgraphicsitem_cast<nodeVar*>(itemReload);
-			const auto nodePointer     = qgraphicsitem_cast<nodeCtrl*>(item->parentItem());
+			//	Store the target node and handle's pointer:
+			const auto handlePointer = qgraphicsitem_cast<nodeHandle*>(itemReload);
+			const auto nodePointer   = qgraphicsitem_cast<nodeCtrl*>(item->parentItem());
 
-		//	Connect the two variables:
-			if (variablePointer && nodePointer) {
-				if (const auto path = variablePointer->pair(connection.sourceVariablePointer))
-					qInfo() << "\t- Connection established";
+			//	Connect the two variables:
+			if (handlePointer && nodePointer) {
+				if (const auto path = handlePointer->pair(connection.originHandle))
+					qInfo() << "Connection established";
+
 			}
 		}
-
-		/*	Reset the temporary variables for reuse	*/
-		connection.inProgress            = false;
-		connection.sourceVariablePointer = nullptr;
-		connection.connector->setPath(QPainterPath());
 	}
 
-	//	Resolve event handlers of nested item(s) first, if any:
+	connection.handleClicked = false;
+	connection.originHandle  = nullptr;
+	connection.connector->setPath(QPainterPath());
+
+//	Resolve event handlers of nested item(s), if any:
 	QGraphicsScene::mouseReleaseEvent(event);
 }
 
 void
 schemaCanvas::contextMenuEvent(QGraphicsSceneContextMenuEvent* event) {
-	//	Resolve event handlers of nested item(s) first:
+//	Resolve event handlers of nested item(s) first:
 	QGraphicsScene::contextMenuEvent(event);
 
+//	Ignore the event if it is already accepted i.e. a child's context menu has been executed:
 	if (!event->isAccepted()) {
 		menu.position = event->scenePos();
 		menu.pointer->exec(event->screenPos());
@@ -270,6 +273,13 @@ schemaCanvas::keyPressEvent(QKeyEvent* event) {
 		for (auto j : amplDatabase::nodeList) { j->setSelected(true); }
 	}
 
+	else if (event->matches(QKeySequence::Print)) {
+		for (const auto node : amplDatabase::nodeList)
+			qInfo() << "\t- Active nodes: " << node->name();
+
+		for (const auto var : amplDatabase::variableList) { qInfo() << "\t- Active variables: " << var->getSymbol(); }
+	}
+
 //	If the user presses <Delete>, all selected items are deleted:
 	if (event->key() == Qt::Key_Delete) {
 		for (const auto deleteList = selectedItems();
@@ -282,15 +292,22 @@ schemaCanvas::keyPressEvent(QKeyEvent* event) {
 }
 
 void
-schemaCanvas::startConnection(nodeCtrl* nptr, nodeVar* vptr) {
-	/*	This slot is triggered by a variable's handle when the user attempts to create a new connection	*/
-	if (!connection.inProgress) {
-		//	Store the connection's origin node and variable:
-		connection.sourceNodePointer     = qgraphicsitem_cast<nodeCtrl*>(nptr);
-		connection.sourceVariablePointer = qgraphicsitem_cast<nodeVar*>(vptr);
+schemaCanvas::startConnection(nodeCtrl* nptr, nodeHandle* vptr) {
+
+//	This function is triggered when the user clics a handle to start drawing a connection:
+	if (!connection.handleClicked) {
+
+
+#ifdef VERBOSE
+		qInfo() << __FILE_NAME__ << __func__;
+		qInfo() << "\t- Starting a new connection";
+#endif
+		//	Store pointers to the connection's origin node and handle:
+		connection.originNode   = qgraphicsitem_cast<nodeCtrl*>(nptr);
+		connection.originHandle = qgraphicsitem_cast<nodeHandle*>(vptr);
 
 		//	Change connection.inProgress to true:
-		connection.inProgress = true;
+		connection.handleClicked = true;
 	}
 }
 
@@ -306,7 +323,7 @@ schemaCanvas::createNode(const QPointF& pos) {
 	addItem(node);
 
 	//	Connect node signals to slots:
-	connect(node, &nodeCtrl::linkVariable, this, &schemaCanvas::startConnection);
+	connect(node, &nodeCtrl::connectHandle, this, &schemaCanvas::startConnection);
 	connect(node, &nodeCtrl::nodeDeleted, this, &schemaCanvas::deleteNode);
 
 	//	Return the created node-pointer:
@@ -315,6 +332,7 @@ schemaCanvas::createNode(const QPointF& pos) {
 
 nodeCtrl*
 schemaCanvas::createNode(const nodeCtrl& node) {
+
 	//	Allocate and copy from node:
 	const auto copy = new nodeCtrl(node);
 
@@ -325,7 +343,7 @@ schemaCanvas::createNode(const nodeCtrl& node) {
 	addItem(copy);
 
 	//	Connect node signals to slots:
-	connect(copy, &nodeCtrl::linkVariable, this, &schemaCanvas::startConnection);
+	connect(copy, &nodeCtrl::connectHandle, this, &schemaCanvas::startConnection);
 	connect(copy, &nodeCtrl::nodeDeleted, this, &schemaCanvas::deleteNode);
 
 	//	Return the created node-pointer:
@@ -334,6 +352,7 @@ schemaCanvas::createNode(const nodeCtrl& node) {
 
 QGroup*
 schemaCanvas::createGroup(const QList<QItemG*>& itemList) {
+
 	qInfo() << __FILE__ << __func__;           //	Print file and function name
 	const auto group = new QGraphicsItemGroup; //	Create a new QGraphicsItemGroup instance
 	const auto color = HEX_RANDOM;
@@ -396,24 +415,6 @@ schemaCanvas::shortcutCopy() { list.clipboard = selectedItems(); }
 
 void
 schemaCanvas::shortcutPaste() {
-	if (!list.clipboard.isEmpty()) {
-		for (const auto j : list.clipboard) {
-			switch (j->type()) {
-				case QItemG::UserType + NODEITEM: {
-					const auto node = qgraphicsitem_cast<nodeCtrl*>(j);
-					createNode(*node);
-
-					amplDatabase::nodeList.last()->setSelected(true);
-
-					j->setSelected(false);
-					break;
-				}
-				default:
-					break;
-			}
-		}
-		list.clipboard = selectedItems();
-	}
 }
 
 void

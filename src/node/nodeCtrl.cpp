@@ -11,14 +11,17 @@
 #include <QMimeData>
 #include <QPainter>
 #include <QPen>
+#include <QLineEdit>
+#include <QInputDialog>
 
 #include "node/nodeCtrl.h"
 #include "ampl/amplDatabase.h"
 #include "core/coreQSS.h"
-#include "schematic/schemaCanvas.h"
+#include <schematic/schemaCanvas.h>
 
 #include <QGraphicsProxyWidget>
 #include <node/nodeConnect.h>
+#include <custom/customDialog.h>
 
 #define VERBOSE
 
@@ -31,31 +34,33 @@
 
 //	Class destructor:
 nodeCtrl::~nodeCtrl() {
-	qDebug() << __FILE__ << __func__; //	Print file and function name
 
-	//	Loop over input variables
-	while (!list.inp.isEmpty()) {
-		//	Pop the last element (more efficient than popping the first)
-		const auto variablePointer = list.inp.takeLast();
 #ifdef VERBOSE
-		qInfo() << "\t- Variable "     //	Print variable information if logging is
-			<< variablePointer->name() //	verbose
-			<< " deleted";
+	qDebug() << __FILE__ << __func__; //	Print file and function name
 #endif
-		variablePointer->free();                           //	Unpair the variable and its conjugate
-		variablePointer->variableDeleted(variablePointer); //	Emit the variable's delete signal
+
+//	Loop over input handles:
+	while (!list.inp.isEmpty()) {
+
+		//	Pop the last element (more efficient than popping the first)
+		const auto handlePointer = list.inp.takeLast();
+
+#ifdef VERBOSE
+		qDebug() << "\t- Variable " << handlePointer->name() << " deleted"; //  Display handle's information
+#endif
+
+		handlePointer->free();                       //	Unpair the variable and its conjugate
+		handlePointer->handleDeleted(handlePointer); //	Emit the variable's delete signal
 	}
 
-	//	Loop over output variables
+	//	Loop over output handles:
 	while (!list.out.isEmpty()) {
-		const auto variablePointer = list.out.takeLast(); //	Pop the last element
+		const auto handlePointer = list.out.takeLast(); //	Pop the last element
 #ifdef VERBOSE
-		qInfo() << "\t- Variable "     //	Print variable information if logging is
-			<< variablePointer->name() //	verbose
-			<< " deleted";
+		qInfo() << "\t- Variable " << handlePointer->name() << " deleted";
 #endif
-		variablePointer->free();                           //	Unpair the variable and its conjugate
-		variablePointer->variableDeleted(variablePointer); //	Emit the variables's delete signal
+		handlePointer->free();                       //	Unpair the variable and its conjugate
+		handlePointer->handleDeleted(handlePointer); //	Emit the variables's delete signal
 	}
 
 	if (scene()) //	Remove the node from scene, if applicable
@@ -81,6 +86,7 @@ nodeCtrl::nodeCtrl(const QPointF& nodePosition, const QString& nodeName, QGraphi
 		nodePosition,
 		QColor(Qt::black),
 		QRect(0, 0, NODE_WS, NODE_HS),
+		false,
 		false
 	},
 
@@ -103,7 +109,7 @@ nodeCtrl::nodeCtrl(const QPointF& nodePosition, const QString& nodeName, QGraphi
 	},
 
 //	Initialize lists
-	list{QList<nodeVar*>(), QList<nodeVar*>(), QList<nodeVar*>()},
+	list{QList<nodeHandle*>(), QList<nodeHandle*>(), QList<nodeParams*>()},
 
 //	Initialize status bar
 	statusbar{QString("Node Created"), new QItemR(this), new status(statusbar.board)},
@@ -115,7 +121,7 @@ nodeCtrl::nodeCtrl(const QPointF& nodePosition, const QString& nodeName, QGraphi
 		new QAction("Delete Node"),
 		new QAction("New Input"),
 		new QAction("New Output"),
-		new QAction("New Parameter"),
+		new QAction("New Constant"),
 	}
 
 //	-------------------------
@@ -129,6 +135,7 @@ nodeCtrl::nodeCtrl(const QPointF& nodePosition, const QString& nodeName, QGraphi
 	setPen(pen);
 	setPos(attr.origin);
 	setRect(attr.rect);
+	setObjectName("nodeCtrl");
 
 	//	Initialize header:
 	header.ptr->setRect(header.rect);
@@ -161,9 +168,9 @@ nodeCtrl::nodeCtrl(const QPointF& nodePosition, const QString& nodeName, QGraphi
 	svg.close->setToolTip("Delete Node");
 
 	connect(svg.close, &nodeSVG::leftClicked, [&]() { emit nodeDeleted(this); });
-	connect(svg.input, &nodeSVG::leftClicked, [&]() { createVariable(Input); });
-	connect(svg.output, &nodeSVG::leftClicked, [&]() { createVariable(Output); });
-	connect(svg.params, &nodeSVG::leftClicked, [&]() { createVariable(Parameter); });
+	connect(svg.input, &nodeSVG::leftClicked, [&]() { createHandle(Input); });
+	connect(svg.output, &nodeSVG::leftClicked, [&]() { createHandle(Output); });
+	connect(svg.params, &nodeSVG::leftClicked, [&]() { createParams(); });
 	connect(svg.toggle,
 			&nodeSVG::leftClicked,
 			[&]()
@@ -230,10 +237,11 @@ nodeCtrl::nodeCtrl(const QPointF& nodePosition, const QString& nodeName, QGraphi
 	menu.close->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Q)); //	Define the custom shortcut
 	menu.close->setShortcutContext(Qt::WidgetWithChildrenShortcut);          //	Do not remove or modify
 
-	auto m1 = connect(menu.save, &QAction::triggered, [&]() { actionSave(); });
-	auto m2 = connect(menu.close, &QAction::triggered, [&]() { svg.close->leftClicked(); });
-	auto m4 = connect(menu.input, &QAction::triggered, [&]() { svg.input->leftClicked(); });
-	auto m5 = connect(menu.output, &QAction::triggered, [&]() { svg.output->leftClicked(); });
+	connect(menu.save, &QAction::triggered, [&]() { actionSave(); });
+	connect(menu.close, &QAction::triggered, [&]() { svg.close->leftClicked(); });
+	connect(menu.input, &QAction::triggered, [&]() { svg.input->leftClicked(); });
+	connect(menu.output, &QAction::triggered, [&]() { svg.output->leftClicked(); });
+	connect(menu.constant, &QAction::triggered, [&]() { svg.params->leftClicked(); });
 
 //	Customize behaviour of node:
 	setAcceptHoverEvents(true);
@@ -256,16 +264,18 @@ nodeCtrl::nodeCtrl(const nodeCtrl& source) :
 //	-----------------------------
 //	Copy-contructor (body) begin:
 {
+#ifdef VERBOSE
 	qInfo() << __FILE_NAME__ << __func__;
+#endif
 
 //	Temporary variable:
-	nodeVar* variable = nullptr;
+	nodeHandle* variable = nullptr;
 
 //	Copy the original node's input variables:
 	for (const auto src : source.list.inp) {
-		variable = createVariable(Input, src->name());
+		variable = createHandle(Input);
 		variable->setPos(src->pos());
-		variable->setCategory(src->getCategory());
+		variable->setCategory(src->category());
 
 		/*	If the original variable is paired, store its relative displacement from its conjugate. This is required to
 		 *	preserve connections when nodes are copy-pasted.
@@ -278,7 +288,7 @@ nodeCtrl::nodeCtrl(const nodeCtrl& source) :
 
 //	Copy the original node's output variables:
 	for (const auto src : source.list.out) {
-		variable = createVariable(Output, src->name());
+		variable = createHandle(Output);
 		variable->setPos(src->pos());
 
 		/*	If the original variable is paired, store its relative displacement from its conjugate. This is required to
@@ -289,10 +299,6 @@ nodeCtrl::nodeCtrl(const nodeCtrl& source) :
 			variable->setData(0, QVariant::fromValue(diff));
 		}
 	}
-
-//	Copy the original node's parameters:
-	for (auto j : source.list.par)
-		variable = createVariable(Parameter, j->name());
 }
 
 QVariant
@@ -394,18 +400,18 @@ nodeCtrl::mousePressEvent(QGraphicsSceneMouseEvent* event) {
 	const auto position = QPointF(0.0, event->pos().y() - 4.0);
 
 //	Initialize a temporary variable:
-	nodeVar* variable = nullptr;
+	nodeHandle* handle = nullptr;
 
-//	If
+//	When the user clicks an input or output rail, a handle is automatically created.
 	if (rails.west->contains(posLRail)) {
 		setFlag(ItemIsMovable, false);
-		variable = createVariable(Input, QString(), position);
-		variable->variableClicked(list.inp.last());
+		handle = createHandle(Input, position);
+		handle->handleClicked(handle);
 	}
 	else if (rails.east->contains(posRRail)) {
 		setFlag(ItemIsMovable, false);
-		variable = createVariable(Output, QString(), position);
-		variable->variableClicked(list.out.last());
+		handle = createHandle(Output, position);
+		handle->handleClicked(handle);
 	}
 	else
 		setFlag(ItemIsMovable, true);
@@ -432,118 +438,90 @@ nodeCtrl::contextMenuEvent(QGraphicsSceneContextMenuEvent* event) {
 	event->accept();
 }
 
-nodeVar*
-nodeCtrl::variableAt(const QPointF& pos) //  pos must be in scene coordinates:
+nodeHandle*
+nodeCtrl::handleAt(const QPointF& pos) //  pos must be in scene coordinates:
 {
+//	Print file and function name:
+#ifdef VERBOSE
 	qInfo() << __FILE_NAME__ << __func__;
-	for (const auto var : list.inp) {
+#endif
+
+	for (const auto var : list.inp)
 		if (var->mapFromScene(pos) == QPointF(0, 0))
-			return(var);
-	}
-	for (const auto var : list.out) {
+			return (var);
+
+	for (const auto var : list.out)
 		if (var->mapFromScene(pos) == QPointF(0, 0))
-			return(var);
-	}
+			return (var);
+
 	return (nullptr);
 }
 
-nodeVar*
-nodeCtrl::createVariable(const StreamType& variableType, const QString& symbol, const QPointF pos) {
-	/*	This function creates a new variable of the desired type (VariableType), stores it
-	 *	in the appropriate list, and positions it within the node according to its type
-	 *	(e.g. input and output variables are on the left and right, respectively)	*/
+nodeHandle*
+nodeCtrl::createHandle(const StreamType& handleType, const QPointF pos) {
 
+/*	This function creates a new handle of the desired type (StreamType), stores it in the appropriate list and positions
+ *	it within the node according to its type (e.g. input and output variables are on the left and right, respectively).	*/
+
+//	Print file and function name:
+#ifdef VERBOSE
 	qInfo() << __FILE__ << __func__;
+#endif
 
-	auto     variableSymbol   = QString();
-	auto     variablePosition = 0.0;
-	nodeVar* variablePtr      = nullptr;
+//	Function body:
+	auto        position = 0.0;
+	nodeHandle* pointer  = nullptr;
 
-	switch (variableType) {
-		//	Create an input variable and add to node:
+//	Switch-case block:
+	switch (handleType) {
+
+		//	StreamType = StreamType::Input (i.e. input handle):
 		case Input: {
-			/*	Re-use symbols of deleted variables	*/
-			if (amplDatabase::deletedSymbols.isEmpty())
-				variableSymbol = QString("X") + QString::number(amplDatabase::variableList.size());
-			else {
-				std::sort(amplDatabase::deletedSymbols.begin(), amplDatabase::deletedSymbols.end());
-				variableSymbol = QString("X") + QString::number(amplDatabase::deletedSymbols.first());
-				amplDatabase::deletedSymbols.removeAll(amplDatabase::deletedSymbols.first());
-			}
-			//	Create variable with appropriate attribute(s):
-			variablePtr      = new nodeVar(symbol, variableSymbol, variableType, this);
-			variablePosition = rails.west->pos().x() - 4.0;
 
-			//	Store the variable in the input-list, and the AMPL list:
-			list.inp.append(variablePtr);
-			amplDatabase::variableList.append(variablePtr);
+			//	Create handle and initialize its position:
+			pointer  = new nodeHandle(handleType, this);
+			position = rails.west->pos().x() - 4.0;
 
-			/*	Emit createLink() signal when a variable within the node is clicked. This signal
-			 *	is captured and handled by schemaCanvas::onCreateLink()	*/
-			auto c1 = connect(variablePtr,
-							  &nodeVar::variableClicked,
-							  [&](nodeVar* var) { emit linkVariable(this, var); });
-			auto c2 = connect(variablePtr, &nodeVar::variableDeleted, [&](nodeVar* var) { deleteVariable(var); });
+			//	Store the pointer to the handle in the node's local list:
+			list.inp.append(pointer);
 
-			/*	Adjust position of the created variable. An input variable is positioned near
-			 *	the left edge of the node, stacked sequentially below other input variables	*/
-			variablePtr->setPos(pos == QPointF()
-									? QPointF(variablePosition, 12 + list.inp.size() * 40)
-									: QPointF(variablePosition, pos.y()));
+			//	Emit connectHandle() signal when the handle is clicked. This signal is processed by the node and scene:
+			connect(pointer, &nodeHandle::handleClicked, [&](nodeHandle* handle) { emit connectHandle(this, handle); });
+			connect(pointer, &nodeHandle::handleDeleted, [&](nodeHandle* handle) { emit deleteHandle(handle); });
+
+			//	Adjust position of the handle (handles are automatically stacked, unless moved by the user):
+			pointer->setPos(pos == QPointF()
+								? QPointF(position, 12 + list.inp.size() * 40)
+								: QPointF(position, pos.y()));
 
 			//	Display a status message:
-			statusbar.pointer->print(QString("Input Variable " + amplDatabase::variableList.last()->name() + " (" +
-											 amplDatabase::variableList.last()->getUID() + ") added to Node"));
+			statusbar.pointer->print(QString("Input handle (" + pointer->UID() + ") created"));
 			break;
 		}
 
-		//	Create an output variable and add to node:
+		//	StreamType = StreamType::Output (i.e. output handle):
 		case Output: {
-			/*	Re-use the symbols of deleted variables*/
-			if (amplDatabase::deletedSymbols.isEmpty())
-				variableSymbol = QString("X") + QString::number(amplDatabase::variableList.size());
-			else {
-				std::sort(amplDatabase::deletedSymbols.begin(), amplDatabase::deletedSymbols.end());
-				variableSymbol = QString("X") + QString::number(amplDatabase::deletedSymbols.first());
-				amplDatabase::deletedSymbols.removeAll(amplDatabase::deletedSymbols.first());
-			}
 
 			//	Create variable with appropriate attribute(s):
-			variablePtr      = new nodeVar(symbol, variableSymbol, variableType, this);
-			variablePosition = rails.east->pos().x() - 4.0;
+			pointer  = new nodeHandle(handleType, this);
+			position = rails.east->pos().x() - 4.0;
 
 			//	Store the variable in the input-list, and the AMPL list:
-			list.out.push_back(variablePtr);
-			amplDatabase::variableList.push_back(variablePtr);
+			list.out.push_back(pointer);
 
 			/*	Emit createLink() signal when a variable within the node is clicked. This
 			 *	signal is captured and handled by schemaCanvas::onCreateLink()	*/
-			auto c1 = connect(variablePtr,
-							  &nodeVar::variableClicked,
-							  [&](nodeVar* var) { emit linkVariable(this, var); });
-			auto c2 = connect(variablePtr, &nodeVar::variableDeleted, [&](nodeVar* var) { deleteVariable(var); });
+			connect(pointer, &nodeHandle::handleClicked, [&](nodeHandle* handle) { emit connectHandle(this, handle); });
+			connect(pointer, &nodeHandle::handleDeleted, [&](nodeHandle* handle) { emit deleteHandle(handle); });
 
 			/*	Adjust position of the created variable. An input variable is positioned near
 			 *	the left edge of the node, stacked sequentially below other input variables	*/
-			variablePtr->setPos(pos == QPointF()
-									? QPointF(variablePosition, 12 + list.out.size() * 40)
-									: QPointF(variablePosition, pos.y()));
+			pointer->setPos(pos == QPointF()
+								? QPointF(position, 12 + list.out.size() * 40)
+								: QPointF(position, pos.y()));
 
 			//	Display a status message:
-			statusbar.pointer->print(QString("Output Variable " + amplDatabase::variableList.last()->name() + " (" +
-											 amplDatabase::variableList.last()->getUID() + ") added to Node"));
-			break;
-		}
-
-		//	Create a parameter and add to node:
-		case Parameter: {
-			//	Create parameter with appropriate attribute(s) and position:
-			variableSymbol   = QString("C") + QString::number(amplDatabase::variableList.size());
-			variablePtr      = new nodeVar(symbol, variableSymbol, variableType, this);
-			variablePosition = 280;
-
-			//	Store the variable in the input-list, and the AMPL list:
-			list.par.push_back(variablePtr);
+			statusbar.pointer->print(QString("Output handle (" + pointer->UID() + ") created"));
 			break;
 		}
 
@@ -551,9 +529,9 @@ nodeCtrl::createVariable(const StreamType& variableType, const QString& symbol, 
 			break;
 	}
 
-	/*	First shift bottom boundary downwards, followed by the variable rails and the status
-	 *	bar. The positions have been hardcoded, but a better solution will be found in the
-	 *	future	*/
+/*	First shift bottom boundary downwards, followed by the variable rails and the status
+ *	bar. The positions have been hardcoded, but a better solution will be found in the
+ *	future	*/
 	if (const auto maxSize = qMax(list.inp.size(), list.out.size());
 		maxSize >= 4) {
 
@@ -568,29 +546,62 @@ nodeCtrl::createVariable(const StreamType& variableType, const QString& symbol, 
 		statusbar.board->setPos(0.5, QGraphicsRectItem::boundingRect().bottom() - 25.0);
 	}
 
-	emit variableCreated();
+//	Emit signal:
+	emit handleCreated();
 
-	return (variablePtr);
+//	Return pointer to the created handle:
+	return (pointer);
 }
 
-//	This SLOT is triggered by SIGNAL(nodeVar::variableDeleted(nodeVar*)):
+//	This function is triggered when the user selects "New Parameter" from the node's context-menu:
+QList<nodeParams*>*
+nodeCtrl::createParams() {
+
+#ifdef VERBOSE
+	qInfo() << __FILE__ << __func__;
+#endif
+
+	auto parent = dynamic_cast<QWidget*>(parentWidget());
+	auto dialog = customDialog("New Parameter", "Name (comma-separated)", parent);
+
+	int result = dialog.exec();
+
+	const auto input = dialog.parameters();
+	const auto plist = QList<nodeParams*>();
+	qInfo() << "Entered parameters: " << input;
+
+	for (QStringList paramsList = input.split(',');
+		 auto        param : paramsList) {
+
+#ifdef VERBOSE
+		qInfo() << param.simplified();
+#endif
+
+		const auto pointer = new nodeParams(param.simplified());
+		list.par.push_back(pointer);
+	}
+}
+
+
+//	This SLOT is triggered by SIGNAL(nodeHandle::handleDeleted(nodeHandle*)):
 void
-nodeCtrl::deleteVariable(nodeVar* variable) {
+nodeCtrl::deleteHandle(nodeHandle* handle) {
 
-	qInfo() << __FILE__ << __func__; //	Print file and function name
+#ifdef VERBOSE
+//	Print file and function name:
+	qInfo() << __FILE__ << __func__;
+#endif
 
-	if (variable->getVariableType() == Input) //	Remove the variable from the node's list
-		list.inp.removeAll(variable);
-	else if (variable->getVariableType() == Output)
-		list.out.removeAll(variable);
-	else if (variable->getVariableType() == Parameter)
-		list.par.removeAll(variable);
+	if (handle->streamType() == Input) //	Remove the variable from the node's list
+		list.inp.removeAll(handle);
+	else
+		list.out.removeAll(handle);
 
-	amplDatabase::deletedSymbols.append(variable->symbol().split("X")[1].toInt());
-	amplDatabase::variableList.removeAll(variable); //	Remove variable from the amplDatabase
-	variable->deleteLater();                        //	Delete variable using QObject::deleteLater()
+//	Delete handle using QObject::deleteLater():
+	handle->deleteLater();
 
-	emit variableDeleted();
+//	Emit handleDeleted() signal:
+	emit handleDeleted();
 }
 
 void
@@ -627,7 +638,7 @@ nodeCtrl::reconnect() {
 
 		if (item && item->type() == UserType + NODEITEM) {
 			const auto node = qgraphicsitem_cast<nodeCtrl*>(item);
-			const auto xvar = node->variableAt(node->mapFromScene(point));
+			const auto xvar = node->handleAt(node->mapFromScene(point));
 
 			if (const auto path = var->pair(xvar))
 				qInfo() << "\t- Connection established";
@@ -643,29 +654,10 @@ nodeCtrl::reconnect() {
 
 		if (item && item->type() == UserType + NODEITEM) {
 			const auto node = qgraphicsitem_cast<nodeCtrl*>(item);
-			const auto xvar = node->variableAt(point);
+			const auto xvar = node->handleAt(point);
 
 			if (const auto path = var->pair(xvar))
 				qInfo() << "\t- Connection established";
 		}
-	}
-}
-
-void
-nodeCtrl::print(const StreamType type) {
-
-	qInfo() << __FILE_NAME__ << __func__;
-	switch (type) {
-		case Input: {
-			for (const auto var : list.inp) { qInfo() << "\t- " << var->symbol(); }
-			break;
-		}
-
-		case Output: {
-			for (const auto var : list.out) { qInfo() << "\t- " << var->symbol(); }
-			break;
-		}
-		default:
-			break;
 	}
 }

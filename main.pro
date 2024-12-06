@@ -39,17 +39,17 @@
 
   HEADERS +=    include/node/nodeCtrl.h             \
                 include/node/nodeSVG.h              \
-                include/node/nodeVar.h              \
+                include/node/nodeHandle.h           \
+                include/node/nodeParams.h           \
                 include/node/nodeGroup.h            \
-                include/node/nodeConnect.h          \
-                include/node/nodeConstant.h
+                include/node/nodeConnect.h
 
   HEADERS +=    include/ampl/amplDatabase.h         \
-                include/ampl/amplInterface.h
 
   HEADERS +=    include/optim/optimCtrl.h           \
 
-  HEADERS +=    include/custom/customEditor.h
+  HEADERS +=    include/custom/customEditor.h       \
+                include/custom/customDialog.h
 
 #----------------------------------------
 # Project source files:
@@ -64,18 +64,18 @@
 
   SOURCES +=    src/node/nodeCtrl.cpp               \
                 src/node/nodeSVG.cpp                \
-                src/node/nodeVar.cpp                \
+                src/node/nodeHandle.cpp             \
+		        src/node/nodeParams.cpp             \
                 src/node/nodeGroup.cpp              \
                 src/node/nodeActions.cpp	        \
-		        src/node/nodeConnect.cpp            \
-		        src/node/nodeConstant.cpp
+		        src/node/nodeConnect.cpp
 
   SOURCES +=    src/ampl/amplDatabase.cpp           \
-                src/ampl/amplInterface.cpp          \
 
   SOURCES +=    src/optim/optimCtrl.cpp             \
 
-  SOURCES +=    src/custom/customEditor.cpp
+  SOURCES +=    src/custom/customEditor.cpp         \
+                src/custom/customDialog.cpp
 
 # Qt Resource files:
   RESOURCES         += resources/sapience.qrc

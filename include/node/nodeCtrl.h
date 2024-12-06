@@ -18,8 +18,9 @@
 //	Include SVG buttons	*/
 #include <QTextEdit>
 #include "ampl/amplDatabase.h"
+#include "node/nodeHandle.h"
+#include "node/nodeParams.h"
 #include "node/nodeSVG.h"
-#include "node/nodeVar.h"
 
 /*  Default defines */
 #define NODEITEM 1
@@ -43,6 +44,7 @@ enum MessageType { Info, Error, Warning };
 
 //	Forward declaration of subclassed status bar
 class status;
+class nodeParams;
 
 class nodeCtrl final : public QObject, public QGraphicsRectItem {
 
@@ -75,8 +77,8 @@ private:
 
 	//	Rails (anchors the variable handles)
 	struct {
-		QItemL* west	 = nullptr;
-		QItemL* east	 = nullptr;
+		QItemL* west     = nullptr;
+		QItemL* east     = nullptr;
 		QItemE* hintWest = nullptr;
 		QItemE* hintEast = nullptr;
 	} rails;
@@ -97,10 +99,10 @@ private:
 
 	//	Lists to store variable pointers and names:
 	struct {
-		QList<nodeVar*> inp = QList<nodeVar*>();
-		QList<nodeVar*> out = QList<nodeVar*>();
-		QList<nodeVar*> par = QList<nodeVar*>();
-		QList<QString>  eqn = QList<QString>();
+		QList<nodeHandle*> inp = QList<nodeHandle*>();
+		QList<nodeHandle*> out = QList<nodeHandle*>();
+		QList<nodeParams*> par = QList<nodeParams*>();
+		QList<QString>     eqn = QList<QString>();
 	} list;
 
 	//	Struct _prompt_:
@@ -133,11 +135,11 @@ signals:
 	void
 	nodeDeleted(nodeCtrl*); //	Signal emitted when node is deleted
 	void
-	variableCreated(); //	Signal emitted when a variable is created
+	handleCreated(); //	Signal emitted when a variable is created
 	void
-	variableDeleted(); //	Signal emitted when a variable is deleted
+	handleDeleted(); //	Signal emitted when a variable is deleted
 	void
-	linkVariable(nodeCtrl*, nodeVar*); //	Signal emitted when the user wishes to draw a connection
+	connectHandle(nodeCtrl*, nodeHandle*); //	Signal emitted when the user wishes to draw a connection
 
 protected slots:
 
@@ -153,11 +155,10 @@ protected slots:
 	hoverLeaveEvent(QGraphicsSceneHoverEvent*) override;
 	void
 	mousePressEvent(QGraphicsSceneMouseEvent* event) override;
+
 	void
-	mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override {
-		actionSetup();
-		event->accept();
-	}
+	mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override { actionSetup(); }
+
 	void
 	mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 	void
@@ -167,8 +168,10 @@ protected:
 
 	void
 	actionSave() {}
+
 	void
 	actionErase() {}
+
 	void
 	actionSetup() const;
 
@@ -189,17 +192,20 @@ public:
 	[[nodiscard]] bool
 	isLocked() const { return attr.locked; }
 
-	[[nodiscard]] nodeVar*
-	variableAt(const QPointF&);
+	[[nodiscard]] nodeHandle*
+	handleAt(const QPointF&);
 
 	static void
 	autoCompletion(const QString&, const QTextEdit*);
 
-	nodeVar*
-	createVariable(const StreamType&, const QString& symbol = QString(), QPointF pos = QPointF());
+	nodeHandle*
+	createHandle(const StreamType&, QPointF pos = QPointF());
+
+	QList<nodeParams*>*
+	createParams();
 
 	void
-	deleteVariable(nodeVar*);
+	deleteHandle(nodeHandle*);
 
 	void
 	onLockToggled(bool);
@@ -215,15 +221,13 @@ public:
 
 	void
 	reconnect();
-
-	void
-	print(StreamType);
-
 };
 
 class status final : public QGraphicsTextItem {
 public:
+
 	~status() override = default;
+
 	explicit
 	status(QGraphicsItem* parent = nullptr) :
 		QGraphicsTextItem(parent) {
@@ -246,7 +250,6 @@ public:
 
 		setPlainText(prefix + message);
 	}
-
 };
 
 #endif

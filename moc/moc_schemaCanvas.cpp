@@ -45,7 +45,7 @@ constexpr auto qt_meta_stringdata_CLASSschemaCanvasENDCLASS = QtMocHelpers::stri
     "quitProgram",
     "startConnection",
     "nodeCtrl*",
-    "nodeVar*",
+    "nodeHandle*",
     "createNode",
     "nodeCtrl",
     "createGroup",
@@ -94,17 +94,17 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSschemaCanvasENDCLASS[] = {
        5,    0,  125,    4, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    2,  126,    4, 0x0a,    3 /* Public */,
-       9,    1,  131,    4, 0x0a,    6 /* Public */,
-       9,    1,  134,    4, 0x0a,    8 /* Public */,
-      11,    1,  137,    4, 0x0a,   10 /* Public */,
-      14,    1,  140,    4, 0x0a,   12 /* Public */,
-      15,    1,  143,    4, 0x0a,   14 /* Public */,
-      16,    0,  146,    4, 0x10a,   16 /* Public | MethodIsConst  */,
-      17,    0,  147,    4, 0x0a,   17 /* Public */,
-      18,    0,  148,    4, 0x0a,   18 /* Public */,
-      19,    0,  149,    4, 0x0a,   19 /* Public */,
-      20,    0,  150,    4, 0x0a,   20 /* Public */,
+       6,    2,  126,    4, 0x09,    3 /* Protected */,
+       9,    1,  131,    4, 0x09,    6 /* Protected */,
+       9,    1,  134,    4, 0x09,    8 /* Protected */,
+      11,    1,  137,    4, 0x09,   10 /* Protected */,
+      14,    1,  140,    4, 0x09,   12 /* Protected */,
+      15,    1,  143,    4, 0x09,   14 /* Protected */,
+      16,    0,  146,    4, 0x109,   16 /* Protected | MethodIsConst  */,
+      17,    0,  147,    4, 0x09,   17 /* Protected */,
+      18,    0,  148,    4, 0x09,   18 /* Protected */,
+      19,    0,  149,    4, 0x09,   19 /* Protected */,
+      20,    0,  150,    4, 0x09,   20 /* Protected */,
       21,    1,  151,    4, 0x09,   21 /* Protected */,
       24,    1,  154,    4, 0x09,   23 /* Protected */,
       25,    1,  157,    4, 0x09,   25 /* Protected */,
@@ -152,7 +152,7 @@ Q_CONSTINIT const QMetaObject schemaCanvas::staticMetaObject = { {
         // method 'startConnection'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
-        QtPrivate::TypeAndForceComplete<nodeVar *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<nodeHandle *, std::false_type>,
         // method 'createNode'
         QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QPointF &, std::false_type>,
@@ -205,7 +205,7 @@ void schemaCanvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->initialized(); break;
         case 1: _t->quitProgram(); break;
-        case 2: _t->startConnection((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<nodeVar*>>(_a[2]))); break;
+        case 2: _t->startConnection((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<nodeHandle*>>(_a[2]))); break;
         case 3: { nodeCtrl* _r = _t->createNode((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1])));
             if (_a[0]) *reinterpret_cast< nodeCtrl**>(_a[0]) = std::move(_r); }  break;
         case 4: { nodeCtrl* _r = _t->createNode((*reinterpret_cast< std::add_pointer_t<nodeCtrl>>(_a[1])));
@@ -235,7 +235,7 @@ void schemaCanvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeCtrl* >(); break;
             case 1:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeVar* >(); break;
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeHandle* >(); break;
             }
             break;
         case 7:

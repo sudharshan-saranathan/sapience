@@ -1,12 +1,20 @@
 * {
 	border					: none;
-	color                   : white;
 	background				: white;
 }
 
 QFrame {
     border                  : none;
     background              : white;
+}
+
+QInputDialog {
+
+    border                  : 2px solid black;
+    border-radius           : 8px;
+    padding                 : 8px;
+    background              : white;
+    background-clip         : padding;
 }
 
 QComboBox {
@@ -47,7 +55,7 @@ QTextEdit {
 }
 
 QMenu {
-    font-family             : "Gill Sans";
+    font                    : 12pt "Gill Sans";
     border                  : 1px solid black;
     padding                 : 4px 4px 4px 4px;
     color                   : black;
@@ -85,8 +93,7 @@ QLabel {
 QToolTip {
     border                  : 1px solid black;
     color                   : black;
-    font-family             : "Gill Sans";
-    font-size               : 14px;
+    font                    : 12pt "Monaco";
     background              : #D0F4EA;
 }
 
@@ -317,7 +324,7 @@ QCheckBox::indicator:checked {
 }
 
 QLineEdit {
-	border					: 1px solid black;
+	border					: none;
 	border-radius           : 6px;
 	padding                 : 2px 2px 2px 2px;
 	color                   : white;
@@ -385,11 +392,11 @@ QTableWidget {
 
 QHeaderView::section {
     color: black;
-    font: 12px "Gill Sans";
+    font: 12pt "Monaco";
 }
 
 QListView {
-     font-family             : "Gill Sans";
+     font                    : 12pt "Monaco";
      border                  : 1px solid black;
      padding                 : 4px 4px 4px 4px;
      color                   : black;

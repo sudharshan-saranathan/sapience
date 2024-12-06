@@ -7,41 +7,76 @@
 
 #include <QWidgetAction>
 
-#include "node/nodeVar.h"
+#include "node/nodeConnect.h"
 #include "node/nodeCtrl.h"
 
 #define CONNECTITEM 4
 
 using QStOGI = QStyleOptionGraphicsItem;
 
-class nodeConnect final : public QObject, public QGraphicsPathItem {
+class variable {
+public:
+	virtual ~variable() = default;
+
+protected:
+	double  value  = 0.0;
+	bool    fixed  = false;
+	QString symbol = QString();
+
+public:
+
+	void
+	setValue(const double& value) { this->value = value; }
+
+	void
+	setFixed(const bool& fixed)   { this->fixed = fixed; }
+
+	void
+	setSymbol(const QString& symbol) { this->symbol = symbol; }
+
+	[[nodiscard]] double
+	getValue() const { return value; }
+
+	[[nodiscard]] bool
+	isFixed() const  { return fixed; }
+
+	[[nodiscard]] QString
+	getSymbol() { return symbol; }
+};
+
+class nodeConnect final :	public QObject,
+							public QGraphicsPathItem,
+							public variable {
 
 	Q_OBJECT Q_DISABLE_COPY_MOVE(nodeConnect)
 	Q_CLASSINFO("Author", "Sudharshan Saranathan")public:
 
 	~nodeConnect() override;
 	explicit
-	nodeConnect(const QPen& pen, QGraphicsItem* parent = nullptr);
-
-public:
+	nodeConnect(const QPen&    pen = QPen(categoryList[0].getColor(), 3.0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin),
+				QGraphicsItem* parent = nullptr);
 
 	enum { Type = UserType + CONNECTITEM };
 
 private:
 
-	struct _attr_ {
-		QPen      pen;
-		nodeCtrl* sourceNode = nullptr;
-		nodeVar*  sourceVar  = nullptr;
-		nodeCtrl* targetNode = nullptr;
-		nodeVar*  targetVar  = nullptr;
+	struct {
+		QPen    pen    = QPen(categoryList[0].getColor(), 3.0);
+		QString symbol = QString();
 	} attr;
 
-	struct _curve_ {
+	struct {
+		nodeCtrl* sourceNode   = nullptr;
+		nodeCtrl* targetNode   = nullptr;
+		nodeHandle*  sourceHandle = nullptr;
+		nodeHandle*  targetHandle = nullptr;
+	} pointers;
+
+	struct {
 		QPainterPath path;
 	} curve;
 
-	struct _menu_ {
+	struct {
 		QMenu*         pointer        = nullptr;
 		QLineEdit*     createCategory = nullptr;
 		QWidgetAction* createAction   = nullptr;
@@ -64,7 +99,7 @@ protected slots:
 public slots:
 
 	void
-	clearConnection(const nodeVar*) const;
+	clearConnection(const nodeHandle*) const;
 	void
 	setCategory(const varCategory&);
 
@@ -74,28 +109,28 @@ public:
 	type() const override { return Type; }
 
 	[[nodiscard]] nodeCtrl*
-	getOriginNode() const { return attr.sourceNode; }
+	getOriginNode() const { return pointers.sourceNode; }
 
 	[[nodiscard]] nodeCtrl*
-	getTargetNode() const { return attr.targetNode; }
+	getTargetNode() const { return pointers.targetNode; }
 
-	[[nodiscard]] nodeVar*
-	getOriginVar() const { return attr.sourceVar; }
+	[[nodiscard]] nodeHandle*
+	getOriginVar() const { return pointers.sourceHandle; }
 
-	[[nodiscard]] nodeVar*
-	getTargetVar() const { return attr.targetVar; }
-
-	void
-	setOriginNode(nodeCtrl* onode) { attr.sourceNode = onode; }
+	[[nodiscard]] nodeHandle*
+	getTargetVar() const { return pointers.targetHandle; }
 
 	void
-	setTargetNode(nodeCtrl* tnode) { attr.targetNode = tnode; }
+	setOriginNode(nodeCtrl* onode) { pointers.sourceNode = onode; }
 
 	void
-	setOriginVar(nodeVar* ovar) { attr.sourceVar = ovar; }
+	setTargetNode(nodeCtrl* tnode) { pointers.targetNode = tnode; }
 
 	void
-	setTargetVar(nodeVar* tvar) { attr.targetVar = tvar; }
+	setOriginVar(nodeHandle* ovar) { pointers.sourceHandle = ovar; }
+
+	void
+	setTargetVar(nodeHandle* tvar) { pointers.targetHandle = tvar; }
 
 	void
 	clear() {
@@ -110,7 +145,7 @@ public:
 	connect(QPointF, QPointF);
 
 	void
-	setAttr(nodeCtrl*, nodeVar*, nodeCtrl*, nodeVar*);
+	setAttr(nodeCtrl*, nodeHandle*, nodeCtrl*, nodeHandle*);
 
 	void
 	refresh();

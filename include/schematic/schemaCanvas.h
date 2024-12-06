@@ -12,23 +12,21 @@
 #define FOLDERSIZE 64
 #define FOLDERSIZE 64
 
-/*  QtWidgets module    */
+//	QtWidgets module
 #include <QAction>
 #include <QKeyEvent>
 #include <QGraphicsScene>
 
 //  Include node-objects:
-#include <node/nodeGroup.h>
-
 #include "node/nodeCtrl.h"
-#include "node/nodeVar.h"
+#include "node/nodeHandle.h"
 
+//	Define aliases:
 using QItemL = QGraphicsLineItem;
 using QGroup = QGraphicsItemGroup;
 
 //	Forward declaration of class schemaViewer
 class schemaViewer;
-class nodeVar;
 
 //	Class schemaCanvas
 class schemaCanvas final : public QGraphicsScene {
@@ -40,10 +38,13 @@ class schemaCanvas final : public QGraphicsScene {
 	schemaCanvas()           = default;
 	schemaCanvas(const QRect&, QObject* parent);
 
-public slots:
+public:
+	void setProximity(nodeHandle* pointer) { connection.proximityPointer = pointer; }
+
+protected slots:
 
 	void
-	startConnection(nodeCtrl*, nodeVar*); //  Begins drawing a new connection from the specified variable
+	startConnection(nodeCtrl*, nodeHandle*); //  Begins drawing a new connection when a handle is clicked
 	nodeCtrl*
 	createNode(const QPointF&); //  Creates a new node at cursor position (in scene coordinates)
 	nodeCtrl*
@@ -53,7 +54,7 @@ public slots:
 	void
 	createFolder(const QPointF&); //  Moves selected nodes into a folder
 	void
-	deleteNode(nodeCtrl*); //  Deletes the node pointer to by the argument
+	deleteNode(nodeCtrl*); //  Deletes the node emitting the nodeDeleted() signal
 	void
 	deleteSchema() const; //  Deletes all items in the scene
 	void
@@ -72,6 +73,7 @@ signals:
 	void
 	quitProgram(); //  Emitted when the user quits the program
 
+//	Event-handlers
 protected slots:
 
 	void
@@ -118,10 +120,10 @@ protected:
 
 	//  Helper-struct to store useful variables when the user is drawing a connection
 	struct _connection_ {
-		bool inProgress = false; //  Is set to true when the user is drawing a connection
-		bool handleSnap = true; //  Is set to true to snap the cursor to the variable position
-		nodeCtrl* sourceNodePointer = nullptr; //  Points to the node where the user starts drawing the connection
-		nodeVar* sourceVariablePointer = nullptr; //  Points to the variable which was clicked to start the connection
+		bool handleClicked = false; //  Flag that is set to true when the user clicks a handle to draw a connection
+		nodeCtrl* originNode = nullptr; //  Points to the node where the user starts drawing the connection
+		nodeHandle* originHandle = nullptr; //  Points to the variable which was clicked to start the connection
+		nodeHandle* proximityPointer = nullptr;
 		nodeConnect* connector = nullptr; //  Points to a QGraphicsPathItem that is repeatedly modified
 	} connection;
 };

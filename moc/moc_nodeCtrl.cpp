@@ -46,10 +46,10 @@ constexpr auto qt_meta_stringdata_CLASSnodeCtrlENDCLASS = QtMocHelpers::stringDa
     "nodeRefresh",
     "nodeDeleted",
     "nodeCtrl*",
-    "variableCreated",
-    "variableDeleted",
-    "linkVariable",
-    "nodeVar*",
+    "handleCreated",
+    "handleDeleted",
+    "connectHandle",
+    "nodeHandle*",
     "itemChange",
     "QVariant",
     "GraphicsItemChange",
@@ -157,14 +157,14 @@ Q_CONSTINIT const QMetaObject nodeCtrl::staticMetaObject = { {
         // method 'nodeDeleted'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
-        // method 'variableCreated'
+        // method 'handleCreated'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'variableDeleted'
+        // method 'handleDeleted'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'linkVariable'
+        // method 'connectHandle'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<nodeCtrl *, std::false_type>,
-        QtPrivate::TypeAndForceComplete<nodeVar *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<nodeHandle *, std::false_type>,
         // method 'itemChange'
         QtPrivate::TypeAndForceComplete<QVariant, std::false_type>,
         QtPrivate::TypeAndForceComplete<GraphicsItemChange, std::false_type>,
@@ -210,9 +210,9 @@ void nodeCtrl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 2: _t->nodeShifted(); break;
         case 3: _t->nodeRefresh(); break;
         case 4: _t->nodeDeleted((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1]))); break;
-        case 5: _t->variableCreated(); break;
-        case 6: _t->variableDeleted(); break;
-        case 7: _t->linkVariable((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<nodeVar*>>(_a[2]))); break;
+        case 5: _t->handleCreated(); break;
+        case 6: _t->handleDeleted(); break;
+        case 7: _t->connectHandle((*reinterpret_cast< std::add_pointer_t<nodeCtrl*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<nodeHandle*>>(_a[2]))); break;
         case 8: { QVariant _r = _t->itemChange((*reinterpret_cast< std::add_pointer_t<GraphicsItemChange>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QVariant>>(_a[2])));
             if (_a[0]) *reinterpret_cast< QVariant*>(_a[0]) = std::move(_r); }  break;
         case 9: _t->paint((*reinterpret_cast< std::add_pointer_t<QPainter*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<const QStOGI*>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QWidget*>>(_a[3]))); break;
@@ -241,7 +241,7 @@ void nodeCtrl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeCtrl* >(); break;
             case 1:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeVar* >(); break;
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< nodeHandle* >(); break;
             }
             break;
         case 9:
@@ -291,21 +291,21 @@ void nodeCtrl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         }
         {
             using _t = void (nodeCtrl::*)();
-            if (_t _q_method = &nodeCtrl::variableCreated; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &nodeCtrl::handleCreated; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 5;
                 return;
             }
         }
         {
             using _t = void (nodeCtrl::*)();
-            if (_t _q_method = &nodeCtrl::variableDeleted; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &nodeCtrl::handleDeleted; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 6;
                 return;
             }
         }
         {
-            using _t = void (nodeCtrl::*)(nodeCtrl * , nodeVar * );
-            if (_t _q_method = &nodeCtrl::linkVariable; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (nodeCtrl::*)(nodeCtrl * , nodeHandle * );
+            if (_t _q_method = &nodeCtrl::connectHandle; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 7;
                 return;
             }
@@ -377,19 +377,19 @@ void nodeCtrl::nodeDeleted(nodeCtrl * _t1)
 }
 
 // SIGNAL 5
-void nodeCtrl::variableCreated()
+void nodeCtrl::handleCreated()
 {
     QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
 }
 
 // SIGNAL 6
-void nodeCtrl::variableDeleted()
+void nodeCtrl::handleDeleted()
 {
     QMetaObject::activate(this, &staticMetaObject, 6, nullptr);
 }
 
 // SIGNAL 7
-void nodeCtrl::linkVariable(nodeCtrl * _t1, nodeVar * _t2)
+void nodeCtrl::connectHandle(nodeCtrl * _t1, nodeHandle * _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 7, _a);

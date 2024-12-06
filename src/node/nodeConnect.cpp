@@ -8,25 +8,28 @@
 
 #include "schematic/schemaCanvas.h"
 #include "node/nodeConnect.h"
-#include "node/nodeVar.h"
+#include "node/nodeHandle.h"
 
 #define HEX_RANDOM QString("#%1").arg(QRandomGenerator::global()->generate() & 0xFFFFFF, 6, 16, QChar('0'))
 
 nodeConnect::~nodeConnect() {
 
+#ifdef VERBOSE
 	qInfo() << __FILE__ << __func__;
+#endif
+
 	if (disconnect())
 		qInfo() << "\t- QObject::disconnect() successful";
 	else
 		qWarning() << "\t- QObject::disconnect() returned false";
 
-	//	Reset pointers to nullptr. This is not needed, but it's good practice:
-	attr.sourceNode = nullptr;
-	attr.targetNode = nullptr;
-	attr.sourceVar  = nullptr;
-	attr.targetVar  = nullptr;
+//	Reset pointers to nullptr. This is not needed, but it's good practice:
+	pointers.sourceNode   = nullptr;
+	pointers.targetNode   = nullptr;
+	pointers.sourceHandle = nullptr;
+	pointers.targetHandle = nullptr;
 
-	//	If the path is added to a scene, remove from scene:
+//	If the path is added to a scene, remove from scene:
 	if (scene())
 		scene()->removeItem(this);
 
@@ -39,7 +42,9 @@ nodeConnect::nodeConnect(const QPen& pen, QGraphicsItem* parent) :
 //	Base-class constructor:
 	QGraphicsPathItem(parent),
 //	struct _attr_:
-	attr{pen, nullptr, nullptr, nullptr, nullptr},
+	attr{pen, QString()},
+//	Initialize helper-pointers:
+    pointers{nullptr, nullptr, nullptr, nullptr},
 //	struct _curve_:
 	curve{QPainterPath()},
 //	struct _menu_:
@@ -72,8 +77,7 @@ nodeConnect::nodeConnect(const QPen& pen, QGraphicsItem* parent) :
 			menu.createCategory->clear();
 
 			//	Create a new category with the entered type:
-			const auto name  = categoryName;
-			const uint_t ID  = static_cast<uint_t>(categoryList.size());
+			const uint_t ID = static_cast<uint_t>(categoryList.size());
 			categoryList.append(varCategory{categoryName, ID, HEX_RANDOM});
 
 			//	Clear the QLineEdit after emitting the returnPressed() signal:
@@ -136,22 +140,28 @@ void nodeConnect::setCategory(const varCategory& category) {
 	qInfo() << category.getColor() << " " << category.getName();
 	setPen(QPen(category.getColor(), 3.0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 
-	attr.sourceVar->setCategory(category);
-	attr.targetVar->setCategory(category);
+	pointers.sourceHandle->setCategory(category);
+	pointers.targetHandle->setCategory(category);
 
 	menu.pointer->close();
 }
 
-void nodeConnect::clearConnection(const nodeVar* var) const {
-	Q_UNUSED(var)
+void nodeConnect::clearConnection(const nodeHandle* handle) const {
+	Q_UNUSED(handle)
+
+	const auto counter = symbol.split("X")[1].toInt();
+
+//	Remove connection from database, add symbol to the deletedSymbols list (so that it can be reused):
+	amplDatabase::deletedSymbols.append(counter);
+	amplDatabase::variableList.removeAll(this);
 
 	delete this;
 }
 
 void nodeConnect::connect(const QPointF tpos) {
 
-	if (attr.sourceNode && attr.sourceVar) {
-		const auto spos = attr.sourceVar->scenePos() + attr.sourceVar->rect().center();
+	if (pointers.sourceNode && pointers.sourceHandle) {
+		const auto spos = pointers.sourceHandle->scenePos() + pointers.sourceHandle->rect().center();
 		connect(spos, tpos);
 	}
 }
@@ -180,28 +190,28 @@ void nodeConnect::connect(const QPointF spos, const QPointF tpos) {
 	setPath(curve.path);
 }
 
-void nodeConnect::setAttr(nodeCtrl* srcn , nodeVar* srcv, nodeCtrl* tarn, nodeVar* tarv) {
+void nodeConnect::setAttr(nodeCtrl* srcn , nodeHandle* srcv, nodeCtrl* tarn, nodeHandle* tarv) {
 
-	attr.sourceNode = srcn;
-	attr.targetNode = tarn;
-	attr.sourceVar  = srcv;
-	attr.targetVar  = tarv;
+	pointers.sourceNode = srcn;
+	pointers.targetNode = tarn;
+	pointers.sourceHandle  = srcv;
+	pointers.targetHandle  = tarv;
 }
 
 void nodeConnect::refresh() {
 
-	if (attr.sourceNode != nullptr && attr.targetNode != nullptr && \
-		attr.sourceVar  != nullptr && attr.targetVar  != nullptr)
+	if (pointers.sourceNode != nullptr && pointers.targetNode != nullptr && \
+		pointers.sourceHandle  != nullptr && pointers.targetHandle  != nullptr)
 	{
-		const auto spos  = attr.sourceVar->scenePos() + attr.sourceVar->rect().center();
-		const auto tpos  = attr.targetVar->scenePos() + attr.targetVar->rect().center();
-		const auto color = attr.sourceVar->getCategoryColor();
+		const auto spos  = pointers.sourceHandle->scenePos() + pointers.sourceHandle->rect().center();
+		const auto tpos  = pointers.targetHandle->scenePos() + pointers.targetHandle->rect().center();
+		const auto color = pointers.sourceHandle->categoryColor();
 
 		setPen(QPen(color, 3.0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 		connect(spos, tpos);
 	}
 
-	if (attr.sourceNode->isVisible() && attr.targetNode->isVisible())
+	if (pointers.sourceNode->isVisible() && pointers.targetNode->isVisible())
 		setVisible(true);
 	else
 		setVisible(false);

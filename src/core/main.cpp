@@ -24,24 +24,37 @@
 //  Main executable
 int
 main(int argc, char* argv[]) {
-	//  Instantiate application and set font:
+
+//	Print file and function name:
+	qInfo() << __FILE_NAME__ << __func__;
+
+//  Instantiate application and set font:
 	QApp_t main_app(argc, argv);
-	QApp_t::setFont(QFont("Gill Sans", 14));
+	QApp_t::setFont(QFont("Monaco", 14));
 
-	const auto screen = QGuiApplication::primaryScreen();
-	const auto width  = screen->size().width();
-	const auto height = screen->size().height();
-
-	qInfo() << "Screen resolution - " << width << height;
-
-	coreGUI core_gui(width, height, &main_app);
-
-	//	Set stylesheets:
+//	Set stylesheet:
 	main_app.setStyleSheet(coreQSS::readQSS(":/style/sapience.qss"));
 
-	//	Display GUI:
+//	Initialize dimensions:
+	auto width  = APP_XS;
+	auto height = APP_YS;
+	auto bounds = QRect(0, 0, width, height);
+
+//	Get dimensions of external display:
+	auto display = QGuiApplication::screens();
+	if (display.data()) {
+		width  = display.last()->size().width();
+		height = display.last()->size().height();
+		bounds = display.last()->geometry();
+	}
+
+//	Initialize coreGUI:
+	coreGUI core_gui(width, height, &main_app);
+
+//	Move GUI to external display and show:
+	core_gui.move(bounds.topLeft());
 	core_gui.show();
 
-	//  Enter execution loop:
+//  Enter execution loop:
 	return (QApp_t::exec());
 }

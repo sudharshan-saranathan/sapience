@@ -14,8 +14,8 @@
 #define VERBOSE
 
 //  Include core headers
-#include "core/coreGUI.h"
-#include "core/coreQSS.h"
+#include "core/core_gui.h"
+#include "core/core_qss.h"
 
 //  QtGui module
 #include <QFont>
@@ -29,32 +29,43 @@ main(int argc, char* argv[]) {
 	qInfo() << __FILE_NAME__ << __func__;
 
 //  Instantiate application and set font:
-	QApp_t main_app(argc, argv);
-	QApp_t::setFont(QFont("Monaco", 14));
+	q_appl main_app(argc, argv);
+	q_appl::setFont(QFont("Monaco", 14));
 
 //	Set stylesheet:
-	main_app.setStyleSheet(coreQSS::readQSS(":/style/sapience.qss"));
+	main_app.setStyleSheet(CoreQSS::readQSS(":/style/sapience.qss"));
 
 //	Initialize dimensions:
 	auto width  = APP_XS;
 	auto height = APP_YS;
 	auto bounds = QRect(0, 0, width, height);
 
+//	Parse command line arguments:
+	auto display = 0;
+	auto args = QString(argv[1]).split("=");
+
 //	Get dimensions of external display:
 	auto display = QGuiApplication::screens();
 	if (display.data()) {
-		width  = display.last()->size().width();
-		height = display.last()->size().height();
-		bounds = display.last()->geometry();
+
+		auto screenIndex = 0;
+		auto args = QString(argv[1]).split("=");
+
+		if (args[0] == "--display")
+			screenIndex = args.at(1).toInt();
+
+		width  = display[screenIndex]->size().width();
+		height = display[screenIndex]->size().height();
+		bounds = display[screenIndex]->geometry();
 	}
 
 //	Initialize coreGUI:
-	coreGUI core_gui(width, height, &main_app);
+	CoreGui core_gui(width, height, &main_app);
 
 //	Move GUI to external display and show:
 	core_gui.move(bounds.topLeft());
 	core_gui.show();
 
 //  Enter execution loop:
-	return (QApp_t::exec());
+	return (q_appl::exec());
 }

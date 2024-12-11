@@ -4,6 +4,9 @@
 # Author: Sudharshan Saranathan
 #------------------------------
 
+# Define project home:
+  PROJECT_PATH = $${PWD}
+
 # Default config options:
   CONFIG += debug warn_on c++20 ampl
 
@@ -15,7 +18,7 @@
   TARGET  = sapience-debug
 
 # Include directories:
-  INCLUDEPATH += include
+  INCLUDEPATH += $${PROJECT_PATH}/include
   INCLUDEPATH += /usr/local/include/
   INCLUDEPATH += /opt/qt/6.8.0/macos/lib/
   INCLUDEPATH += /Applications/AMPL/amplapi/include/
@@ -31,54 +34,52 @@
 # Project header files:
 #----------------------------------------
 
-  HEADERS +=	include/core/coreGUI.h	\
-                include/core/coreQSS.h  \
+  HEADERS +=	include/core/core_gui.h	\
+                include/core/core_qss.h  \
 
-  HEADERS +=    include/schematic/schemaViewer.h    \
-                include/schematic/schemaCanvas.h
+  HEADERS +=    include/schematic/schema_viewer.h    \
+                include/schematic/schema_canvas.h
 
-  HEADERS +=    include/node/nodeCtrl.h             \
-                include/node/nodeSVG.h              \
-                include/node/nodeHandle.h           \
-                include/node/nodeParams.h           \
-                include/node/nodeGroup.h            \
-                include/node/nodeConnect.h
+  HEADERS +=    include/node/node_ctrl.h             \
+                include/node/node_svg.h              \
+                include/node/node_handle.h           \
+                include/node/node_params.h           \
+                include/node/node_group.h            \
+                include/node/node_connect.h
 
-  HEADERS +=    include/ampl/amplDatabase.h         \
+  HEADERS +=    include/optim/optim_ctrl.h           \
+                include/optim/optim_data.h
 
-  HEADERS +=    include/optim/optimCtrl.h           \
-
-  HEADERS +=    include/custom/customEditor.h       \
-                include/custom/customDialog.h
+  HEADERS +=    include/custom/custom_editor.h       \
+                include/custom/custom_dialog.h
 
 #----------------------------------------
 # Project source files:
 #----------------------------------------
 
   SOURCES += 	src/core/main.cpp	                \
-		        src/core/coreGUI.cpp	            \
-		        src/core/coreQSS.cpp
+		src/core/core_gui.cpp	            	\
+		src/core/core_qss.cpp
 
-  SOURCES +=	src/schematic/schemaViewer.cpp      \
-                src/schematic/schemaCanvas.cpp
+  SOURCES +=	src/schematic/schema_viewer.cpp      	\
+                src/schematic/schema_canvas.cpp
 
-  SOURCES +=    src/node/nodeCtrl.cpp               \
-                src/node/nodeSVG.cpp                \
-                src/node/nodeHandle.cpp             \
-		        src/node/nodeParams.cpp             \
-                src/node/nodeGroup.cpp              \
-                src/node/nodeActions.cpp	        \
-		        src/node/nodeConnect.cpp
+  SOURCES +=    src/node/node_ctrl.cpp               	\
+                src/node/node_svg.cpp                	\
+                src/node/node_handle.cpp        	\
+		src/node/node_params.cpp             	\
+                src/node/node_group.cpp              	\
+                src/node/node_actions.cpp	 	\
+		src/node/node_connect.cpp		
 
-  SOURCES +=    src/ampl/amplDatabase.cpp           \
+  SOURCES +=    src/optim/optim_ctrl.cpp             	\
+                src/optim/optim_data.cpp
 
-  SOURCES +=    src/optim/optimCtrl.cpp             \
-
-  SOURCES +=    src/custom/customEditor.cpp         \
-                src/custom/customDialog.cpp
+  SOURCES +=    src/custom/custom_editor.cpp         	\
+                src/custom/custom_dialog.cpp
 
 # Qt Resource files:
-  RESOURCES         += resources/sapience.qrc
+  RESOURCES +=  resources/sapience.qrc
 
 # Additional Qt flags:
   QMAKE_CXXFLAGS    += -std=c++20 -O3 -ftree-vectorize -flto -ffast-math

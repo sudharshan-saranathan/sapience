@@ -9,6 +9,8 @@
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
     <option name="/Default/Housekeeping/RefactoringsMru/RenameRefactoring/DoSearchForTextInStrings/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
+    <option name="/Default/Housekeeping/RefactoringsMru/RenameRefactoring/DoRenameType/@EntryValue" value="false" type="bool" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
   </component>
   <component name="CMakeProjectFlavorService">
@@ -59,63 +61,111 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Added a dialog to input parameters in each node.">
-      <change afterPath="$PROJECT_DIR$/include/custom/customDialog.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/custom/customLabel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/node/nodeParams.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_customDialog.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_customEditor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_editor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_nodeConnect.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_nodeConstant.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_nodeGroup.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_nodeHandle.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_nodePar.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_nodeParams.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_nodeSVG.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_optimCtrl.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moc/moc_optimEngine.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/custom/customDialog.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="db29bf51-2117-456a-a904-346ef7104d47" name="Changes" comment="Changed filenames, renamed classes, structs, variables, and enums in accordance with coding standards.">
+      <change afterPath="$PROJECT_DIR$/.clang-format" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/core/core_gui.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/core/core_qss.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/custom/custom_dialog.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/custom/custom_editor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/node/node_connect.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/node/node_ctrl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/node/node_group.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/node/node_handle.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/node/node_params.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/node/node_svg.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/optim/optim_ctrl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/optim/optim_data.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/optim/optim_engine.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/schematic/schema_canvas.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/schematic/schema_viewer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/core_gui.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/core_qss.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/custom/custom_dialog.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/custom/custom_editor.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/node_actions.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/node_connect.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/node_ctrl.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/node_group.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/node_handle.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/node_params.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/node/node_svg.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/optim/optim_ctrl.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/optim/optim_data.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schematic/schema_canvas.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schematic/schema_viewer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/ampl/amplDatabase.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/ampl/amplDatabase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/coreGUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/coreGUI.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/node/nodeConnect.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeConnect.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/node/nodeConstant.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/node/nodeCtrl.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeCtrl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/node/nodeVar.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/node/nodeHandle.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/optim/optimCtrl.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/optim/optimCtrl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/schematic/schemaViewer.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/schematic/schemaViewer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/coreGUI.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coreGUI.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/ampl/amplDatabase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/ampl/amplInterface.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/coreGUI.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/coreQSS.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/custom/customDialog.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/custom/customEditor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/custom/customLabel.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeConnect.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeCtrl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeGroup.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeHandle.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeParams.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/node/nodeSVG.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/optim/optimCtrl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/optim/optimData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/optim/optimEngine.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/schematic/schemaCanvas.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/schematic/schemaViewer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/coreGUI.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/coreQSS.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/moc_coreGUI.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_coreGUI.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/moc_nodeCtrl.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_nodeCtrl.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/moc_schemaCanvas.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_schemaCanvas.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/moc_schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/moc_schemaViewer.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/nodeCtrl.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nodeCtrl.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/nodeVar.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nodeVar.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/qrc_sapience.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/qrc_sapience.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/schemaCanvas.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaCanvas.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/schemaViewer.o" beforeDir="false" afterPath="$PROJECT_DIR$/lib/schemaViewer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/moc_coreGUI.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/moc_nodeCtrl.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/moc_nodeVar.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/moc_schemaCanvas.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/moc_schemaViewer.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nodeCtrl.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nodeVar.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/schemaCanvas.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/schemaViewer.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.pro" beforeDir="false" afterPath="$PROJECT_DIR$/main.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_nodeCtrl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_nodeCtrl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_nodeVar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_nodeVar.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moc/moc_schemaViewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/moc/moc_schemaViewer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qrc_sapience.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/qrc_sapience.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/style/sapience.qss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/style/sapience.qss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ampl/amplDatabase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/ampl/amplDatabase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_coreGUI.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_customDialog.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_customEditor.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_editor.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeConnect.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeConstant.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeCtrl.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeGroup.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeHandle.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodePar.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeParams.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeSVG.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_nodeVar.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_optimCtrl.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_optimEngine.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_predefs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_schemaCanvas.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/moc/moc_schemaViewer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ampl/amplDatabase.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ampl/amplInterface.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/coreGUI.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/coreQSS.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/node/nodeActions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeActions.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/node/nodeConnect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeConnect.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/node/nodeConstant.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeParams.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/node/nodeVar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/node/nodeHandle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom/customDialog.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom/customEditor.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeActions.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeConnect.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeCtrl.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeGroup.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeHandle.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeParams.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node/nodeSVG.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optim/optimCtrl.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optim/optimData.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/optim/optimEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/optim/optim_engine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schematic/schemaCanvas.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schematic/schemaViewer.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +247,6 @@
   </component>
   <component name="ProblemsViewState">
     <hideBySeverity>
-      <option value="200" />
       <option value="300" />
     </hideBySeverity>
     <option name="selectedTabId" value="CurrentFile" />
@@ -220,32 +269,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Native Application.all.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;delta-build&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/opt/developer/cplusplus/sapience-debug/src/node&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;service.view.auto.scroll.to.source&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C/C++&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.18398412&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Native Application.all.executor": "Run",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.advertisement.text.has.clang-format": "true",
+    "cf.advertisement.text.overridden": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "delta-build",
+    "last_opened_file_path": "/opt/developer/cplusplus/sapience-debug/src/node",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "service.view.auto.scroll.to.source": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.splitter.proportion": "0.18398412",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/node" />
@@ -272,7 +323,7 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="./bin/sapience-debug.app/Contents/MacOS/sapience-debug">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sapience-debug" TARGET_NAME="all" CONFIG_NAME="all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
@@ -508,7 +559,12 @@
       <workItem from="1733191230324" duration="2454000" />
       <workItem from="1733193755936" duration="90250000" />
       <workItem from="1733368788565" duration="5554000" />
-      <workItem from="1733375841086" duration="47841000" />
+      <workItem from="1733375841086" duration="76176000" />
+      <workItem from="1733500623275" duration="2815000" />
+      <workItem from="1733582527970" duration="5308000" />
+      <workItem from="1733633221032" duration="11396000" />
+      <workItem from="1733824231371" duration="3793000" />
+      <workItem from="1733828918001" duration="19181000" />
     </task>
     <task id="LOCAL-00001" summary="Tested node-copying functionality">
       <option name="closed" value="true" />
@@ -614,7 +670,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733334179378</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added a dialog to input parameters in each node.">
+      <option name="closed" value="true" />
+      <created>1733459607540</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1733459607540</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -642,7 +706,8 @@
     <MESSAGE value="Refactored and reformatted code. Added integration with AMPL." />
     <MESSAGE value="Now copy-pasting nodes will also preserve the connections between them" />
     <MESSAGE value="Added a dialog to input parameters in each node." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a dialog to input parameters in each node." />
+    <MESSAGE value="Changed filenames, renamed classes, structs, variables, and enums in accordance with coding standards." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed filenames, renamed classes, structs, variables, and enums in accordance with coding standards." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
